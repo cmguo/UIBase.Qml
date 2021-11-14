@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="64px" height="64px" viewBox="0 0 64 64" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <title>01 通用/01 图标/64px/fail_red</title>
+    <g id="01-通用/01-图标/64px/fail_red" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <circle id="形状结合" fill="#FF4D5B" cx="32" cy="32" r="26"></circle>
+        <rect id="矩形" fill="#FBFCFE" transform="translate(32.000000, 32.000000) rotate(-315.000000) translate(-32.000000, -32.000000) " x="30" y="16" width="4" height="32" rx="2"></rect>
+        <rect id="矩形" fill="#FBFCFE" transform="translate(32.000000, 32.000000) rotate(-585.000000) translate(-32.000000, -32.000000) " x="30" y="16" width="4" height="32" rx="2"></rect>
+    </g>
+</svg>

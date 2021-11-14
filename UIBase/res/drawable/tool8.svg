@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="48px" height="48px" viewBox="0 0 48 48" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <title>01 通用/01 图标/48px/tool8</title>
+    <g id="01-通用/01-图标/48px/tool8" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <path d="M38,24 L38,25 L25,25 L25,38 L24,38 L24,25 L11,25 L11,24 L38,24 Z" id="形状结合" fill="#F59746"></path>
+        <rect id="矩形备份-2" fill="#F59746" opacity="0.5" x="11" y="12" width="27" height="1"></rect>
+        <rect id="矩形备份-7" fill="#F59746" x="11" y="18" width="27" height="1"></rect>
+        <rect id="矩形备份-6" fill="#F59746" opacity="0.5" x="11" y="15" width="27" height="1"></rect>
+        <rect id="矩形备份-8" fill="#F59746" opacity="0.5" x="11" y="21" width="27" height="1"></rect>
+        <rect id="矩形" fill="#F59746" opacity="0.649999976" x="26" y="31" width="1" height="1"></rect>
+        <rect id="矩形" fill="#F59746" opacity="0.649999976" x="28" y="31" width="1" height="1"></rect>
+        <rect id="矩形" fill="#F59746" opacity="0.649999976" x="30" y="31" width="1" height="1"></rect>
+        <rect id="矩形" fill="#F59746" opacity="0.649999976" x="32" y="31" width="1" height="1"></rect>
+        <rect id="矩形" fill="#F59746" opacity="0.649999976" x="34" y="31" width="1" height="1"></rect>
+        <rect id="矩形" fill="#F59746" opacity="0.649999976" x="36" y="31" width="1" height="1"></rect>
+        <rect id="矩形" fill="#F59746" opacity="0.649999976" transform="translate(31.500000, 26.500000) rotate(-270.000000) translate(-31.500000, -26.500000) " x="31" y="26" width="1" height="1"></rect>
+        <rect id="矩形" fill="#F59746" opacity="0.649999976" transform="translate(31.500000, 28.500000) rotate(-270.000000) translate(-31.500000, -28.500000) " x="31" y="28" width="1" height="1"></rect>
+        <rect id="矩形" fill="#F59746" opacity="0.649999976" transform="translate(31.500000, 30.500000) rotate(-270.000000) translate(-31.500000, -30.500000) " x="31" y="30" width="1" height="1"></rect>
+        <rect id="矩形" fill="#F59746" opacity="0.649999976" transform="translate(31.500000, 32.500000) rotate(-270.000000) translate(-31.500000, -32.500000) " x="31" y="32" width="1" height="1"></rect>
+        <rect id="矩形" fill="#F59746" opacity="0.649999976" transform="translate(31.500000, 34.500000) rotate(-270.000000) translate(-31.500000, -34.500000) " x="31" y="34" width="1" height="1"></rect>
+        <rect id="矩形" fill="#F59746" opacity="0.649999976" transform="translate(31.500000, 36.500000) rotate(-270.000000) translate(-31.500000, -36.500000) " x="31" y="36" width="1" height="1"></rect>
+        <rect id="矩形" fill="#F59746" opacity="0.649999976" x="12" y="31" width="1" height="1"></rect>
+        <rect id="矩形" fill="#F59746" opacity="0.649999976" x="14" y="31" width="1" height="1"></rect>
+        <rect id="矩形" fill="#F59746" opacity="0.649999976" x="16" y="31" width="1" height="1"></rect>
+        <rect id="矩形" fill="#F59746" opacity="0.649999976" x="18" y="31" width="1" height="1"></rect>
+        <rect id="矩形" fill="#F59746" opacity="0.649999976" x="20" y="31" width="1" height="1"></rect>
+        <rect id="矩形" fill="#F59746" opacity="0.649999976" x="22" y="31" width="1" height="1"></rect>
+        <rect id="矩形" fill="#F59746" opacity="0.649999976" transform="translate(17.500000, 26.500000) rotate(-270.000000) translate(-17.500000, -26.500000) " x="17" y="26" width="1" height="1"></rect>
+        <rect id="矩形" fill="#F59746" opacity="0.649999976" transform="translate(17.500000, 28.500000) rotate(-270.000000) translate(-17.500000, -28.500000) " x="17" y="28" width="1" height="1"></rect>
+        <rect id="矩形" fill="#F59746" opacity="0.649999976" transform="translate(17.500000, 30.500000) rotate(-270.000000) translate(-17.500000, -30.500000) " x="17" y="30" width="1" height="1"></rect>
+        <rect id="矩形" fill="#F59746" opacity="0.649999976" transform="translate(17.500000, 32.500000) rotate(-270.000000) translate(-17.500000, -32.500000) " x="17" y="32" width="1" height="1"></rect>
+        <rect id="矩形" fill="#F59746" opacity="0.649999976" transform="translate(17.500000, 34.500000) rotate(-270.000000) translate(-17.500000, -34.500000) " x="17" y="34" width="1" height="1"></rect>
+        <rect id="矩形" fill="#F59746" opacity="0.649999976" transform="translate(17.500000, 36.500000) rotate(-270.000000) translate(-17.500000, -36.500000) " x="17" y="36" width="1" height="1"></rect>
+        <path d="M37,9 L12,9 C10.3431458,9 9,10.3431458 9,12 L9,37 C9,38.6568542 10.3431458,40 12,40 L37,40 C38.6568542,40 40,38.6568542 40,37 L40,12 C40,10.3431458 38.6568542,9 37,9 Z M12,11 L37,11 C37.5522847,11 38,11.4477153 38,12 L38,37 C38,37.5522847 37.5522847,38 37,38 L12,38 C11.4477153,38 11,37.5522847 11,37 L11,12 C11,11.4477153 11.4477153,11 12,11 Z" id="矩形" fill="#F59746" fill-rule="nonzero"></path>
+    </g>
+</svg>

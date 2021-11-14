@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="64px" height="64px" viewBox="0 0 64 64" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 62 (91390) - https://sketch.com -->
+    <title>icon/64px/error</title>
+    <desc>Created with Sketch.</desc>
+    <g id="icon/64px/error" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <circle id="形状结合" fill="#ECECEC" opacity="0.200000003" cx="32" cy="32" r="26"></circle>
+        <rect id="矩形" fill="#FFFFFF" transform="translate(32.000000, 32.000000) rotate(-315.000000) translate(-32.000000, -32.000000) " x="30" y="16" width="4" height="32" rx="2"></rect>
+        <rect id="矩形" fill="#FFFFFF" transform="translate(32.000000, 32.000000) rotate(-585.000000) translate(-32.000000, -32.000000) " x="30" y="16" width="4" height="32" rx="2"></rect>
+    </g>
+</svg>

@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="32px" height="32px" viewBox="0 0 32 32" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <title>01 通用/01 图标/32px/mini_package</title>
+    <defs>
+        <linearGradient x1="50%" y1="0%" x2="50%" y2="100%" id="linearGradient-1">
+            <stop stop-color="#FFBE70" offset="0%"></stop>
+            <stop stop-color="#FFA83B" offset="100%"></stop>
+        </linearGradient>
+        <path d="M7,6 L11.6858578,6 C12.4577207,6 13.2130987,6.22332058 13.8608798,6.64302527 L16.0037706,8.03142854 C16.3276612,8.24128088 16.7053502,8.35294118 17.0912816,8.35294118 L25,8.35294118 C26.1045695,8.35294118 27,9.24837168 27,10.3529412 L27,24 C27,25.1045695 26.1045695,26 25,26 L7,26 C5.8954305,26 5,25.1045695 5,24 L5,8 C5,6.8954305 5.8954305,6 7,6 Z" id="path-2"></path>
+        <filter x="-9.1%" y="-10.0%" width="118.2%" height="140.0%" filterUnits="objectBoundingBox" id="filter-3">
+            <feMorphology radius="1.5" operator="erode" in="SourceAlpha" result="shadowSpreadOuter1"></feMorphology>
+            <feOffset dx="0" dy="4" in="shadowSpreadOuter1" result="shadowOffsetOuter1"></feOffset>
+            <feGaussianBlur stdDeviation="1.5" in="shadowOffsetOuter1" result="shadowBlurOuter1"></feGaussianBlur>
+            <feColorMatrix values="0 0 0 0 0.862318841   0 0 0 0 0.442518971   0 0 0 0 0.140882655  0 0 0 0.291001967 0" type="matrix" in="shadowBlurOuter1"></feColorMatrix>
+        </filter>
+        <filter x="-2.3%" y="-2.5%" width="104.5%" height="125.0%" filterUnits="objectBoundingBox" id="filter-4">
+            <feOffset dx="0" dy="-1" in="SourceAlpha" result="shadowOffsetInner1"></feOffset>
+            <feComposite in="shadowOffsetInner1" in2="SourceAlpha" operator="arithmetic" k2="-1" k3="1" result="shadowInnerInner1"></feComposite>
+            <feColorMatrix values="0 0 0 0 0.745046422   0 0 0 0 0.361892271   0 0 0 0 0.261873596  0 0 0 0.25114729 0" type="matrix" in="shadowInnerInner1"></feColorMatrix>
+        </filter>
+        <path d="M18.3,8 L22.7,8 C22.8656854,8 23,8.13431458 23,8.3 L23,16.6790185 C23,16.7894755 22.9104569,16.8790185 22.8,16.8790185 C22.769444,16.8790185 22.7392944,16.8720172 22.7118653,16.8585521 L20.7203366,15.8808925 C20.5813667,15.8126709 20.4186333,15.8126709 20.2796634,15.8808925 L18.2881347,16.8585521 C18.1889811,16.9072275 18.0691419,16.8663068 18.0204665,16.7671531 C18.0070013,16.7397241 18,16.7095744 18,16.6790185 L18,8.3 C18,8.13431458 18.1343146,8 18.3,8 Z" id="path-5"></path>
+        <filter x="-10.0%" y="-5.6%" width="120.0%" height="109.8%" filterUnits="objectBoundingBox" id="filter-7">
+            <feOffset dx="0" dy="-1" in="SourceAlpha" result="shadowOffsetInner1"></feOffset>
+            <feComposite in="shadowOffsetInner1" in2="SourceAlpha" operator="arithmetic" k2="-1" k3="1" result="shadowInnerInner1"></feComposite>
+            <feColorMatrix values="0 0 0 0 0.941717618   0 0 0 0 0.276198887   0 0 0 0 0.276198887  0 0 0 0.486532998 0" type="matrix" in="shadowInnerInner1"></feColorMatrix>
+        </filter>
+    </defs>
+    <g id="01-通用/01-图标/32px/mini_package" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="矩形">
+            <use fill="black" fill-opacity="1" filter="url(#filter-3)" xlink:href="#path-2"></use>
+            <use fill="url(#linearGradient-1)" fill-rule="evenodd" xlink:href="#path-2"></use>
+            <use fill="black" fill-opacity="1" filter="url(#filter-4)" xlink:href="#path-2"></use>
+        </g>
+        <mask id="mask-6" fill="white">
+            <use xlink:href="#path-5"></use>
+        </mask>
+        <g id="矩形">
+            <use fill="#F15C5C" fill-rule="evenodd" xlink:href="#path-5"></use>
+            <use fill="black" fill-opacity="1" filter="url(#filter-7)" xlink:href="#path-5"></use>
+        </g>
+    </g>
+</svg>

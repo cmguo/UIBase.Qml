@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="48px" height="80px" viewBox="0 0 48 80" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <title>01 通用/01 图标/48px/eraser</title>
+    <defs>
+        <rect id="path-1" x="0" y="0" width="48" height="80" rx="7"></rect>
+        <filter x="-6.2%" y="-3.8%" width="112.5%" height="107.5%" filterUnits="objectBoundingBox" id="filter-2">
+            <feMorphology radius="2" operator="erode" in="SourceAlpha" result="shadowSpreadInner1"></feMorphology>
+            <feGaussianBlur stdDeviation="1.5" in="shadowSpreadInner1" result="shadowBlurInner1"></feGaussianBlur>
+            <feOffset dx="0" dy="1" in="shadowBlurInner1" result="shadowOffsetInner1"></feOffset>
+            <feComposite in="shadowOffsetInner1" in2="SourceAlpha" operator="arithmetic" k2="-1" k3="1" result="shadowInnerInner1"></feComposite>
+            <feColorMatrix values="0 0 0 0 1   0 0 0 0 1   0 0 0 0 1  0 0 0 0.5 0" type="matrix" in="shadowInnerInner1"></feColorMatrix>
+        </filter>
+    </defs>
+    <g id="01-通用/01-图标/48px/eraser" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="矩形">
+            <use fill="#F4F4F4" fill-rule="evenodd" xlink:href="#path-1"></use>
+            <use fill="#F3F3F3" fill-opacity="1" filter="url(#filter-2)" xlink:href="#path-1"></use>
+            <rect stroke="#D1D1D1" stroke-width="1" stroke-linejoin="square" x="0.5" y="0.5" width="47" height="79" rx="7"></rect>
+        </g>
+        <rect id="矩形" fill="#E5E5E5" x="12" y="27" width="24" height="6" rx="3"></rect>
+        <rect id="矩形" fill="#E5E5E5" x="12" y="37" width="24" height="6" rx="3"></rect>
+        <rect id="矩形" fill="#E5E5E5" x="12" y="47" width="24" height="6" rx="3"></rect>
+    </g>
+</svg>

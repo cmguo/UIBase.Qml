@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="48px" height="48px" viewBox="0 0 48 48" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <title>01 通用/01 图标/48px/tool7</title>
+    <g id="01-通用/01-图标/48px/tool7" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <rect id="矩形" fill="#FA715F" opacity="0.5" x="11" y="16" width="27" height="1"></rect>
+        <rect id="矩形备份-2" fill="#FA715F" x="11" y="26" width="27" height="1"></rect>
+        <rect id="矩形备份" fill="#FA715F" opacity="0.5" x="11" y="21" width="27" height="1"></rect>
+        <rect id="矩形备份-3" fill="#FA715F" opacity="0.5" x="11" y="31" width="27" height="1"></rect>
+        <path d="M36.0967742,9 L11.9032258,9 C10.2998185,9 9,10.3431458 9,12 L9,37 C9,38.6568542 10.2998185,40 11.9032258,40 L36.0967742,40 C37.7001815,40 39,38.6568542 39,37 L39,12 C39,10.3431458 37.7001815,9 36.0967742,9 Z M11.962963,11 L36.037037,11 C36.5688668,11 37,11.4477153 37,12 L37,37 C37,37.5522847 36.5688668,38 36.037037,38 L11.962963,38 C11.4311332,38 11,37.5522847 11,37 L11,12 C11,11.4477153 11.4311332,11 11.962963,11 Z" id="矩形" fill="#FA715F" fill-rule="nonzero"></path>
+    </g>
+</svg>

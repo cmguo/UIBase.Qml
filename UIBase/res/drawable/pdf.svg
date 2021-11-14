@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="64px" height="64px" viewBox="0 0 64 64" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <title>01 通用/01 图标/64px/file_pdf</title>
+    <defs>
+        <linearGradient x1="50%" y1="0.707347973%" x2="50%" y2="100%" id="linearGradient-1">
+            <stop stop-color="#FF8888" offset="0%"></stop>
+            <stop stop-color="#FF6161" offset="100%"></stop>
+        </linearGradient>
+        <linearGradient x1="0%" y1="100%" x2="88.0022321%" y2="50%" id="linearGradient-2">
+            <stop stop-color="#FF9E9E" offset="0%"></stop>
+            <stop stop-color="#FF8484" offset="100%"></stop>
+        </linearGradient>
+        <path d="M41,3 L55,17 L44,17 C42.3431458,17 41,15.6568542 41,14 L41,3 L41,3 Z" id="path-3"></path>
+        <filter x="-14.3%" y="-7.1%" width="128.6%" height="128.6%" filterUnits="objectBoundingBox" id="filter-4">
+            <feOffset dx="0" dy="1" in="SourceAlpha" result="shadowOffsetOuter1"></feOffset>
+            <feGaussianBlur stdDeviation="0.5" in="shadowOffsetOuter1" result="shadowBlurOuter1"></feGaussianBlur>
+            <feColorMatrix values="0 0 0 0 0.931980299   0 0 0 0 0.482967534   0 0 0 0 0.482967534  0 0 0 1 0" type="matrix" in="shadowBlurOuter1"></feColorMatrix>
+        </filter>
+        <filter x="-28.1%" y="-300.0%" width="156.2%" height="700.0%" filterUnits="objectBoundingBox" id="filter-5">
+            <feGaussianBlur stdDeviation="3" in="SourceGraphic"></feGaussianBlur>
+        </filter>
+    </defs>
+    <g id="01-通用/01-图标/64px/file_pdf" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <path d="M12.8458278,4 L41,4 L41,4 L55,18 L55,56.1541722 C55,57.4914503 54.8607616,57.9763797 54.5993009,58.4652686 C54.3378403,58.9541574 53.9541574,59.3378403 53.4652686,59.5993009 C52.9763797,59.8607616 52.4914503,60 51.1541722,60 L12.8458278,60 C11.5085497,60 11.0236203,59.8607616 10.5347314,59.5993009 C10.0458426,59.3378403 9.66215969,58.9541574 9.40069906,58.4652686 C9.13923842,57.9763797 9,57.4914503 9,56.1541722 L9,7.8458278 C9,6.50854969 9.13923842,6.02362033 9.40069906,5.53473144 C9.66215969,5.04584256 10.0458426,4.66215969 10.5347314,4.40069906 C11.0236203,4.13923842 11.5085497,4 12.8458278,4 Z" id="Rectangle" fill="#DB4D4D"></path>
+        <path d="M12.8458278,3 L41,3 L41,3 L55,17 L55,55.1541722 C55,56.4914503 54.8607616,56.9763797 54.5993009,57.4652686 C54.3378403,57.9541574 53.9541574,58.3378403 53.4652686,58.5993009 C52.9763797,58.8607616 52.4914503,59 51.1541722,59 L12.8458278,59 C11.5085497,59 11.0236203,58.8607616 10.5347314,58.5993009 C10.0458426,58.3378403 9.66215969,57.9541574 9.40069906,57.4652686 C9.13923842,56.9763797 9,56.4914503 9,55.1541722 L9,6.8458278 C9,5.50854969 9.13923842,5.02362033 9.40069906,4.53473144 C9.66215969,4.04584256 10.0458426,3.66215969 10.5347314,3.40069906 C11.0236203,3.13923842 11.5085497,3 12.8458278,3 Z" id="Rectangle" fill="url(#linearGradient-1)"></path>
+        <g id="01-通用/01-图标/40px/z资源_pdf" transform="translate(12.000000, 16.000000)" stroke="#FFFFFF" stroke-width="3">
+            <path d="M14.6179079,9.27070699 C15.4752621,12.7547209 24.4774817,27.1262785 28.7642529,27.5617803 C33.0510241,27.997282 33.0510241,23.2067628 28.9272335,22.6523267 C24.8034429,22.0978905 13.707834,25.7869255 9.92772413,28.4019516 C6.14761426,31.0169777 8.60432693,35.4832987 11.5149813,33.5119704 C14.4256357,31.540642 20.1907105,12.3192192 19.3333562,8.39970349 C18.476002,4.48018779 13.7605536,5.78669302 14.6179079,9.27070699 Z" id="路径"></path>
+        </g>
+        <g id="矩形">
+            <use fill="black" fill-opacity="1" filter="url(#filter-4)" xlink:href="#path-3"></use>
+            <use fill="url(#linearGradient-2)" fill-rule="evenodd" xlink:href="#path-3"></use>
+        </g>
+        <polygon id="Rectangle" fill="#F44747" filter="url(#filter-5)" points="15.9821429 56 47.9821429 56 47.9821429 59 16.0230113 59"></polygon>
+    </g>
+</svg>

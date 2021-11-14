@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="24px" height="24px" viewBox="0 0 24 24" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <title>01 通用/01 图标/24px/ppt备份</title>
+    <defs>
+        <linearGradient x1="50%" y1="0%" x2="50%" y2="99.5988176%" id="linearGradient-1">
+            <stop stop-color="#EDEDED" offset="0.625527872%"></stop>
+            <stop stop-color="#E5E5E5" offset="100%"></stop>
+        </linearGradient>
+        <linearGradient x1="8.96171992%" y1="89.867613%" x2="50%" y2="50%" id="linearGradient-2">
+            <stop stop-color="#F8F8F8" offset="0%"></stop>
+            <stop stop-color="#ECECEC" offset="100%"></stop>
+        </linearGradient>
+        <path d="M17,1 L22,6 L18,6 C17.4477153,6 17,5.55228475 17,5 L17,1 L17,1 Z" id="path-3"></path>
+        <filter x="-10.0%" y="-10.0%" width="120.0%" height="140.0%" filterUnits="objectBoundingBox" id="filter-4">
+            <feOffset dx="0" dy="1" in="SourceAlpha" result="shadowOffsetOuter1"></feOffset>
+            <feColorMatrix values="0 0 0 0 0.825202882   0 0 0 0 0.849817713   0 0 0 0 0.872027853  0 0 0 1 0" type="matrix" in="shadowOffsetOuter1"></feColorMatrix>
+        </filter>
+        <linearGradient x1="50%" y1="1.73669764%" x2="50%" y2="100%" id="linearGradient-5">
+            <stop stop-color="#38A477" offset="0%"></stop>
+            <stop stop-color="#2B7E53" offset="100%"></stop>
+        </linearGradient>
+    </defs>
+    <g id="01-通用/01-图标/24px/ppt备份" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <path d="M6.5638852,1 L17,1 L17,1 L22,6.01984127 L22,20.4361148 C22,21.3276335 21.9071744,21.6509198 21.7328673,21.9768457 C21.5585602,22.3027716 21.3027716,22.5585602 20.9768457,22.7328673 C20.6509198,22.9071744 20.3276335,23 19.4361148,23 L6.5638852,23 C5.67236646,23 5.34908022,22.9071744 5.0231543,22.7328673 C4.69722837,22.5585602 4.4414398,22.3027716 4.2671327,21.9768457 C4.09282561,21.6509198 4,21.3276335 4,20.4361148 L4,3.5638852 C4,2.67236646 4.09282561,2.34908022 4.2671327,2.0231543 C4.4414398,1.69722837 4.69722837,1.4414398 5.0231543,1.2671327 C5.34908022,1.09282561 5.67236646,1 6.5638852,1 Z" id="Rectangle" fill="url(#linearGradient-1)"></path>
+        <rect id="Rectangle" fill="#DEDEDE" x="11" y="10" width="4" height="2" rx="0.4"></rect>
+        <rect id="Rectangle" fill="#DEDEDE" x="16" y="10" width="4" height="2" rx="0.4"></rect>
+        <rect id="Rectangle" fill="#DEDEDE" x="11" y="13" width="4" height="2" rx="0.4"></rect>
+        <rect id="Rectangle" fill="#DEDEDE" x="16" y="13" width="4" height="2" rx="0.4"></rect>
+        <rect id="Rectangle" fill="#DEDEDE" x="11" y="16" width="4" height="2" rx="0.4"></rect>
+        <rect id="Rectangle" fill="#DEDEDE" x="16" y="16" width="4" height="2" rx="0.4"></rect>
+        <rect id="Rectangle" fill="#DEDEDE" x="11" y="19" width="4" height="2" rx="0.4"></rect>
+        <rect id="Rectangle" fill="#DEDEDE" x="16" y="19" width="4" height="2" rx="0.4"></rect>
+        <g id="矩形">
+            <use fill="black" fill-opacity="1" filter="url(#filter-4)" xlink:href="#path-3"></use>
+            <use fill="url(#linearGradient-2)" fill-rule="evenodd" xlink:href="#path-3"></use>
+        </g>
+        <rect id="矩形" fill="url(#linearGradient-5)" x="2" y="7" width="12" height="12" rx="1.17857143"></rect>
+        <polygon id="X" fill="#FFFFFF" fill-rule="nonzero" points="6.624 15.552 7.712 13.584 7.76 13.584 8.8 15.552 10.464 15.552 8.776 12.68 10.408 10 8.784 10 7.784 11.888 7.736 11.888 6.736 10 5.112 10 6.72 12.728 5 15.552"></polygon>
+    </g>
+</svg>

@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="24px" height="24px" viewBox="0 0 24 24" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <title>01 通用/01 图标/24px/txt备份</title>
+    <defs>
+        <linearGradient x1="50%" y1="0%" x2="50%" y2="99.860114%" id="linearGradient-1">
+            <stop stop-color="#C0C8CD" offset="0%"></stop>
+            <stop stop-color="#A4ABB0" offset="100%"></stop>
+        </linearGradient>
+        <linearGradient x1="-11.3009962%" y1="117.331886%" x2="69.4866071%" y2="34.7991071%" id="linearGradient-2">
+            <stop stop-color="#C7D4DD" offset="0%"></stop>
+            <stop stop-color="#B7BDC1" offset="100%"></stop>
+        </linearGradient>
+        <path d="M16,1 L21,6 L17,6 C16.4477153,6 16,5.55228475 16,5 L16,1 L16,1 Z" id="path-3"></path>
+        <filter x="-12.5%" y="-7.5%" width="125.0%" height="130.0%" filterUnits="objectBoundingBox" id="filter-4">
+            <feOffset dx="0" dy="0.5" in="SourceAlpha" result="shadowOffsetOuter1"></feOffset>
+            <feGaussianBlur stdDeviation="0.125" in="shadowOffsetOuter1" result="shadowBlurOuter1"></feGaussianBlur>
+            <feColorMatrix values="0 0 0 0 0.527088995   0 0 0 0 0.527088995   0 0 0 0 0.527088995  0 0 0 0.397426792 0" type="matrix" in="shadowBlurOuter1"></feColorMatrix>
+        </filter>
+    </defs>
+    <g id="01-通用/01-图标/24px/txt备份" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <path d="M5.5638852,1 L16,1 L16,1 L21,6.01984127 L21,20.4361148 C21,21.3276335 20.9071744,21.6509198 20.7328673,21.9768457 C20.5585602,22.3027716 20.3027716,22.5585602 19.9768457,22.7328673 C19.6509198,22.9071744 19.3276335,23 18.4361148,23 L5.5638852,23 C4.67236646,23 4.34908022,22.9071744 4.0231543,22.7328673 C3.69722837,22.5585602 3.4414398,22.3027716 3.2671327,21.9768457 C3.09282561,21.6509198 3,21.3276335 3,20.4361148 L3,3.5638852 C3,2.67236646 3.09282561,2.34908022 3.2671327,2.0231543 C3.4414398,1.69722837 3.69722837,1.4414398 4.0231543,1.2671327 C4.34908022,1.09282561 4.67236646,1 5.5638852,1 Z" id="Rectangle" fill="url(#linearGradient-1)"></path>
+        <g id="矩形">
+            <use fill="black" fill-opacity="1" filter="url(#filter-4)" xlink:href="#path-3"></use>
+            <use fill="url(#linearGradient-2)" fill-rule="evenodd" xlink:href="#path-3"></use>
+        </g>
+    </g>
+</svg>

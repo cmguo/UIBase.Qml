@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="40px" height="40px" viewBox="0 0 40 40" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <title>01 通用/01 图标/40px/1exam</title>
+    <defs>
+        <polygon id="path-1" points="5.66666667 0 0.944444444 3.8 5.66666667 3.8"></polygon>
+        <filter x="-74.1%" y="-65.8%" width="248.2%" height="284.2%" filterUnits="objectBoundingBox" id="filter-2">
+            <feOffset dx="0" dy="1" in="SourceAlpha" result="shadowOffsetOuter1"></feOffset>
+            <feGaussianBlur stdDeviation="1" in="shadowOffsetOuter1" result="shadowBlurOuter1"></feGaussianBlur>
+            <feColorMatrix values="0 0 0 0 0.951002038   0 0 0 0 0.681166174   0 0 0 0 0.263355804  0 0 0 1 0" type="matrix" in="shadowBlurOuter1"></feColorMatrix>
+        </filter>
+    </defs>
+    <g id="01-通用/01-图标/40px/1exam" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="编组-3">
+            <circle id="椭圆形备份" fill="#FFB34D" cx="20" cy="20" r="20"></circle>
+            <g id="icon/互动/随堂测" transform="translate(11.000000, 11.000000)">
+                <path d="M17,0 L17,19 L0,19 L0,5.699 L7.55555556,5.7 L7.555,0 L17,0 Z M12.2777778,13.3 L3.77777778,13.3 L3.77777778,15.2 L12.2777778,15.2 L12.2777778,13.3 Z M14.1666667,7.6 L3.77777778,7.6 L3.77777778,9.5 L14.1666667,9.5 L14.1666667,7.6 Z" id="形状结合" fill="#FFFFFF"></path>
+                <g id="路径-2">
+                    <use fill="black" fill-opacity="1" filter="url(#filter-2)" xlink:href="#path-1"></use>
+                    <use fill="#FFF0D0" fill-rule="evenodd" xlink:href="#path-1"></use>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>

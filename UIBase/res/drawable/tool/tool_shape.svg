@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="48px" height="48px" viewBox="0 0 48 48" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <title>01 通用/01 图标/48px/tool1</title>
+    <defs>
+        <linearGradient x1="50%" y1="0%" x2="50%" y2="100%" id="linearGradient-1">
+            <stop stop-color="#6ACDFA" offset="0%"></stop>
+            <stop stop-color="#2B9DF9" offset="100%"></stop>
+        </linearGradient>
+    </defs>
+    <g id="01-通用/01-图标/48px/tool1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <path d="M22.5450534,7.27567738 C22.8400553,7.44890465 23.0856917,7.69490703 23.2584795,7.99016657 L27.9519207,16.0109228 C20.750191,16.2984847 15,22.2277278 15,29.5 C15,31.0949473 15.2765889,32.6252939 15.7844183,34.0456913 L8,34.0455576 C6.8954305,34.0455576 6,33.1501271 6,32.0455576 C6,31.6894905 6.09505864,31.3398791 6.27535724,31.0328348 L19.8076879,7.9875974 C20.3669992,7.0351035 21.5925595,6.71636606 22.5450534,7.27567738 Z" id="形状结合" fill="#53B6FA" fill-rule="nonzero" opacity="0.5"></path>
+        <path d="M28.5,18 C34.8512746,18 40,23.1487254 40,29.5 C40,35.8512746 34.8512746,41 28.5,41 C22.1487254,41 17,35.8512746 17,29.5 C17,23.1487254 22.1487254,18 28.5,18 Z" id="路径" fill="url(#linearGradient-1)"></path>
+    </g>
+</svg>

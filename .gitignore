@@ -1,0 +1,6 @@
+./cmake-build-debug
+./debug
+./release
+.qmake.stash
+.DS_Store
+*.pro.user

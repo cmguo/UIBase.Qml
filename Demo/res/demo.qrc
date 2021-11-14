@@ -1,0 +1,6 @@
+<RCC>
+    <qresource prefix="/uidemo">
+        <file>qml/Demo.qml</file>
+        <file>qml/Test.qml</file>
+    </qresource>
+</RCC>
