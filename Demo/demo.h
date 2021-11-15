@@ -1,7 +1,9 @@
 #ifndef DEMO_H
 #define DEMO_H
 
-class Demo
+#include "Demo_global.h"
+
+class DEMO_EXPORT Demo
 {
 public:
     static void init();

@@ -44,21 +44,3 @@ win32 {
     target.path = $$[QT_INSTALL_LIBS]
 }
 INSTALLS += includes target
-
-CONFIG -= debug_and_release debug_and_release_target
-
-win32: {
-    LIBS += -lUser32 -lShell32
-
-    QMAKE_CXXFLAGS += /utf-8
-
-    CONFIG(debug, debug|release) {
-        TARGET = $$join(TARGET,,,d)
-    }
-
-    CONFIG(release, debug|release) {
-        QMAKE_CXXFLAGS+=/Zi
-        QMAKE_LFLAGS+= /INCREMENTAL:NO /Debug
-    }
-}
-

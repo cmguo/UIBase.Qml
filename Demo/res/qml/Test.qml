@@ -3,8 +3,8 @@ import QtQuick 2.12
 
 Item {
 
-    width: 600
-    height: 300
+    width: 1280
+    height: 720
 
     property StateListColor color: StateListColors.blue_100_pressed_disabled
 

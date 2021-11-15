@@ -1,6 +1,6 @@
 QT += quick qml
 
-CONFIG += c++14
+CONFIG += c++17
 
 TEMPLATE = lib
 
@@ -24,6 +24,7 @@ DEFINES += QT_DEPRECATED_WARNINGS
 SOURCES += \
     demo.cpp
 HEADERS += \
+    Demo_global.h \
     demo.h
 
 RESOURCES = res/demo.qrc
@@ -34,7 +35,7 @@ else: unix:!android: target.path = /opt/$${TARGET}/bin
 !isEmpty(target.path): INSTALLS += target
 
 win32:CONFIG(release, debug|release): LIBS += -L$$OUT_PWD/../UIBase -lUIBase
-else:win32:CONFIG(debug, debug|release): LIBS += -L$$OUT_PWD/../UIBase -lUIBased
+else:win32:CONFIG(debug, debug|release): LIBS += -L$$OUT_PWD/../UIBase -lUIBase
 else:unix: LIBS += -L$$OUT_PWD/../UIBase -lUIBase
 
 INCLUDEPATH += $$PWD/../UIBase

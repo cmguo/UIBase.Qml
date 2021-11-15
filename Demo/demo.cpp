@@ -1,6 +1,6 @@
 #include "demo.h"
 
-#include <uibase/uibase.h>
+#include <uibase.h>
 
 void Demo::init()
 {
