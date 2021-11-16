@@ -3,6 +3,7 @@
 
 #include <QObject>
 #include <QColor>
+#include <QVector>
 
 class Colors : public QObject
 {

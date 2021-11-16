@@ -4,10 +4,9 @@
 #include "uibase/statehandler.h"
 #include "uibase/statelistcolor.h"
 #include "uibase/statelistcolors.h"
+#include "widgets/zbuttonappearance.h"
 
 #include <QQmlEngine>
-
-#include <uibase/zbuttonappearance.h>
 
 void UIBase::init()
 {
@@ -23,8 +22,10 @@ void UIBase::init()
         return obj;
     });
 
+#if QT_VERSION >= QT_VERSION_CHECK(5, 15, 0)
     qmlRegisterSingletonInstance<Colors>("UIBase", 1, 0, "Colors", &Colors::inst());
     qmlRegisterSingletonInstance<StateListColors>("UIBase", 1, 0, "StateListColors", &StateListColors::inst());
+#endif
 
     qmlRegisterType<StateHandler>("UIBase", 1, 0, "StateHandler");
     qmlRegisterType<StateColor>("UIBase", 1, 0, "StateColor");

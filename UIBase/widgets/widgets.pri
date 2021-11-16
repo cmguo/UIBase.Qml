@@ -1,3 +1,5 @@
-SOURCES +=
+SOURCES += \
+    $$PWD/zbuttonappearance.cpp
 
-HEADERS +=
+HEADERS += \
+    $$PWD/zbuttonappearance.h

@@ -44,7 +44,7 @@ Item {
             Rectangle {
                 width: parent.width
                 height: list.height / 4
-                color: activeItem == url ? "red" : "yellow"
+                color: url == activeItem ? "red" : "yellow"
 
                 Image {
                     anchors.centerIn: parent

@@ -11,7 +11,12 @@ Item {
         width: 100
 
         onActiveItemChanged: {
-            pageComponent.createObject(pageContainer, { exampleUrl: navigator.activeItem })
+            var c = pageContainer.children[0]
+            if (c) {
+                c.destroy()
+                c.parent = null
+            }
+            pageComponent.createObject(pageContainer, { url: navigator.activeItem })
         }
     }
 
@@ -32,7 +37,7 @@ Item {
         Rectangle {
             id: page
             clip: true
-            property url exampleUrl
+            property url url
             anchors.fill: parent
             color: "white"
 
@@ -41,7 +46,7 @@ Item {
             }
             Loader{
                 focus: true
-                source: parent.exampleUrl
+                source: parent.url
                 anchors.fill: parent
             }
         }

@@ -1,9 +1,10 @@
 #ifndef ZBUTTONAPPEARANCE_H
 #define ZBUTTONAPPEARANCE_H
 
-#include "statelistcolor.h"
+#include "uibase/statelistcolor.h"
 
 #include <QObject>
+
 #include <array>
 
 class ZButtonAppearance : public QObject
@@ -16,10 +17,12 @@ class ZButtonAppearance : public QObject
 
     Q_PROPERTY(StateListColor* textColor READ textColor WRITE setTextColor NOTIFY textColorChanged)
     Q_PROPERTY(StateListColor* backgroundColor READ backgroundColor WRITE setBackgroundColor NOTIFY backgroundColorChanged)
+    Q_PROPERTY(StateListColor* borderColor READ borderColor WRITE setBorderColor NOTIFY borderColorChanged)
     Q_PROPERTY(StateListColor* iconColor READ iconColor WRITE setIconColor NOTIFY iconColorChanged)
     Q_PROPERTY(IconPosition iconPosition READ iconPosition WRITE setIconPosition NOTIFY iconPositionChanged)
     Q_PROPERTY(qreal minHeight READ minHeight WRITE setMinHeight NOTIFY minHeightChanged)
     Q_PROPERTY(qreal cornerRadius READ cornerRadius WRITE setCornerRadius NOTIFY cornerRadiusChanged)
+    Q_PROPERTY(qreal borderWidth READ borderWidth WRITE setBorderWidth NOTIFY borderWidthChanged)
     Q_PROPERTY(qreal paddingX READ paddingX WRITE setPaddingX NOTIFY paddingXChanged)
     Q_PROPERTY(qreal paddingY READ paddingY WRITE setPaddingY NOTIFY paddingYChanged)
     Q_PROPERTY(qreal textSize READ textSize WRITE setTextSize NOTIFY textSizeChanged)
@@ -61,10 +64,12 @@ public:
 signals:
     void textColorChanged();
     void backgroundColorChanged();
+    void borderColorChanged();
     void iconColorChanged();
     void iconPositionChanged();
     void minHeightChanged();
     void cornerRadiusChanged();
+    void borderWidthChanged();
     void paddingXChanged();
     void paddingYChanged();
     void textSizeChanged();
@@ -87,31 +92,37 @@ public:
     StateListColor* backgroundColor() const { return get<1>(&ZButtonAppearance::backgroundColor_); }
     void setBackgroundColor(StateListColor* color);
 
-    StateListColor* iconColor() const { return get<2>(&ZButtonAppearance::iconColor_); }
+    StateListColor* borderColor() const { return get<2>(&ZButtonAppearance::borderColor_); }
+    void setBorderColor(StateListColor* color);
+
+    StateListColor* iconColor() const { return get<3>(&ZButtonAppearance::iconColor_); }
     void setIconColor(StateListColor* color);
 
-    IconPosition iconPosition() const { return get<3>(&ZButtonAppearance::iconPosition_); }
+    IconPosition iconPosition() const { return get<4>(&ZButtonAppearance::iconPosition_); }
     void setIconPosition(IconPosition position);
 
-    qreal minHeight() const { return get<4>(&ZButtonAppearance::minHeight_); }
+    qreal minHeight() const { return get<5>(&ZButtonAppearance::minHeight_); }
     void setMinHeight(qreal value);
 
-    qreal cornerRadius() const { return get<5>(&ZButtonAppearance::cornerRadius_); }
+    qreal cornerRadius() const { return get<6>(&ZButtonAppearance::cornerRadius_); }
     void setCornerRadius(qreal value);
 
-    qreal paddingX() const { return get<6>(&ZButtonAppearance::paddingX_); }
+    qreal borderWidth() const { return get<6>(&ZButtonAppearance::borderWidth_); }
+    void setBorderWidth(qreal value);
+
+    qreal paddingX() const { return get<8>(&ZButtonAppearance::paddingX_); }
     void setPaddingX(qreal value);
 
-    qreal paddingY() const { return get<7>(&ZButtonAppearance::paddingY_); }
+    qreal paddingY() const { return get<9>(&ZButtonAppearance::paddingY_); }
     void setPaddingY(qreal value);
 
-    qreal textSize() const { return get<8>(&ZButtonAppearance::textSize_); }
+    qreal textSize() const { return get<10>(&ZButtonAppearance::textSize_); }
     void setTextSize(qreal value);
 
-    qreal iconSize() const { return get<9>(&ZButtonAppearance::iconSize_); }
+    qreal iconSize() const { return get<11>(&ZButtonAppearance::iconSize_); }
     void setIconSize(qreal value);
 
-    qreal iconPadding() const { return get<10>(&ZButtonAppearance::iconPadding_); }
+    qreal iconPadding() const { return get<12>(&ZButtonAppearance::iconPadding_); }
     void setIconPadding(qreal value);
 
 signals:
@@ -120,12 +131,23 @@ signals:
 private:
     template<int I, typename T>
     T get(T (ZButtonAppearance::*f)) const {
-        for (auto s : std::array<ZButtonAppearance const *, 4> {this, appearanece_, type_, size_}) {
-            if (s->set_ & (1 << I)) {
-                return s->*f;
+        T t = this->*f;
+        get<I>(f, &t);
+        return t;
+    }
+
+    template<int I, typename T>
+    bool get(T (ZButtonAppearance::*f), T * t) const {
+        if (set_ & 1 << I) {
+            *t = this->*f;
+            return true;
+        }
+        for (auto s :{appearanece_, type_, size_}) {
+            if (s->get<I>(f, t)) {
+                return true;
             }
         }
-        return this->*f;
+        return false;
     }
 
     void updateOne(int item);
@@ -143,10 +165,12 @@ private:
     ZButtonAppearance* size_ = nullptr;
     StateListColor* textColor_ = nullptr;
     StateListColor* backgroundColor_ = nullptr;
+    StateListColor* borderColor_ = nullptr;
     StateListColor* iconColor_ = nullptr;
     IconPosition iconPosition_ = Left;
     qreal minHeight_ = 0;
     qreal cornerRadius_ = 0;
+    qreal borderWidth_ = 0;
     qreal paddingX_ = 0;
     qreal paddingY_ = 0;
     qreal textSize_ = 0;

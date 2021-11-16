@@ -8,8 +8,6 @@
 #include <QVector>
 #include <QPair>
 
-class Colors;
-
 class StateListColor: public QObject
 {
     Q_OBJECT
