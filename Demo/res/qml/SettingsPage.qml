@@ -27,14 +27,17 @@ Item {
             Component {
                 id: tabButton
 
-                ZButton {
+                Item {
                     width: tabBar.width / 5
                     height: tabBar.height
-                    text: title
-                    cornerRadius: 0
-                    buttonType: ZButtonAppearance.TextLink
-                    onClicked: {
-                        activePage = name
+
+                    ZButton {
+                        anchors.centerIn: parent
+                        text: title
+                        backgroundColor: StateListColors.get(name == activePage ? "red" : "transparent")
+                        onClicked: {
+                            activePage = name
+                        }
                     }
                 }
             }
