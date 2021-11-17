@@ -7,10 +7,28 @@
 #include <QColor>
 #include <QVector>
 #include <QPair>
+#include <QQmlListProperty>
+
+class StateListColorItem: public QObject
+{
+    Q_OBJECT
+
+    Q_PROPERTY(int states MEMBER states_)
+    Q_PROPERTY(QByteArray color MEMBER color_)
+public:
+    StateListColorItem();
+private:
+    int states_;
+    QByteArray color_;
+};
 
 class StateListColor: public QObject
 {
     Q_OBJECT
+
+    Q_PROPERTY(QQmlListProperty<StateListColorItem> colors READ colors)
+    Q_CLASSINFO("DefaultProperty", "colors")
+
 public:
     typedef QColor (Colors::* StdColor)(void) const;
 
@@ -34,6 +52,8 @@ public:
     StateListColor & operator()(StdColor color, int states);
 
     int states() const { return states_; }
+
+    QQmlListProperty<StateListColorItem> colors();
 
 public slots:
     QColor color();

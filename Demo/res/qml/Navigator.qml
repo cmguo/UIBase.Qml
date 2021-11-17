@@ -31,6 +31,11 @@ Item {
                     url: "qrc:/uidemo/qml/ModelsPage.qml"
                 }
                 ListElement {
+                    objectName: "Assistant"
+                    icon: "qrc:/uibase/drawable/setting_abandend.svg"
+                    url: "qrc:/uidemo/qml/AssistantPage.qml"
+                }
+                ListElement {
                     objectName: "Settings"
                     icon: "qrc:/uibase/drawable/setting_abandend.svg"
                     url: "qrc:/uidemo/qml/SettingsPage.qml"
@@ -43,7 +48,7 @@ Item {
 
             Rectangle {
                 width: parent.width
-                height: list.height / 4
+                height: list.height / 5
                 color: url == activeItem ? "red" : "yellow"
 
                 Image {

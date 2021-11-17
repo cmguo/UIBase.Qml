@@ -9,5 +9,11 @@
         <file>qml/PrinterPage.qml</file>
         <file>qml/ModelsPage.qml</file>
         <file>qml/SettingsPage.qml</file>
+        <file>qml/UserPage.qml</file>
+        <file>qml/NetworkPage.qml</file>
+        <file>qml/DevicePage.qml</file>
+        <file>qml/AssistantPage.qml</file>
+        <file>qml/RecorderPage.qml</file>
+        <file>qml/LanguagePage.qml</file>
     </qresource>
 </RCC>

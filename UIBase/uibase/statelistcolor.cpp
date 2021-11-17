@@ -20,6 +20,11 @@ StateListColor &StateListColor::operator()(QColor color, int states)
     return *this;
 }
 
+QQmlListProperty<StateListColorItem> StateListColor::colors()
+{
+    return {};
+}
+
 StateListColor &StateListColor::operator()(StdColor color, int states)
 {
     statesList_.append(states);
@@ -100,4 +105,9 @@ void StateColor::onStatesChanged(int states)
 {
     if (states & color_->states())
         emit changed(color());
+}
+
+StateListColorItem::StateListColorItem()
+{
+
 }

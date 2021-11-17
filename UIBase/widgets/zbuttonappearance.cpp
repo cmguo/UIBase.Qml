@@ -149,7 +149,7 @@ void ZButtonAppearance::setMinHeight(qreal value)
 
 void ZButtonAppearance::setCornerRadius(qreal value)
 {
-    if (value != cornerRadius_) {
+    if (((set_ & 1) << 6) == 0 || value != cornerRadius_) {
         cornerRadius_ = value;
         updateOne(6);
     }
@@ -157,7 +157,7 @@ void ZButtonAppearance::setCornerRadius(qreal value)
 
 void ZButtonAppearance::setBorderWidth(qreal value)
 {
-    if (value != borderWidth_) {
+    if (((set_ & 1) << 7) == 0 || value != borderWidth_) {
         borderWidth_ = value;
         updateOne(7);
     }
@@ -165,7 +165,7 @@ void ZButtonAppearance::setBorderWidth(qreal value)
 
 void ZButtonAppearance::setPaddingX(qreal value)
 {
-    if (value != paddingX_) {
+    if (((set_ & 1) << 8) == 0 || value != paddingX_) {
         paddingX_ = value;
         updateOne(8);
     }
@@ -173,7 +173,7 @@ void ZButtonAppearance::setPaddingX(qreal value)
 
 void ZButtonAppearance::setPaddingY(qreal value)
 {
-    if (value != paddingY_) {
+    if (((set_ & 1) << 9) == 0 || value != paddingY_) {
         paddingY_ = value;
         updateOne(9);
     }
@@ -181,7 +181,7 @@ void ZButtonAppearance::setPaddingY(qreal value)
 
 void ZButtonAppearance::setTextSize(qreal value)
 {
-    if (value != textSize_) {
+    if (((set_ & 1) << 10) == 0 || value != textSize_) {
         textSize_ = value;
         updateOne(10);
     }
@@ -189,7 +189,7 @@ void ZButtonAppearance::setTextSize(qreal value)
 
 void ZButtonAppearance::setIconSize(qreal value)
 {
-    if (value != iconSize_) {
+    if (((set_ & 1) << 11) == 0 || value != iconSize_) {
         iconSize_ = value;
         updateOne(11);
     }
@@ -197,7 +197,7 @@ void ZButtonAppearance::setIconSize(qreal value)
 
 void ZButtonAppearance::setIconPadding(qreal value)
 {
-    if (value != iconPadding_) {
+    if (((set_ & 1) << 12) == 0 || value != iconPadding_) {
         iconPadding_ = value;
         updateOne(12);
     }
