@@ -6,6 +6,8 @@ import "./"
 
 Item {
 
+    id: button
+
     ZButtonAppearance {
         id: ap
         buttonType: ZButtonAppearance.Primitive
@@ -31,11 +33,16 @@ Item {
     property alias text: textContent.text
     property alias icon: icon.source
 
-    width: talButtonRoot.implicitWidth
-    height: max(ap.minHeight, talButtonRoot.implicitHeight)
+    signal clicked();
+
+    property string loadingIcon
+    property bool loading: false
+
+    width: background.implicitWidth
+    height: Math.max(ap.minHeight, background.implicitHeight)
 
     Rectangle {
-        id: talButtonRoot
+        id: background
 
         property bool loading: false
         property string text: ""
@@ -44,23 +51,23 @@ Item {
         width: parent.width
         height: parent.height
         radius: ap.cornerRadius
-        color: stateHandler.mapColor(ap.backgroundColor).color
+        color: backgroundColor.color
 
-        Behavior on color {
-            PropertyAnimation { duration: 200}
-        }
+        //Behavior on color {
+        //    PropertyAnimation { duration: 200}
+        //}
 
         Item {
             id: contentLayout
-            width: icon.width + textContent.width + textContent.anchors.leftMargin + rightIcon.anchors.leftMargin
+            width: icon.width + textContent.width + textContent.anchors.leftMargin
             height: parent.height
-            anchors.horizontalCenter: parent.horizontalCenter
+            anchors.centerIn: parent
             visible: !loading
 
             Image {
                 id: icon
-                width: ap.iconSize
-                height: ap.iconSize
+                width: source != "" ? ap.iconSize : 0
+                height: source != "" ? ap.iconSize : 0
                 anchors.verticalCenter: parent.verticalCenter
                 visible: source != ""
             }
@@ -69,19 +76,18 @@ Item {
                 id: textContent
                 width: implicitWidth
                 height: implicitHeight
-                color: stateHandler.mapColor(ap.textColor).color
+                color: textColor.color
                 font.pixelSize: ap.textSize
-                font.family: talButtonRoot.talStyle.fontFamily
-                anchors.left: leftIcon.right
+                anchors.left: icon.right
                 anchors.leftMargin: icon.source != "" && text != "" ? Destiny.dp(ap.iconPadding) : 0
                 wrapMode: Text.Normal
                 verticalAlignment: TextInput.AlignVCenter
                 elide: Text.ElideRight
                 anchors.verticalCenter: parent.verticalCenter
 
-                Behavior on color {
-                    PropertyAnimation { duration: animDuration}
-                }
+                //Behavior on color {
+                //    PropertyAnimation { duration: 200}
+                //}
             }
         }
 
@@ -98,14 +104,12 @@ Item {
                 fillMode: Image.PreserveAspectFit
                 anchors.centerIn: parent
                 visible: parent.visible
-                source: visible ? talStyle.loadingSource : ""
+                source: visible ? loadingIcon : ""
                 playing: true
                 antialiasing: true
             }
 
         }
-
-        signal clicked();
 
         TapHandler {
             id: tapHandler
@@ -113,16 +117,20 @@ Item {
                 if (loading) {
                     return
                 }
-                handler.delay(250, function() {
-                    talButtonRoot.clicked()
-                })
+                button.clicked()
             }
         }
 
         HoverHandler {}
 
-        StateHandler {
-            id: stateHandler
+        StateColor {
+            id: textColor
+            colors: ap.textColor
+        }
+
+        StateColor {
+            id: backgroundColor
+            colors: ap.backgroundColor
         }
 
     }

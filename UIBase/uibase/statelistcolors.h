@@ -9,17 +9,16 @@
 class StateListColors : public QObject
 {
     Q_OBJECT
-    Q_PROPERTY(StateListColor* blue_100_pressed_disabled READ blue_100_pressed_disabled CONSTANT);
 public:
+    static void init();
+
     static StateListColors & inst();
 
 private:
     explicit StateListColors(QObject *parent = nullptr);
 
 public slots:
-    StateListColor * blue_100_pressed_disabled() const {
-        return colors_["blue_100_pressed_disabled"];
-    }
+    StateListColor * get(QByteArray const & name);
 
 private:
     template<typename ...Colors>

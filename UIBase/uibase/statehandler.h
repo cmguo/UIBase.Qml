@@ -20,6 +20,8 @@ public:
         Checked = 2,
         Pressed = 4,
         Hovered = 8,
+        HalfChecked = 16,
+        Selected = 32,
         Disabled = 1 << 16,
         NotEnabled = 1 << 16,
         NotChecked = 2 << 16,
@@ -31,6 +33,8 @@ public:
 
 public:
     explicit StateHandler(QObject *parent = nullptr);
+
+    static StateHandler* bindTo(QObject *parent);
 
 signals:
     void statesChanged(int states);

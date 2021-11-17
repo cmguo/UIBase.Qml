@@ -4,6 +4,7 @@
 #include <QObject>
 #include <QColor>
 #include <QVector>
+#include <QMap>
 
 class Colors : public QObject
 {
@@ -63,27 +64,27 @@ class Colors : public QObject
     Q_PROPERTY(QColor static_bluegrey_800 READ static_bluegrey_800 CONSTANT)  // #4E5359
     Q_PROPERTY(QColor static_bluegrey_900 READ static_bluegrey_900 CONSTANT)  // #1D2126
     Q_PROPERTY(QColor static_white_100 READ static_white_100 CONSTANT)  // #FFFFFF
-    Q_PROPERTY(QColor static_white_90 READ static_white_90 CONSTANT)  // #FFFFFF 90%
-    Q_PROPERTY(QColor static_white_80 READ static_white_80 CONSTANT)  // #FFFFFF 80%
-    Q_PROPERTY(QColor static_white_70 READ static_white_70 CONSTANT)  // #FFFFFF 70%
-    Q_PROPERTY(QColor static_white_60 READ static_white_60 CONSTANT)  // #FFFFFF 60%
-    Q_PROPERTY(QColor static_white_50 READ static_white_50 CONSTANT)  // #FFFFFF 50%
-    Q_PROPERTY(QColor static_white_40 READ static_white_40 CONSTANT)  // #FFFFFF 40%
-    Q_PROPERTY(QColor static_white_30 READ static_white_30 CONSTANT)  // #FFFFFF 30%
-    Q_PROPERTY(QColor static_white_20 READ static_white_20 CONSTANT)  // #FFFFFF 20%
-    Q_PROPERTY(QColor static_white_10 READ static_white_10 CONSTANT)  // #FFFFFF 10%
-    Q_PROPERTY(QColor static_white_05 READ static_white_05 CONSTANT)  // #FFFFFF 5%
+    Q_PROPERTY(QColor static_white_90 READ static_white_90 CONSTANT)  // #FFFFFF | 90% #FFFFFF
+    Q_PROPERTY(QColor static_white_80 READ static_white_80 CONSTANT)  // #FFFFFF | 80% #FFFFFF
+    Q_PROPERTY(QColor static_white_70 READ static_white_70 CONSTANT)  // #FFFFFF | 70% #FFFFFF
+    Q_PROPERTY(QColor static_white_60 READ static_white_60 CONSTANT)  // #FFFFFF | 60% #FFFFFF
+    Q_PROPERTY(QColor static_white_50 READ static_white_50 CONSTANT)  // #FFFFFF | 50% #FFFFFF
+    Q_PROPERTY(QColor static_white_40 READ static_white_40 CONSTANT)  // #FFFFFF | 40% #FFFFFF
+    Q_PROPERTY(QColor static_white_30 READ static_white_30 CONSTANT)  // #FFFFFF | 30% #FFFFFF
+    Q_PROPERTY(QColor static_white_20 READ static_white_20 CONSTANT)  // #FFFFFF | 20% #FFFFFF
+    Q_PROPERTY(QColor static_white_10 READ static_white_10 CONSTANT)  // #FFFFFF | 10% #FFFFFF
+    Q_PROPERTY(QColor static_white_05 READ static_white_05 CONSTANT)  // #FFFFFF | 5% #FFFFFF
     Q_PROPERTY(QColor static_black_100 READ static_black_100 CONSTANT)  // #000000
-    Q_PROPERTY(QColor static_black_90 READ static_black_90 CONSTANT)  // #000000 90%
-    Q_PROPERTY(QColor static_black_80 READ static_black_80 CONSTANT)  // #000000 80%
-    Q_PROPERTY(QColor static_black_70 READ static_black_70 CONSTANT)  // #000000 70%
-    Q_PROPERTY(QColor static_black_60 READ static_black_60 CONSTANT)  // #000000 60%
-    Q_PROPERTY(QColor static_black_50 READ static_black_50 CONSTANT)  // #000000 50%
-    Q_PROPERTY(QColor static_black_40 READ static_black_40 CONSTANT)  // #000000 40%
-    Q_PROPERTY(QColor static_black_30 READ static_black_30 CONSTANT)  // #000000 30%
-    Q_PROPERTY(QColor static_black_20 READ static_black_20 CONSTANT)  // #000000 20%
-    Q_PROPERTY(QColor static_black_10 READ static_black_10 CONSTANT)  // #000000 10%
-    Q_PROPERTY(QColor static_black_05 READ static_black_05 CONSTANT)  // #000000 5%
+    Q_PROPERTY(QColor static_black_90 READ static_black_90 CONSTANT)  // #000000 | 90% #000000
+    Q_PROPERTY(QColor static_black_80 READ static_black_80 CONSTANT)  // #000000 | 80% #000000
+    Q_PROPERTY(QColor static_black_70 READ static_black_70 CONSTANT)  // #000000 | 70% #000000
+    Q_PROPERTY(QColor static_black_60 READ static_black_60 CONSTANT)  // #000000 | 60% #000000
+    Q_PROPERTY(QColor static_black_50 READ static_black_50 CONSTANT)  // #000000 | 50% #000000
+    Q_PROPERTY(QColor static_black_40 READ static_black_40 CONSTANT)  // #000000 | 40% #000000
+    Q_PROPERTY(QColor static_black_30 READ static_black_30 CONSTANT)  // #000000 | 30% #000000
+    Q_PROPERTY(QColor static_black_20 READ static_black_20 CONSTANT)  // #000000 | 20% #000000
+    Q_PROPERTY(QColor static_black_10 READ static_black_10 CONSTANT)  // #000000 | 10% #000000
+    Q_PROPERTY(QColor static_black_05 READ static_black_05 CONSTANT)  // #000000 | 5% #000000
 
 public:
     static Colors & inst();
@@ -98,6 +99,11 @@ public:
     bool dayNightMode() const;
 
     void setDayNightMode(bool night);
+
+    typedef QColor (Colors::* StdColor)(void) const;
+    StdColor stdColor(char const * name) const;
+
+    static const QColor transparent;
 
 public:
     // getters
@@ -177,10 +183,84 @@ public:
 private:
     QVector<QColor> colors;
     QVector<QColor> allColors[2] = {{
-        0xFFFFFFFF,0xFFFFFFFF,0xFFF7F8F9,0xFFF7F8F9,0xFFF2F3F4,0xFFEBECED,0xFFE4E6E8,0xFFD5D7DB,0xFFB7BBBF,0xFF9CA0A6,0xFF81858C,0xFF4E5359,0xFF1D2126,0xFFFFFCD4,0xFFFFD630,0xFFF2C121,0xFFFFEDED,0xFFFFD9D9,0xFFFF6666,0xFFEB3B3B,0xFFFFEDE5,0xFFFF6D2E,0xFFFF4D00,0xFFFFF0DB,0xFFFFA319,0xFFFF8C00,0xFFE8F7F0,0xFF00CC66,0xFF00B058,0xFFE1F9FA,0xFF00D1D9,0xFF00B9BF,0xFFEDF4FF,0xFFCCE0FF,0xFF4F94FF,0xFF1970F2,0xFFF2F0FD,0xFF8C79F2,0xFF6A54E0,0xFFF7F8F9,0xFFF7F8F9,0xFFF2F3F4,0xFFEBECED,0xFFE4E6E8,0xFFD5D7DB,0xFFB7BBBF,0xFF9CA0A6,0xFF81858C,0xFF4E5359,0xFF1D2126,0xFFFFFFFF,0xE5FFFFFF,0xCCFFFFFF,0xB2FFFFFF,0x99FFFFFF,0x7FFFFFFF,0x66FFFFFF,0x4CFFFFFF,0x33FFFFFF,0x19FFFFFF,0x0CFFFFFF,0xFF000000,0xE5000000,0xCC000000,0xB2000000,0x99000000,0x7F000000,0x66000000,0x4C000000,0x33000000,0x19000000,0x0C000000,
+        0xFFFFFFFF,0xFFFFFFFF,0xFFF7F8F9,0xFFF7F8F9,0xFFF2F3F4,0xFFEBECED,0xFFE4E6E8,0xFFD5D7DB,0xFFB7BBBF,0xFF9CA0A6,0xFF81858C,0xFF4E5359,0xFF1D2126,0xFFFFFCD4,0xFFFFD630,0xFFF2C121,0xFFFFEDED,0xFFFFD9D9,0xFFFF6666,0xFFEB3B3B,0xFFFFEDE5,0xFFFF6D2E,0xFFFF4D00,0xFFFFF0DB,0xFFFFA319,0xFFFF8C00,0xFFE8F7F0,0xFF00CC66,0xFF00B058,0xFFE1F9FA,0xFF00D1D9,0xFF00B9BF,0xFFEDF4FF,0xFFCCE0FF,0xFF4F94FF,0xFF1970F2,0xFFF2F0FD,0xFF8C79F2,0xFF6A54E0,0xFFF7F8F9,0xFFF7F8F9,0xFFF2F3F4,0xFFEBECED,0xFFE4E6E8,0xFFD5D7DB,0xFFB7BBBF,0xFF9CA0A6,0xFF81858C,0xFF4E5359,0xFF1D2126,0xFFFFFFFF,0xFFFFFFFF,0xFFFFFFFF,0xFFFFFFFF,0xFFFFFFFF,0xFFFFFFFF,0xFFFFFFFF,0xFFFFFFFF,0xFFFFFFFF,0xFFFFFFFF,0xFFFFFFFF,0xFF000000,0xFF000000,0xFF000000,0xFF000000,0xFF000000,0xFF000000,0xFF000000,0xFF000000,0xFF000000,0xFF000000,0xFF000000,
     }, {
-        0xFF212630,0xFF191E26,0xFF262C36,0xFF0B1117,0xFF262D38,0xFFEBECED,0xFF2D3440,0xFFD5D7DB,0xFF4D5666,0xFF9CA0A6,0xFF707C8C,0xFFA3AFBF,0xFFE2ECFA,0xFF524C23,0xFFFFD630,0xFFD9B629,0xFF3D2929,0xFF633333,0xFFDA7171,0xFFE48484,0xFF3E322E,0xFFDA825E,0xFFE69472,0xFF3C3325,0xFFE6A15C,0xFFF2AF6C,0xFF203A32,0xFF61BA8D,0xFF71C99D,0xFF233738,0xFF5DC3C6,0xFF6DD1D4,0xFF213452,0xFF324563,0xFF6B99DE,0xFF7FA6E2,0xFF343146,0xFF8C79F2,0xFF988BDC,0xFFF7F8F9,0xFFF7F8F9,0xFFF2F3F4,0xFFEBECED,0xFFE4E6E8,0xFFD5D7DB,0xFFB7BBBF,0xFF9CA0A6,0xFF81858C,0xFF4E5359,0xFF1D2126,0xFFFFFFFF,0xE5FFFFFF,0xCCFFFFFF,0xB2FFFFFF,0x99FFFFFF,0x7FFFFFFF,0x66FFFFFF,0x4CFFFFFF,0x33FFFFFF,0x19FFFFFF,0x0CFFFFFF,0xFF000000,0xE5000000,0xCC000000,0xB2000000,0x99000000,0x7F000000,0x66000000,0x4C000000,0x33000000,0x19000000,0x0C000000,
+        0xFF212630,0xFF191E26,0xFF262C36,0xFF0B1117,0xFF262D38,0xFFEBECED,0xFF2D3440,0xFFD5D7DB,0xFF4D5666,0xFF9CA0A6,0xFF707C8C,0xFFA3AFBF,0xFFE2ECFA,0xFF524C23,0xFFFFD630,0xFFD9B629,0xFF3D2929,0xFF633333,0xFFDA7171,0xFFE48484,0xFF3E322E,0xFFDA825E,0xFFE69472,0xFF3C3325,0xFFE6A15C,0xFFF2AF6C,0xFF203A32,0xFF61BA8D,0xFF71C99D,0xFF233738,0xFF5DC3C6,0xFF6DD1D4,0xFF213452,0xFF324563,0xFF6B99DE,0xFF7FA6E2,0xFF343146,0xFF8C79F2,0xFF988BDC,0xFFF7F8F9,0xFFF7F8F9,0xFFF2F3F4,0xFFEBECED,0xFFE4E6E8,0xFFD5D7DB,0xFFB7BBBF,0xFF9CA0A6,0xFF81858C,0xFF4E5359,0xFF1D2126,0xFFFFFFFF,0xFFFFFFFF,0xFFFFFFFF,0xFFFFFFFF,0xFFFFFFFF,0xFFFFFFFF,0xFFFFFFFF,0xFFFFFFFF,0xFFFFFFFF,0xFFFFFFFF,0xFFFFFFFF,0xFF000000,0xFF000000,0xFF000000,0xFF000000,0xFF000000,0xFF000000,0xFF000000,0xFF000000,0xFF000000,0xFF000000,0xFF000000,
     }};
+    QMap<QByteArray, StdColor> stdColors = {
+        {"white_card", &Colors::white_card},
+        {"bluegrey_00", &Colors::bluegrey_00},
+        {"bluegrey_05", &Colors::bluegrey_05},
+        {"bluegrey_50", &Colors::bluegrey_50},
+        {"bluegrey_100", &Colors::bluegrey_100},
+        {"bluegrey_200", &Colors::bluegrey_200},
+        {"bluegrey_300", &Colors::bluegrey_300},
+        {"bluegrey_400", &Colors::bluegrey_400},
+        {"bluegrey_500", &Colors::bluegrey_500},
+        {"bluegrey_600", &Colors::bluegrey_600},
+        {"bluegrey_700", &Colors::bluegrey_700},
+        {"bluegrey_800", &Colors::bluegrey_800},
+        {"bluegrey_900", &Colors::bluegrey_900},
+        {"brand_100", &Colors::brand_100},
+        {"brand_500", &Colors::brand_500},
+        {"brand_600", &Colors::brand_600},
+        {"red_100", &Colors::red_100},
+        {"red_200", &Colors::red_200},
+        {"red_500", &Colors::red_500},
+        {"red_600", &Colors::red_600},
+        {"redorange_100", &Colors::redorange_100},
+        {"redorange_500", &Colors::redorange_500},
+        {"redorange_600", &Colors::redorange_600},
+        {"orange_100", &Colors::orange_100},
+        {"orange_500", &Colors::orange_500},
+        {"orange_600", &Colors::orange_600},
+        {"green_100", &Colors::green_100},
+        {"green_500", &Colors::green_500},
+        {"green_600", &Colors::green_600},
+        {"cyan_100", &Colors::cyan_100},
+        {"cyan_500", &Colors::cyan_500},
+        {"cyan_600", &Colors::cyan_600},
+        {"blue_100", &Colors::blue_100},
+        {"blue_200", &Colors::blue_200},
+        {"blue_500", &Colors::blue_500},
+        {"blue_600", &Colors::blue_600},
+        {"purple_100", &Colors::purple_100},
+        {"purple_500", &Colors::purple_500},
+        {"purple_600", &Colors::purple_600},
+        {"static_bluegrey_05", &Colors::static_bluegrey_05},
+        {"static_bluegrey_50", &Colors::static_bluegrey_50},
+        {"static_bluegrey_100", &Colors::static_bluegrey_100},
+        {"static_bluegrey_200", &Colors::static_bluegrey_200},
+        {"static_bluegrey_300", &Colors::static_bluegrey_300},
+        {"static_bluegrey_400", &Colors::static_bluegrey_400},
+        {"static_bluegrey_500", &Colors::static_bluegrey_500},
+        {"static_bluegrey_600", &Colors::static_bluegrey_600},
+        {"static_bluegrey_700", &Colors::static_bluegrey_700},
+        {"static_bluegrey_800", &Colors::static_bluegrey_800},
+        {"static_bluegrey_900", &Colors::static_bluegrey_900},
+        {"static_white_100", &Colors::static_white_100},
+        {"static_white_90", &Colors::static_white_90},
+        {"static_white_80", &Colors::static_white_80},
+        {"static_white_70", &Colors::static_white_70},
+        {"static_white_60", &Colors::static_white_60},
+        {"static_white_50", &Colors::static_white_50},
+        {"static_white_40", &Colors::static_white_40},
+        {"static_white_30", &Colors::static_white_30},
+        {"static_white_20", &Colors::static_white_20},
+        {"static_white_10", &Colors::static_white_10},
+        {"static_white_05", &Colors::static_white_05},
+        {"static_black_100", &Colors::static_black_100},
+        {"static_black_90", &Colors::static_black_90},
+        {"static_black_80", &Colors::static_black_80},
+        {"static_black_70", &Colors::static_black_70},
+        {"static_black_60", &Colors::static_black_60},
+        {"static_black_50", &Colors::static_black_50},
+        {"static_black_40", &Colors::static_black_40},
+        {"static_black_30", &Colors::static_black_30},
+        {"static_black_20", &Colors::static_black_20},
+        {"static_black_10", &Colors::static_black_10},
+        {"static_black_05", &Colors::static_black_05},
+    };
 };
 
 #endif

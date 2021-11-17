@@ -27,7 +27,7 @@ int main(int argc, char* argv[])
     }
     view.connect(view.engine(), &QQmlEngine::quit, &app, &QCoreApplication::quit);
     new QQmlFileSelector(view.engine(), &view);
-    view.setSource(QUrl("qrc:///uidemo/qml/Screen.qml"));
+    view.setSource(QUrl("qrc:///uidemo/qml/Test.qml"));
     if (view.status() == QQuickView::Error)
         return -1;
     view.setResizeMode(QQuickView::SizeRootObjectToView);

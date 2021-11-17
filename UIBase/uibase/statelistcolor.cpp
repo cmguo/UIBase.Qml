@@ -16,6 +16,7 @@ StateListColor &StateListColor::operator()(QColor color, int states)
     statesList_.append(states);
     colors_.append(color);
     stdColors_.append(nullptr);
+    states_ |= states;
     return *this;
 }
 
@@ -27,15 +28,16 @@ StateListColor &StateListColor::operator()(StdColor color, int states)
     if (++stdColorCnt_ == 1) {
         connect(&Colors::inst(), &Colors::changed, this, &StateListColor::changed);
     }
+    states_ |= states;
     return *this;
 }
 
-QColor StateListColor::color() const
+QColor StateListColor::color()
 {
     return colorForStates(0);
 }
 
-QColor StateListColor::colorForStates(int states) const
+QColor StateListColor::colorForStates(int states)
 {
     for (int i = 0; i < statesList_.size(); ++i) {
         int s = statesList_[i];
@@ -58,11 +60,10 @@ StateColor::StateColor(StateListColor *color, StateHandler *state)
     : color_(color)
     , state_(state)
 {
-    auto update = [this]() {
+    connect(state, &StateHandler::statesChanged, this, &StateColor::onStatesChanged);
+    connect(color, &StateListColor::changed, this, [this]() {
         emit changed(this->color());
-    };
-    connect(state, &StateHandler::statesChanged, this, update);
-    connect(color, &StateListColor::changed, this, update);
+    });
 }
 
 QColor StateColor::color() const
@@ -71,4 +72,32 @@ QColor StateColor::color() const
         return color_->colorForStates(state_->states());
     else
         return QColor();
+}
+
+StateListColor *StateColor::colors() const
+{
+    return color_;
+}
+
+void StateColor::setColors(StateListColor *colors)
+{
+    if (state_ == nullptr) {
+        state_ = StateHandler::bindTo(parent());
+        connect(state_, &StateHandler::statesChanged, this, &StateColor::onStatesChanged);
+    }
+    if (colors != color_) {
+        if (color_)
+            color_->disconnect(this);
+        color_ = colors;
+        connect(color_, &StateListColor::changed, this, [this]() {
+            emit changed(color());
+        });
+        emit changed(color());
+    }
+}
+
+void StateColor::onStatesChanged(int states)
+{
+    if (states & color_->states())
+        emit changed(color());
 }

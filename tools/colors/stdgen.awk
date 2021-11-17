@@ -1,6 +1,8 @@
 #!/usr/local/bin/gawk -F [\t] -f
 
 BEGIN {
+  colors[0] = 0
+  delete colors[0]
   props[0] = 0
   delete props[0]
   getters[0] = 0
@@ -38,6 +40,7 @@ BEGIN {
     if ($4 != "") c = c " " $4
     if (c != "") c = "  // " c
     if ($1 != "" && substr($2, 1, 2) == "0x") {
+      colors[length(colors)] = $1
       if (substr($3, 1, 2) == "0x" && $3 != $2) {
         props[length(props)] = "    Q_PROPERTY(QColor " $1 " READ " $1 " NOTIFY changed)" c
         getters[length(getters)] = "    QColor " $1 "() const { return colors[" length(getters) "]; }"
@@ -75,6 +78,14 @@ BEGIN {
       print "    }};"
       while (getline > 0 && $0 != "    }};") {}
       step = 3
+    } else if (step == 3 && $0 == "    QMap<QByteArray, StdColor> stdColors = {") {
+      print $0
+      for (i in colors) {
+        print "        {\"" colors[i] "\", &Colors::" colors[i] "},"
+      }
+      print "    };"
+      while (getline > 0 && $0 != "    };") {}
+      step = 4
     } else {
       print $0
     }
@@ -82,7 +93,7 @@ BEGIN {
 }
 
 END {
-  if (step != 3)
+  if (step != 4)
     print "#error failed at step " step
 }
 

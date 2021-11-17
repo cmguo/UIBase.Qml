@@ -61,6 +61,11 @@ public:
 public:
     explicit ZButtonAppearance(QObject *parent = nullptr);
 
+    ZButtonAppearance(char const * textColor, char const * backgroundColor, char const * borderColor = nullptr);
+
+    ZButtonAppearance(qreal minHeight, qreal cornerRadius, qreal borderWidth,
+                      qreal paddingX, qreal paddingY, qreal textSize, qreal iconSize, qreal iconPadding);
+
 signals:
     void textColorChanged();
     void backgroundColorChanged();
@@ -107,7 +112,7 @@ public:
     qreal cornerRadius() const { return get<6>(&ZButtonAppearance::cornerRadius_); }
     void setCornerRadius(qreal value);
 
-    qreal borderWidth() const { return get<6>(&ZButtonAppearance::borderWidth_); }
+    qreal borderWidth() const { return get<7>(&ZButtonAppearance::borderWidth_); }
     void setBorderWidth(qreal value);
 
     qreal paddingX() const { return get<8>(&ZButtonAppearance::paddingX_); }
@@ -143,7 +148,7 @@ private:
             return true;
         }
         for (auto s :{appearanece_, type_, size_}) {
-            if (s->get<I>(f, t)) {
+            if (s && s->get<I>(f, t)) {
                 return true;
             }
         }
