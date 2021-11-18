@@ -108,6 +108,10 @@ private:
         append(color.first, color.second);
     }
 
+    void fill(QPair<Qt::GlobalColor, int> color) {
+        append(color.first, color.second);
+    }
+
     void fill(QPair<StdColor, int> color) {
         append(color.first, color.second);
     }

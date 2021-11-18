@@ -16,7 +16,7 @@ Item {
         anchors.left: parent.left
         anchors.leftMargin: 31
         radius: 15
-        color: "#F8F8F8"
+        color: Colors.lightbg2
 
         ListView {
             anchors.fill: parent
@@ -75,7 +75,7 @@ Item {
         anchors.left: filament.left
         anchors.topMargin: 10
         radius: 15
-        color: "#F8F8F8"
+        color: Colors.lightbg2
 
         ListView {
             anchors.fill: parent
@@ -157,7 +157,7 @@ Item {
         anchors.left: filament.left
         anchors.topMargin: 10
         radius: 15
-        color: "#F8F8F8"
+        color: Colors.lightbg2
 
         Image {
             x: 29
@@ -185,7 +185,7 @@ Item {
         anchors.bottom: parent.bottom
         anchors.bottomMargin: 37
         radius: 15
-        color: "#F8F8F8"
+        color: Colors.lightbg2
 
         Text {
             x: 62

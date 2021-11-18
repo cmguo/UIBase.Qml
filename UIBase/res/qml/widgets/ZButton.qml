@@ -20,10 +20,12 @@ Item {
 
     property alias textColor: ap.textColor
     property alias backgroundColor: ap.backgroundColor
+    property alias borderColor: ap.borderColor
     property alias iconColor: ap.iconColor
     property alias iconPosition: ap.iconPosition
     property alias minHeight: ap.minHeight
     property alias cornerRadius: ap.cornerRadius
+    property alias borderWidth: ap.borderWidth
     property alias paddingX: ap.paddingX
     property alias paddingY: ap.paddingY
     property alias textSize: ap.textSize
@@ -52,6 +54,8 @@ Item {
         height: parent.height
         radius: ap.cornerRadius
         color: backgroundColor.color
+        border.width: borderWidth
+        border.color: borderColor.color
 
         //Behavior on color {
         //    PropertyAnimation { duration: 200}
@@ -77,6 +81,7 @@ Item {
                 width: implicitWidth
                 height: implicitHeight
                 color: textColor.color
+                font.family: Fonts.family
                 font.pixelSize: ap.textSize
                 anchors.left: icon.right
                 anchors.leftMargin: icon.source != "" && text != "" ? Destiny.dp(ap.iconPadding) : 0
@@ -132,6 +137,11 @@ Item {
     StateColor {
         id: backgroundColor
         colors: ap.backgroundColor
+    }
+
+    StateColor {
+        id: borderColor
+        colors: ap.borderColor
     }
 
 }

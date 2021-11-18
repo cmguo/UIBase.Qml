@@ -1,0 +1,7 @@
+brand	#00AE42
+graybg	#3B3C40
+lightbg1	#F0F0F0
+lightbg2	#F8F8F8
+font1	#B9B9B9
+font2	#2C2C2E
+font3	#929292

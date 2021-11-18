@@ -6,7 +6,7 @@ import UIBase 1.0
 
 Text {
     property bool singleLine: false
-    property bool needShowTipElide: false
+    property bool showTipElide: false
 
     font: Fonts.body_24
     color: "#2C2C2E"
@@ -16,12 +16,12 @@ Text {
 
     HoverHandler {
         id: hoverHandler
-        enabled: needShowTipElide
+        enabled: showTipElide
     }
 
     ToolTip {
         timeout: 3000
-        visible: hoverHandler.hovered && needShowTipElide && taltext.truncated
+        visible: hoverHandler.hovered && showTipElide && taltext.truncated
         text: parent.text
     }
 }

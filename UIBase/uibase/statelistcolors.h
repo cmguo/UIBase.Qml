@@ -21,6 +21,8 @@ public slots:
     StateListColor * get(QByteArray const & name);
 
 private:
+    void defineColors();
+
     template<typename ...Colors>
     void defineColor(char const * name, QPair<Colors, int>... colors) {
         colors_.insert(name, new StateListColor(colors...));

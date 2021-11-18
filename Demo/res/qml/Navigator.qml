@@ -57,16 +57,7 @@ Item {
                     height: 74
                     anchors.centerIn: parent
                     property bool checked: url == activeItem
-                    backgroundColor: StateListColor {
-                        StateListColorItem {
-                            states: StateListColor.Checked
-                            color: "#00AE42"
-                        }
-                        StateListColorItem {
-                            states: StateListColor.Normal
-                            color: "#transparent"
-                        }
-                    }
+                    backgroundColor: StateListColors.get("transparent_checked")
 
                     Image {
                         anchors.centerIn: parent

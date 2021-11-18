@@ -135,7 +135,7 @@ StateListColor *StateColor::colors() const
 
 void StateColor::setColors(StateListColor *colors)
 {
-    if (state_ == nullptr) {
+    if (colors && state_ == nullptr) {
         state_ = StateHandler::bindTo(parent());
         connect(state_, &StateHandler::statesChanged, this, &StateColor::onStatesChanged);
     }

@@ -55,7 +55,7 @@ void StateHandler::onHoveredChanged()
 
 void StateHandler::onStateChanged(State state, bool value)
 {
-    qDebug() << "onStateChanged" << state << value;
+    // qDebug() << "onStateChanged" << state << value;
     if (((states_ & state) == 0) == value) {
         states_ ^= state;
         emit statesChanged(state);

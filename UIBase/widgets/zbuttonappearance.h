@@ -163,6 +163,8 @@ private:
     static QMap<ButtonType, ZButtonAppearance*> buttonTypes;
     static QMap<ButtonSize, ZButtonAppearance*> buttonSizes;
 
+    static void initEnumAppearance();
+
 private:
     int set_ = 0;
     ZButtonAppearance * appearanece_ = nullptr;

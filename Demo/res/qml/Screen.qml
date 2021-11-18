@@ -13,7 +13,7 @@ Item {
     Navigator {
         id: navigator
         height: parent.height
-        width: 100
+        width: 108
 
         onActiveItemChanged: {
             var c = pageContainer.children[0]
@@ -27,6 +27,7 @@ Item {
 
     TopBar {
         id: topBar
+        height: 48
     }
 
     Item {

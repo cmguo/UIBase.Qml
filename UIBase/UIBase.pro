@@ -30,9 +30,9 @@ HEADERS += \
 
 RESOURCES = res/uibase.qrc
 
-# Including talwidget pri
 include(uibase/uibase.pri)
 include(widgets/widgets.pri)
+include(bamboo/bamboo.pri)
 
 qnx: target.path = /tmp/$${TARGET}/bin
 else: unix:!android: target.path = /opt/$${TARGET}/bin
