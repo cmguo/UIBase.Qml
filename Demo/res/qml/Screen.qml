@@ -1,4 +1,5 @@
 import QtQuick 2.12
+import QtQuick.Shapes 1.12
 
 Item {
 
@@ -55,6 +56,38 @@ Item {
                 anchors.fill: parent
             }
         }
+    }
+
+    Component {
+        id: wifi
+
+        Item {
+            property int strength: 2
+
+            Repeater {
+                model: 4
+                delegate: Shape {
+                    ShapePath {
+                        strokeColor: index <= strength ? "#1C1C1E" : "gray"
+                        strokeWidth: 2
+                        fillColor: "transparent"
+                        PathAngleArc {
+                            centerX: 13
+                            centerY: 17
+                            radiusX: index * 4 + 1
+                            radiusY: radiusX
+                            startAngle: -45
+                            sweepAngle: -90
+                        }
+                    }
+                }
+            }
+        }
+
+    }
+
+    Component.onCompleted: {
+        topBar.add("wifi", wifi)
     }
 
 }

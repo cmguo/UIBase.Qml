@@ -1,4 +1,5 @@
 import QtQuick 2.12
+import QtGraphicalEffects 1.12
 import UIBase 1.0
 
 Item {
@@ -7,9 +8,35 @@ Item {
 
     property string activeItem
 
+    DropShadow {
+        anchors.fill: content
+        horizontalOffset: 3
+        verticalOffset: 3
+        radius: 15
+        samples: 31
+        cached: true
+        color: "#40000000"
+        source: content
+    }
+
     Rectangle {
+        id: content
         anchors.fill: parent
+        radius: 30
         color: "#3B3C40"
+
+        Rectangle {
+            width: 30
+            height: 30
+            color: "#3B3C40"
+        }
+
+        Rectangle {
+            width: 30
+            height: 30
+            anchors.bottom: parent.bottom
+            color: "#3B3C40"
+        }
 
         ListView {
             id: list
