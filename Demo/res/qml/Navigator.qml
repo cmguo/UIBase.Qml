@@ -1,6 +1,5 @@
 import QtQuick 2.12
 import UIBase 1.0
-import "qrc:/uibase/qml/widgets"
 
 Item {
 
@@ -57,7 +56,7 @@ Item {
                     height: 74
                     anchors.centerIn: parent
                     property bool checked: url == activeItem
-                    backgroundColor: StateListColors.get("transparent_checked")
+                    backgroundColor: StateColors.get("transparent_checked")
 
                     Image {
                         anchors.centerIn: parent

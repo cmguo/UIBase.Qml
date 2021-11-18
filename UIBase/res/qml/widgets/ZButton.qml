@@ -49,7 +49,7 @@ Item {
         property bool loading: false
         property string text: ""
 
-        implicitWidth: contentLayout.width + radius * 2
+        implicitWidth: contentLayout.width + ap.paddingX * 2
         width: parent.width
         height: parent.height
         radius: ap.cornerRadius

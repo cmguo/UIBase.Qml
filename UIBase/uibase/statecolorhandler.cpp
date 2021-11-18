@@ -23,7 +23,7 @@ QColor StateColorHandler::color() const
     if (stateColor_ && state_)
         return stateColor_->colorForStates(state_->states());
     else
-        return QColor();
+        return Qt::transparent;
 }
 
 StateColor *StateColorHandler::stateColor() const

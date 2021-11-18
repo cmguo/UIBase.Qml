@@ -105,6 +105,6 @@ QColor StateColor::colorForStates(int states)
             return stdc ? (Colors::inst().*stdc)() : colors_[i];
         }
     }
-    return QColor();
+    return Qt::transparent;
 }
 

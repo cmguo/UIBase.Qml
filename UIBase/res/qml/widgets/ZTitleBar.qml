@@ -12,7 +12,7 @@ Rectangle {
     color: "#F8F8F8"
     clip: false
 
-    property string title: "标 题"
+    property string title: ""
     property string titleColor: "#2B2B2B"
 
     ZText {

@@ -1,7 +1,6 @@
 import QtQuick 2.0
 import QtQuick.Controls 2.2
 import UIBase 1.0
-import "qrc:/uibase/qml/widgets"
 
 Item {
 

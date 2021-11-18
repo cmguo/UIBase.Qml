@@ -32,7 +32,7 @@ void UIBase::init()
         return &Colors::inst();
     });
     StateColors::init();
-    qmlRegisterSingletonType<StateColors>("UIBase", 1, 0, "StateListColors",
+    qmlRegisterSingletonType<StateColors>("UIBase", 1, 0, "StateColors",
                                               [](QQmlEngine*, QJSEngine*) -> QObject* {
         QQmlEngine::setObjectOwnership(&StateColors::inst(), QQmlEngine::CppOwnership);
         return &StateColors::inst();
@@ -46,7 +46,11 @@ void UIBase::init()
 
     qmlRegisterType<ZButtonAppearance>("UIBase", 1, 0, "ZButtonAppearance");
 
-    qmlRegisterSingletonType(QUrl("qrc:/uibase/qml/view/Fonts.qml"), "UIBase", 1, 0, "Fonts");
+    for (auto t : {"Fonts"})
+        qmlRegisterSingletonType(QUrl("qrc:/uibase/qml/view/" + QByteArray(t) + ".qml"), "UIBase", 1, 0, t);
+
+    for (auto t : {"ZButton", "ZText", "ZProgressBar", "ZSwitch"})
+        qmlRegisterType(QUrl("qrc:/uibase/qml/widgets/" + QByteArray(t) + ".qml"), "UIBase", 1, 0, t);
 
     initialized = true;
 }

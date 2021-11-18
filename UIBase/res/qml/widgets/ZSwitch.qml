@@ -1,50 +1,34 @@
 import QtQuick 2.12
-import QtQuick.Controls 2.5
+import QtQuick.Controls 2.12
 import UIBase 1.0
-import "./"
-import "qrc:/uibase/qml/talwidget/ZColor.js" as ZColor
 
-Rectangle {
-    property bool checked: false
-    property bool checkable: true
-    property var animDuration: 200
+Switch {
+    id: control
 
-    function toggle() {
-        checked = !checked
-    }
+    indicator: Rectangle {
+        implicitWidth: 53
+        implicitHeight: 24
+        x: control.leftPadding
+        y: parent.height / 2 - height / 2
+        radius: 13
+        color: control.checked ? Colors.brand : Colors.font1
 
-    width: Destiny.dp(56)
-    height: Destiny.dp(33.5)
-    radius: height/2
-    color: !checked ? "#B0B1B4" :  ZColor.colorPurple900
-    enabled: checkable
-    Behavior on color {
-        PropertyAnimation { duration: animDuration}
-    }
-
-    MouseArea {
-        anchors.fill: parent
-        onClicked: {
-            if(checkable) {
-                toggle()
-            }
+        Rectangle {
+            width: height
+            height: parent.height - 4
+            x: control.checked ? parent.width - width - 2 : 2
+            anchors.verticalCenter: parent.verticalCenter
+            radius: 13
+            color: control.down ? "#cccccc" : "#F3F3F3"
         }
     }
 
-    Rectangle {
-        property var padding: Destiny.dp(1)
-        id: ball
-        color: white
-        height: parent.height - padding * 2
-        width: height
-        radius: height/2
-        x: !checked ? padding : parent.width - width - padding
-        y: padding
-
-        Behavior on x {
-            PropertyAnimation { duration: animDuration}
-        }
+    contentItem: Text {
+        text: control.text
+        font: control.font
+        opacity: enabled ? 1.0 : 0.3
+        color: control.down ? "#17a81a" : "#21be2b"
+        verticalAlignment: Text.AlignVCenter
+        leftPadding: control.indicator.width + control.spacing
     }
-
-
 }

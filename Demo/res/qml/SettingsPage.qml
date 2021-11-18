@@ -1,6 +1,5 @@
 import QtQuick 2.0
 import UIBase 1.0
-import "qrc:/uibase/qml/widgets"
 
 Item {
 
@@ -34,8 +33,8 @@ Item {
                     text: title
                     textSize: 30
                     property bool checked: name == activePage
-                    textColor: StateListColors.get("font2_checked")
-                    backgroundColor: StateListColors.get("transparent_checked")
+                    textColor: StateColors.get("font2_checked")
+                    backgroundColor: StateColors.get("transparent_checked")
 
                     onClicked: {
                         activePage = name
