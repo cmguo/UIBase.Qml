@@ -5,6 +5,11 @@ Item {
     width: 1280
     height: 720
 
+    Rectangle {
+        anchors.fill: parent
+        color: "#F8F8F8"
+    }
+
     Navigator {
         id: navigator
         height: parent.height

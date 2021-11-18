@@ -1,4 +1,6 @@
 import QtQuick 2.12
+import UIBase 1.0
+import "qrc:/uibase/qml/widgets"
 
 Item {
 
@@ -8,7 +10,7 @@ Item {
 
     Rectangle {
         anchors.fill: parent
-        color: "blue"
+        color: "#3B3C40"
 
         ListView {
             id: list
@@ -46,22 +48,26 @@ Item {
         Component {
             id: navItem
 
-            Rectangle {
+            Item {
                 width: parent.width
                 height: list.height / 5
-                color: url == activeItem ? "red" : "yellow"
 
-                Image {
+                ZButton {
                     anchors.centerIn: parent
-                    source: icon
-                }
+                    backgroundColor: StateListColors.get(
+                                         url == activeItem ? "#00AE42" : "transparent")
 
-                TapHandler {
-                    onTapped: {
+                    Image {
+                        anchors.centerIn: parent
+                        source: icon
+                    }
+
+                    onClicked: {
                         navigator.activeItem = url
                     }
                 }
             }
+
         }
 
         Component.onCompleted: {

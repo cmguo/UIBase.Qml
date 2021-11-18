@@ -41,8 +41,7 @@ Item {
 
                 Text {
                     id: sdUsage
-                    anchors.left: parent.left
-                    anchors.leftMargin: 42
+                    anchors.left: sdTitle.left
                     anchors.top: sdTitle.bottom
                     anchors.topMargin: 22
                     text: qsTr("2.4G 已用（共4G）")
@@ -52,16 +51,14 @@ Item {
 
                 ProgressBar {
                     id: sdProgressBar
-                    anchors.left: parent.left
-                    anchors.leftMargin: 42
+                    anchors.left: sdTitle.left
                     anchors.top: sdUsage.bottom
                     anchors.topMargin: 24
                     value: 0.5
                 }
 
                 ZButton {
-                    anchors.left: parent.left
-                    anchors.leftMargin: 42
+                    anchors.left: sdTitle.left
                     anchors.top: sdProgressBar.bottom
                     anchors.topMargin: 30
                     text: "格式化"
