@@ -1,7 +1,7 @@
 #ifndef STATEHANDLER_H
 #define STATEHANDLER_H
 
-#include "statelistcolor.h"
+#include "statecolorhandler.h"
 
 #include <QObject>
 
@@ -43,7 +43,7 @@ public:
     int states() const;
 
 public slots:
-    StateColor * mapColor(StateListColor * color);
+    StateColorHandler * mapColor(StateColor * color);
 
 private:
     void onEnabledChanged();

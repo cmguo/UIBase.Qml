@@ -1,5 +1,5 @@
-#ifndef STATELISTCOLOR_H
-#define STATELISTCOLOR_H
+#ifndef STATECOLOR_H
+#define STATECOLOR_H
 
 #include "colors.h"
 
@@ -9,14 +9,14 @@
 #include <QPair>
 #include <QQmlListProperty>
 
-class StateListColorItem: public QObject
+class StateColorItem: public QObject
 {
     Q_OBJECT
 
     Q_PROPERTY(QByteArray color MEMBER color_)
     Q_PROPERTY(int states MEMBER states_)
 public:
-    StateListColorItem();
+    StateColorItem();
 
     QByteArray color() const { return color_; }
 
@@ -27,11 +27,11 @@ private:
     int states_;
 };
 
-class StateListColor: public QObject
+class StateColor: public QObject
 {
     Q_OBJECT
 
-    Q_PROPERTY(QQmlListProperty<StateListColorItem> colors READ colors)
+    Q_PROPERTY(QQmlListProperty<StateColorItem> colors READ colors)
     Q_CLASSINFO("DefaultProperty", "colors")
 
 public:
@@ -56,18 +56,18 @@ public:
     typedef QColor (Colors::* StdColor)(void) const;
 
     template<typename ...Colors>
-    StateListColor(QPair<Colors, int>... colors) {
+    StateColor(QPair<Colors, int>... colors) {
         fill(colors...);
     }
 
     // single color
-    StateListColor(QColor color);
+    StateColor(QColor color);
 
     // single color
-    StateListColor(StdColor color);
+    StateColor(StdColor color);
 
     // single color
-    StateListColor(QByteArray const & color);
+    StateColor(QByteArray const & color);
 
 signals:
     void changed();
@@ -79,7 +79,7 @@ public:
 
     void append(QByteArray const & color, int states);
 
-    void append(StateListColorItem * item);
+    void append(StateColorItem * item);
 
     void clear();
 
@@ -90,7 +90,7 @@ public:
 
     int states() const { return states_; }
 
-    QQmlListProperty<StateListColorItem> colors();
+    QQmlListProperty<StateColorItem> colors();
 
 public slots:
     QColor color();
@@ -127,35 +127,4 @@ private:
     int states_ = 0;
 };
 
-class StateHandler;
-
-class StateColor : public QObject
-{
-    Q_OBJECT
-
-    Q_PROPERTY(StateListColor* colors READ colors WRITE setColors NOTIFY changed)
-    Q_PROPERTY(QColor color READ color NOTIFY changed)
-public:
-    StateColor();
-
-    StateColor(StateListColor * color, StateHandler * state);
-
-signals:
-    void changed(QColor color);
-
-public:
-    QColor color() const;
-
-    StateListColor* colors() const;
-
-    void setColors(StateListColor* colors);
-
-private:
-    void onStatesChanged(int states);
-
-private:
-    StateListColor * color_;
-    StateHandler * state_;
-};
-
-#endif // STATELISTCOLOR_H
+#endif // STATECOLOR_H

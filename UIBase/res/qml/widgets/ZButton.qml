@@ -129,19 +129,19 @@ Item {
 
     HoverHandler {}
 
-    StateColor {
+    StateColorHandler {
         id: textColor
-        colors: ap.textColor
+        stateColor: ap.textColor
     }
 
-    StateColor {
+    StateColorHandler {
         id: backgroundColor
-        colors: ap.backgroundColor
+        stateColor: ap.backgroundColor
     }
 
-    StateColor {
+    StateColorHandler {
         id: borderColor
-        colors: ap.borderColor
+        stateColor: ap.borderColor
     }
 
 }

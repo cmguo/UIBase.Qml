@@ -1,39 +1,39 @@
-#include "statelistcolors.h"
-#include "bamboo/statelistcolors.h"
+#include "statecolors.h"
+#include "bamboo/statecolors.h"
 
 #include <QQmlEngine>
 
-void StateListColors::init()
+void StateColors::init()
 {
-    QMetaType::registerConverter<QString, StateListColor*>([](QString color) {
+    QMetaType::registerConverter<QString, StateColor*>([](QString color) {
         return inst().get(color.toUtf8());
     });
 }
 
-StateListColors &StateListColors::inst()
+StateColors &StateColors::inst()
 {
-    static StateListColors c;
+    static StateColors c;
     return c;
 }
 
 
-StateListColors::StateListColors(QObject *parent)
+StateColors::StateColors(QObject *parent)
     : QObject(parent)
 {
-    setObjectName("StateListColors");
+    setObjectName("StateColors");
     defineColors();
     for (auto c : colors_) {
         QQmlEngine::setObjectOwnership(c, QQmlEngine::CppOwnership);
     }
 }
 
-StateListColor *StateListColors::get(QByteArray const & name)
+StateColor *StateColors::get(QByteArray const & name)
 {
     if (name.isEmpty())
         return nullptr;
     auto c = colors_.value(name);
     if (c == nullptr) {
-        c = new StateListColor(name);
+        c = new StateColor(name);
         if (c->stdColorCnt()) {
             QQmlEngine::setObjectOwnership(c, QQmlEngine::CppOwnership);
             colors_.insert(name, c);

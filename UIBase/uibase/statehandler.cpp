@@ -25,12 +25,12 @@ int StateHandler::states() const
     return states_;
 }
 
-StateColor *StateHandler::mapColor(StateListColor *color)
+StateColorHandler *StateHandler::mapColor(StateColor *color)
 {
     bindTo(qobject_cast<QQuickItem*>(parent()));
     if (color == nullptr)
         return nullptr;
-    return new StateColor(color, this);
+    return new StateColorHandler(color, this);
 }
 
 void StateHandler::onEnabledChanged()

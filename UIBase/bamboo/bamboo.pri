@@ -1,4 +1,4 @@
 HEADERS += \
     $$PWD/colors.h \
-    $$PWD/statelistcolors.h \
+    $$PWD/statecolors.h \
     $$PWD/zbuttonappearance.h

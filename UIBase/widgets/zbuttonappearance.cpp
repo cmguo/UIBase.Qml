@@ -1,5 +1,5 @@
 #include "zbuttonappearance.h"
-#include "uibase/statelistcolors.h"
+#include "uibase/statecolors.h"
 #include "bamboo/zbuttonappearance.h"
 
 #include <QMap>
@@ -17,9 +17,9 @@ ZButtonAppearance::ZButtonAppearance(QObject *parent)
 
 ZButtonAppearance::ZButtonAppearance(const char *textColor, const char *backgroundColor, const char *borderColor)
 {
-    backgroundColor_ = StateListColors::inst().get(backgroundColor);
-    textColor_ = StateListColors::inst().get(textColor);
-    borderColor_ = StateListColors::inst().get(borderColor);
+    backgroundColor_ = StateColors::inst().get(backgroundColor);
+    textColor_ = StateColors::inst().get(textColor);
+    borderColor_ = StateColors::inst().get(borderColor);
     set_ = 7;
 }
 
@@ -82,7 +82,7 @@ void ZButtonAppearance::setAppearance(ZButtonAppearance *appearance)
     update(appearanece_->set_ & ~set_);
 }
 
-void ZButtonAppearance::setTextColor(StateListColor *color)
+void ZButtonAppearance::setTextColor(StateColor *color)
 {
     if (color != textColor_) {
         textColor_ = color;
@@ -90,7 +90,7 @@ void ZButtonAppearance::setTextColor(StateListColor *color)
     }
 }
 
-void ZButtonAppearance::setBackgroundColor(StateListColor *color)
+void ZButtonAppearance::setBackgroundColor(StateColor *color)
 {
     if (color != backgroundColor_) {
         backgroundColor_ = color;
@@ -98,7 +98,7 @@ void ZButtonAppearance::setBackgroundColor(StateListColor *color)
     }
 }
 
-void ZButtonAppearance::setBorderColor(StateListColor *color)
+void ZButtonAppearance::setBorderColor(StateColor *color)
 {
     if (color != borderColor_) {
         borderColor_ = color;
@@ -106,7 +106,7 @@ void ZButtonAppearance::setBorderColor(StateListColor *color)
     }
 }
 
-void ZButtonAppearance::setIconColor(StateListColor *color)
+void ZButtonAppearance::setIconColor(StateColor *color)
 {
     if (color != iconColor_) {
         iconColor_ = color;

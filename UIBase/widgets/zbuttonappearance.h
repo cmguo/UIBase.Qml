@@ -1,7 +1,7 @@
 #ifndef ZBUTTONAPPEARANCE_H
 #define ZBUTTONAPPEARANCE_H
 
-#include "uibase/statelistcolor.h"
+#include "uibase/statecolor.h"
 
 #include <QObject>
 
@@ -15,10 +15,10 @@ class ZButtonAppearance : public QObject
     Q_PROPERTY(ButtonSize buttonSize READ buttonSize WRITE setButtonSize)
     Q_PROPERTY(ZButtonAppearance* appearance READ appearance WRITE setAppearance)
 
-    Q_PROPERTY(StateListColor* textColor READ textColor WRITE setTextColor NOTIFY textColorChanged)
-    Q_PROPERTY(StateListColor* backgroundColor READ backgroundColor WRITE setBackgroundColor NOTIFY backgroundColorChanged)
-    Q_PROPERTY(StateListColor* borderColor READ borderColor WRITE setBorderColor NOTIFY borderColorChanged)
-    Q_PROPERTY(StateListColor* iconColor READ iconColor WRITE setIconColor NOTIFY iconColorChanged)
+    Q_PROPERTY(StateColor* textColor READ textColor WRITE setTextColor NOTIFY textColorChanged)
+    Q_PROPERTY(StateColor* backgroundColor READ backgroundColor WRITE setBackgroundColor NOTIFY backgroundColorChanged)
+    Q_PROPERTY(StateColor* borderColor READ borderColor WRITE setBorderColor NOTIFY borderColorChanged)
+    Q_PROPERTY(StateColor* iconColor READ iconColor WRITE setIconColor NOTIFY iconColorChanged)
     Q_PROPERTY(IconPosition iconPosition READ iconPosition WRITE setIconPosition NOTIFY iconPositionChanged)
     Q_PROPERTY(qreal minHeight READ minHeight WRITE setMinHeight NOTIFY minHeightChanged)
     Q_PROPERTY(qreal cornerRadius READ cornerRadius WRITE setCornerRadius NOTIFY cornerRadiusChanged)
@@ -91,17 +91,17 @@ public:
     ZButtonAppearance* appearance() const { return appearanece_; }
     void setAppearance(ZButtonAppearance * appearance);
 
-    StateListColor* textColor() const { return get<0>(&ZButtonAppearance::textColor_); }
-    void setTextColor(StateListColor* color);
+    StateColor* textColor() const { return get<0>(&ZButtonAppearance::textColor_); }
+    void setTextColor(StateColor* color);
 
-    StateListColor* backgroundColor() const { return get<1>(&ZButtonAppearance::backgroundColor_); }
-    void setBackgroundColor(StateListColor* color);
+    StateColor* backgroundColor() const { return get<1>(&ZButtonAppearance::backgroundColor_); }
+    void setBackgroundColor(StateColor* color);
 
-    StateListColor* borderColor() const { return get<2>(&ZButtonAppearance::borderColor_); }
-    void setBorderColor(StateListColor* color);
+    StateColor* borderColor() const { return get<2>(&ZButtonAppearance::borderColor_); }
+    void setBorderColor(StateColor* color);
 
-    StateListColor* iconColor() const { return get<3>(&ZButtonAppearance::iconColor_); }
-    void setIconColor(StateListColor* color);
+    StateColor* iconColor() const { return get<3>(&ZButtonAppearance::iconColor_); }
+    void setIconColor(StateColor* color);
 
     IconPosition iconPosition() const { return get<4>(&ZButtonAppearance::iconPosition_); }
     void setIconPosition(IconPosition position);
@@ -170,10 +170,10 @@ private:
     ZButtonAppearance * appearanece_ = nullptr;
     ZButtonAppearance* type_ = nullptr;
     ZButtonAppearance* size_ = nullptr;
-    StateListColor* textColor_ = nullptr;
-    StateListColor* backgroundColor_ = nullptr;
-    StateListColor* borderColor_ = nullptr;
-    StateListColor* iconColor_ = nullptr;
+    StateColor* textColor_ = nullptr;
+    StateColor* backgroundColor_ = nullptr;
+    StateColor* borderColor_ = nullptr;
+    StateColor* iconColor_ = nullptr;
     IconPosition iconPosition_ = Left;
     qreal minHeight_ = 0;
     qreal cornerRadius_ = 0;

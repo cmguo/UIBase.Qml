@@ -2,8 +2,8 @@
 #include "uibase/destiny.h"
 #include "uibase/colors.h"
 #include "uibase/statehandler.h"
-#include "uibase/statelistcolor.h"
-#include "uibase/statelistcolors.h"
+#include "uibase/statecolor.h"
+#include "uibase/statecolors.h"
 #include "widgets/zbuttonappearance.h"
 
 #include <QQmlEngine>
@@ -31,18 +31,18 @@ void UIBase::init()
         QQmlEngine::setObjectOwnership(&Colors::inst(), QQmlEngine::CppOwnership);
         return &Colors::inst();
     });
-    StateListColors::init();
-    qmlRegisterSingletonType<StateListColors>("UIBase", 1, 0, "StateListColors",
+    StateColors::init();
+    qmlRegisterSingletonType<StateColors>("UIBase", 1, 0, "StateListColors",
                                               [](QQmlEngine*, QJSEngine*) -> QObject* {
-        QQmlEngine::setObjectOwnership(&StateListColors::inst(), QQmlEngine::CppOwnership);
-        return &StateListColors::inst();
+        QQmlEngine::setObjectOwnership(&StateColors::inst(), QQmlEngine::CppOwnership);
+        return &StateColors::inst();
     });
 #endif
 
     qmlRegisterType<StateHandler>("UIBase", 1, 0, "StateHandler");
+    qmlRegisterType<StateColorHandler>("UIBase", 1, 0, "StateColorHandler");
     qmlRegisterType<StateColor>("UIBase", 1, 0, "StateColor");
-    qmlRegisterType<StateListColor>("UIBase", 1, 0, "StateListColor");
-    qmlRegisterType<StateListColorItem>("UIBase", 1, 0, "StateListColorItem");
+    qmlRegisterType<StateColorItem>("UIBase", 1, 0, "StateColorItem");
 
     qmlRegisterType<ZButtonAppearance>("UIBase", 1, 0, "ZButtonAppearance");
 
