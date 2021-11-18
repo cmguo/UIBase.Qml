@@ -1,5 +1,6 @@
 import QtQuick 2.0
 import QtQuick.Controls 2.2
+import UIBase 1.0
 import "qrc:/uibase/qml/widgets"
 
 Item {
@@ -15,7 +16,7 @@ Item {
         anchors.left: parent.left
         anchors.leftMargin: 31
         radius: 15
-        color: "#F0F0F0"
+        color: "#F8F8F8"
 
         ListView {
             anchors.fill: parent
@@ -48,14 +49,16 @@ Item {
                 Item {
                     width: 98
                     height: 35
-                    Text {
+                    ZText {
+                        height: 30
                         text: name
-                        font.pixelSize: 24
                     }
-                    ProgressBar {
+                    ZProgressBar {
                         y: 34
                         width: parent.width
-                        height: 1
+                        height: 2
+                        backgroundColor: "#CFCFCF"
+                        progressColor: color
                         value: remain
                     }
                 }
@@ -72,7 +75,7 @@ Item {
         anchors.left: filament.left
         anchors.topMargin: 10
         radius: 15
-        color: "#F0F0F0"
+        color: "#F8F8F8"
 
         ListView {
             anchors.fill: parent
@@ -111,32 +114,34 @@ Item {
                     }
                     Rectangle {
                         id: line
-                        x: 46
                         height: 1
                         width: 47
+                        x: 46
                         anchors.verticalCenter: parent.verticalCenter
                         color: "#AEAEAE"
                     }
-                    Text {
-                        anchors.left: line.left
+                    ZText {
                         width: line.width
+                        height: 24
+                        anchors.left: line.left
+                        anchors.top: parent.top
                         horizontalAlignment: Text.AlignHCenter
                         text: current
-                        font.pixelSize: 24
                     }
-                    Text {
+                    ZText {
+                        width: line.width
+                        height: 24
                         anchors.left: line.left
                         anchors.bottom: parent.bottom
-                        width: line.width
                         horizontalAlignment: Text.AlignHCenter
                         text: target
-                        font.pixelSize: 24
                     }
-                    Text {
+                    ZText {
+                        height: 30
                         anchors.left: line.right
+                        horizontalAlignment: Text.AlignHCenter
                         anchors.verticalCenter: parent.verticalCenter
                         text: "°C"
-                        font.pixelSize: 24
                     }
                 }
             } // Component
@@ -152,7 +157,7 @@ Item {
         anchors.left: filament.left
         anchors.topMargin: 10
         radius: 15
-        color: "#F0F0F0"
+        color: "#F8F8F8"
 
         Image {
             x: 29
@@ -162,11 +167,11 @@ Item {
             source: ""
         }
 
-        Text {
+        ZText {
             x: 80
             anchors.verticalCenter: parent.verticalCenter
             text: qsTr("照明灯")
-            font.pixelSize: 18
+            font: Fonts.body_18
         }
     }
 
@@ -180,13 +185,13 @@ Item {
         anchors.bottom: parent.bottom
         anchors.bottomMargin: 37
         radius: 15
-        color: "#F0F0F0"
+        color: "#F8F8F8"
 
         Text {
             x: 62
             y: 39
+            font: Fonts.body_28
             text: "Robort_plane.3mf"
-            font.pixelSize: 28
         }
 
         Image {
@@ -195,10 +200,10 @@ Item {
         }
     }
 
-    Text {
+    ZText {
         id: desc
         anchors.centerIn: parent
-        font.pointSize: 40
-        text: qsTr("MainPage.qml")
+        font: Fonts.body_40
+        text: qsTr("主页（MainPage.qml）")
     }
 }

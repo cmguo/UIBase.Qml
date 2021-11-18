@@ -53,9 +53,20 @@ Item {
                 height: list.height / 5
 
                 ZButton {
+                    width: 74
+                    height: 74
                     anchors.centerIn: parent
-                    backgroundColor: StateListColors.get(
-                                         url == activeItem ? "#00AE42" : "transparent")
+                    property bool checked: url == activeItem
+                    backgroundColor: StateListColor {
+                        StateListColorItem {
+                            states: StateListColor.Checked
+                            color: "#00AE42"
+                        }
+                        StateListColorItem {
+                            states: StateListColor.Normal
+                            color: "#transparent"
+                        }
+                    }
 
                     Image {
                         anchors.centerIn: parent
@@ -65,6 +76,7 @@ Item {
                     onClicked: {
                         navigator.activeItem = url
                     }
+
                 }
             }
 

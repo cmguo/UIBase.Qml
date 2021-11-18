@@ -110,29 +110,28 @@ Item {
             }
 
         }
+    }
 
-        TapHandler {
-            id: tapHandler
-            onTapped: {
-                if (loading) {
-                    return
-                }
-                button.clicked()
+    TapHandler {
+        id: tapHandler
+        onTapped: {
+            if (loading) {
+                return
             }
+            button.clicked()
         }
+    }
 
-        HoverHandler {}
+    HoverHandler {}
 
-        StateColor {
-            id: textColor
-            colors: ap.textColor
-        }
+    StateColor {
+        id: textColor
+        colors: ap.textColor
+    }
 
-        StateColor {
-            id: backgroundColor
-            colors: ap.backgroundColor
-        }
-
+    StateColor {
+        id: backgroundColor
+        colors: ap.backgroundColor
     }
 
 }

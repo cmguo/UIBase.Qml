@@ -13,13 +13,18 @@ class StateListColorItem: public QObject
 {
     Q_OBJECT
 
-    Q_PROPERTY(int states MEMBER states_)
     Q_PROPERTY(QByteArray color MEMBER color_)
+    Q_PROPERTY(int states MEMBER states_)
 public:
     StateListColorItem();
+
+    QByteArray color() const { return color_; }
+
+    int states() const { return states_; }
+
 private:
-    int states_;
     QByteArray color_;
+    int states_;
 };
 
 class StateListColor: public QObject
@@ -28,6 +33,24 @@ class StateListColor: public QObject
 
     Q_PROPERTY(QQmlListProperty<StateListColorItem> colors READ colors)
     Q_CLASSINFO("DefaultProperty", "colors")
+
+public:
+    enum State {
+        Normal = 0,
+        Enabled = 1,
+        Checked = 2,
+        Pressed = 4,
+        Hovered = 8,
+        HalfChecked = 16,
+        Selected = 32,
+        Disabled = 1 << 16,
+        NotEnabled = 1 << 16,
+        NotChecked = 2 << 16,
+        NotPressed = 4 << 16,
+        NotHovered = 8 << 16,
+    };
+
+    Q_FLAG(State)
 
 public:
     typedef QColor (Colors::* StdColor)(void) const;
@@ -43,13 +66,27 @@ public:
     // single color
     StateListColor(StdColor color);
 
+    // single color
+    StateListColor(QByteArray const & color);
+
 signals:
     void changed();
 
 public:
-    StateListColor & operator()(QColor color, int states);
+    void append(QColor color, int states);
 
-    StateListColor & operator()(StdColor color, int states);
+    void append(StdColor color, int states);
+
+    void append(QByteArray const & color, int states);
+
+    void append(StateListColorItem * item);
+
+    void clear();
+
+public:
+    int count() const { return statesList_.size(); }
+
+    int stdColorCnt() const { return stdColorCnt_; }
 
     int states() const { return states_; }
 
@@ -68,11 +105,11 @@ private:
     }
 
     void fill(QPair<QColor, int> color) {
-        (*this)(color.first, color.second);
+        append(color.first, color.second);
     }
 
     void fill(QPair<StdColor, int> color) {
-        (*this)(color.first, color.second);
+        append(color.first, color.second);
     }
 
     void fill() {

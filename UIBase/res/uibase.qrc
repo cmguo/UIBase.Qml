@@ -189,5 +189,7 @@
         <file>qml/view/Icon.qml</file>
         <file>color/Color.js</file>
         <file>color/StateListColor.js</file>
+        <file>qml/view/Fonts.qml</file>
+        <file>qml/widgets/ZLoadingIndicator.qml</file>
     </qresource>
 </RCC>

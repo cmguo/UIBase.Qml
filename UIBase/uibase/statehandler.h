@@ -49,7 +49,7 @@ private:
     void onEnabledChanged();
 
 private slots:
-    void onCheckedChanged(bool checked);
+    void onCheckedChanged();
 
     void onPressedChanged();
 

@@ -42,8 +42,11 @@ void UIBase::init()
     qmlRegisterType<StateHandler>("UIBase", 1, 0, "StateHandler");
     qmlRegisterType<StateColor>("UIBase", 1, 0, "StateColor");
     qmlRegisterType<StateListColor>("UIBase", 1, 0, "StateListColor");
+    qmlRegisterType<StateListColorItem>("UIBase", 1, 0, "StateListColorItem");
 
     qmlRegisterType<ZButtonAppearance>("UIBase", 1, 0, "ZButtonAppearance");
+
+    qmlRegisterSingletonType(QUrl("qrc:/uibase/qml/view/Fonts.qml"), "UIBase", 1, 0, "Fonts");
 
     initialized = true;
 }

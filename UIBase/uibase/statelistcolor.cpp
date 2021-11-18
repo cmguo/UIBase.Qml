@@ -3,29 +3,28 @@
 
 StateListColor::StateListColor(QColor color)
 {
-    (*this)(color, 0);
+    append(color, 0);
 }
 
 StateListColor::StateListColor(StdColor color)
 {
-    (*this)(color, 0);
+    append(color, 0);
 }
 
-StateListColor &StateListColor::operator()(QColor color, int states)
+StateListColor::StateListColor(const QByteArray &color)
+{
+    append(color, 0);
+}
+
+void StateListColor::append(QColor color, int states)
 {
     statesList_.append(states);
     colors_.append(color);
     stdColors_.append(nullptr);
     states_ |= states;
-    return *this;
 }
 
-QQmlListProperty<StateListColorItem> StateListColor::colors()
-{
-    return {};
-}
-
-StateListColor &StateListColor::operator()(StdColor color, int states)
+void StateListColor::append(StdColor color, int states)
 {
     statesList_.append(states);
     colors_.append(nullptr);
@@ -34,7 +33,57 @@ StateListColor &StateListColor::operator()(StdColor color, int states)
         connect(&Colors::inst(), &Colors::changed, this, &StateListColor::changed);
     }
     states_ |= states;
-    return *this;
+}
+
+void StateListColor::append(const QByteArray &color, int states)
+{
+    StdColor c = Colors::inst().stdColor(color);
+    if (c) {
+        append(c, states);
+    } else {
+        QColor c1(color.data());
+        if (c1.isValid()) {
+            append(c1, states);
+        }
+    }
+}
+
+void StateListColor::append(StateListColorItem *item)
+{
+    append(item->color(), item->states());
+}
+
+void StateListColor::clear()
+{
+    statesList_.clear();
+    colors_.clear();
+    stdColors_.clear();
+    if (stdColorCnt_ > 0)
+        Colors::inst().disconnect(this);
+    stdColorCnt_ = 0;
+    states_ = 0;
+}
+
+static void appendColor(QQmlListProperty<StateListColorItem>*list, StateListColorItem*p) {
+    reinterpret_cast< StateListColor* >(list->data)->append(p);
+}
+static int colorCount(QQmlListProperty<StateListColorItem>*list) {
+    return reinterpret_cast< StateListColor* >(list->data)->count();
+}
+static StateListColorItem* colorAt(QQmlListProperty<StateListColorItem>*, int) {
+    return nullptr;
+}
+static void clearColors(QQmlListProperty<StateListColorItem>*list) {
+    reinterpret_cast< StateListColor* >(list->data)->clear();
+}
+
+QQmlListProperty<StateListColorItem> StateListColor::colors()
+{
+    return {this, this,
+                 &appendColor,
+                 &colorCount,
+                 &colorAt,
+                 &clearColors};
 }
 
 QColor StateListColor::color()

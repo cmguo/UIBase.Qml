@@ -38,9 +38,9 @@ void StateHandler::onEnabledChanged()
     onStateChanged(Enabled, item_->isEnabled());
 }
 
-void StateHandler::onCheckedChanged(bool checked)
+void StateHandler::onCheckedChanged()
 {
-    onStateChanged(Checked, checked);
+    onStateChanged(Checked, item_->property("checked").toBool());
 }
 
 void StateHandler::onPressedChanged()
@@ -83,7 +83,8 @@ void StateHandler::bindTo(QQuickItem *item)
         if (checked.hasNotifySignal()) {
             if (checked.read(item).toBool())
                 states_ |= Checked;
-            connect(item, checked.notifySignal(), this, QMetaMethod::fromSignal(&StateHandler::objectNameChanged));
+            int i = metaObject()->indexOfMethod("onCheckedChanged()");
+            connect(item, checked.notifySignal(), this, metaObject()->method(i));
         }
     }
     QByteArray TapHandler{"QQuickTapHandler"};

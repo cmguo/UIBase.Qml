@@ -8,31 +8,20 @@ Text {
     property bool singleLine: false
     property bool needShowTipElide: false
 
-    id: taltext
-    width: Math.min(implicitWidth,parent.width)
-    height: implicitHeight
-    property ZTextStyle talStyle: ZTextStyle { }
-    font {
-        family: talStyle.fontFamily();
-        pixelSize: talStyle.fontPixelSize()
-        bold: talStyle.fontBold
-    }
-    color: talStyle.fontColor()
-    Keys.enabled: needShowTipElide
-    opacity: talStyle.fontOpacity
+    font: Fonts.body_24
+    color: "#2C2C2E"
     verticalAlignment: Text.AlignVCenter
-    horizontalAlignment: Text.AlignLeft
     wrapMode: singleLine ? Text.Normal : Text.WrapAnywhere
     elide: Text.ElideRight
 
-    ZMouseArea {
-        id: mouseArea
-        anchors.fill: parent
-        visible: needShowTipElide
+    HoverHandler {
+        id: hoverHandler
+        enabled: needShowTipElide
     }
+
     ToolTip {
-        ToolTip.timeout: 3000
-        visible: mouseArea.state == mouseArea.stateHovered && needShowTipElide && taltext.truncated
-        text: taltext.text
+        timeout: 3000
+        visible: hoverHandler.hovered && needShowTipElide && taltext.truncated
+        text: parent.text
     }
 }

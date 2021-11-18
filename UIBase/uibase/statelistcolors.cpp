@@ -108,17 +108,13 @@ StateListColor *StateListColors::get(QByteArray const & name)
         return nullptr;
     auto c = colors_.value(name);
     if (c == nullptr) {
-        auto c1 = Colors::inst().stdColor(name);
-        if (c1) {
-            c = new StateListColor(c1);
+        c = new StateListColor(name);
+        if (c->stdColorCnt()) {
             QQmlEngine::setObjectOwnership(c, QQmlEngine::CppOwnership);
             colors_.insert(name, c);
-        }
-    }
-    if (c == nullptr) {
-        QColor c1(name.data());
-        if (c1.isValid()) {
-            return new StateListColor(c1);
+        } else if (c->count() == 0) {
+            delete c;
+            c = nullptr;
         }
     }
     return c;

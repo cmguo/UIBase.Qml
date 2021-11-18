@@ -7,7 +7,7 @@ Item {
 
     Rectangle {
         anchors.fill: parent
-        color: "#F8F8F8"
+        color: "#F0F0F0"
     }
 
     Navigator {
@@ -39,12 +39,11 @@ Item {
 
     Component {
         id: pageComponent
-        Rectangle {
+
+        Item {
             id: page
-            clip: true
             property url url
             anchors.fill: parent
-            color: "white"
 
             TapHandler {
                 //Eats mouse events
