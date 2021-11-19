@@ -2,7 +2,7 @@ pragma Singleton
 import QtQuick 2.0
 
 Item {
-    readonly property string family: "思源黑体 CN Regular"
+    readonly property string family: "HarmonyOS Sans SC"
 
     readonly property var body_18: Qt.font({
         family: family,

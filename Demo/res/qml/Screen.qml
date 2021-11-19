@@ -68,7 +68,7 @@ Item {
                 model: 4
                 delegate: Shape {
                     ShapePath {
-                        strokeColor: index <= strength ? "#1C1C1E" : "gray"
+                        strokeColor: index <= strength ? "#1C1C1E" : "transparent"
                         strokeWidth: 2
                         fillColor: "transparent"
                         PathAngleArc {
