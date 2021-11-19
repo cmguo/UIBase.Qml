@@ -20,5 +20,6 @@
         <file>qml/AxisPage.qml</file>
         <file>qml/AMSPage.qml</file>
         <file>qml/AdjustPage.qml</file>
+        <file>qml/NumberPad.qml</file>
     </qresource>
 </RCC>

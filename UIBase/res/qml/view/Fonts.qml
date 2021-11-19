@@ -8,6 +8,10 @@ Item {
         family: family,
         pixelSize: 18
     })
+    readonly property var body_20: Qt.font({
+        family: family,
+        pixelSize: 20
+    })
     readonly property var body_24: Qt.font({
         family: family,
         pixelSize: 24

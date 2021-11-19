@@ -24,7 +24,7 @@ void UIBase::init()
 
 #if QT_VERSION >= QT_VERSION_CHECK(5, 15, 0)
     qmlRegisterSingletonInstance<Colors>("UIBase", 1, 0, "Colors", &Colors::inst());
-    qmlRegisterSingletonInstance<StateListColors>("UIBase", 1, 0, "StateListColors", &StateListColors::inst());
+    qmlRegisterSingletonInstance<StateColors>("UIBase", 1, 0, "StateColors", &StateColors::inst());
 #else
     qmlRegisterSingletonType<Colors>("UIBase", 1, 0, "Colors",
                                      [](QQmlEngine*, QJSEngine*) -> QObject* {
