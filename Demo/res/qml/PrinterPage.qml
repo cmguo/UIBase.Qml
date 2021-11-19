@@ -4,10 +4,28 @@ Item {
 
     anchors.fill: parent
 
-    Text {
-        id: desc
-        anchors.centerIn: parent
-        font.pointSize: 40
-        text: qsTr("PrinterPage.qml")
+
+    TabBar {
+        activePage: "TempraturePage"
+        pages: ListModel {
+            id: tabButtons
+            ListElement {
+                name: "TempraturePage"
+                title: "温度控制"
+            }
+            ListElement {
+                name: "AxisPage"
+                title: "轴偏移"
+            }
+            ListElement {
+                name: "AMSPage"
+                title: "上/下料"
+            }
+            ListElement {
+                name: "AdjustPage"
+                title: "机器校准"
+            }
+        }
     }
+
 }

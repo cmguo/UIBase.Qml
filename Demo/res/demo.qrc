@@ -15,5 +15,10 @@
         <file>qml/AssistantPage.qml</file>
         <file>qml/RecorderPage.qml</file>
         <file>qml/LanguagePage.qml</file>
+        <file>qml/TabBar.qml</file>
+        <file>qml/TempraturePage.qml</file>
+        <file>qml/AxisPage.qml</file>
+        <file>qml/AMSPage.qml</file>
+        <file>qml/AdjustPage.qml</file>
     </qresource>
 </RCC>

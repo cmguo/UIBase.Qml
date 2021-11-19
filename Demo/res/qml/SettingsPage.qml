@@ -5,45 +5,9 @@ Item {
 
     anchors.fill: parent
 
-    property string activePage
-
-    ListView {
-        id: tabBar
-        anchors.left: parent.left
-        anchors.top: parent.top
-        anchors.topMargin: 20
-        anchors.bottomMargin: 20
-        width: parent.width
-        height: 61
-        orientation: Qt.Horizontal
-        delegate: tabButton
-        model: tabButtons
-
-        Component {
-            id: tabButton
-
-            Item {
-                width: tabBar.width / 5
-                height: tabBar.height
-
-                ZButton {
-                    width: 150
-                    height: 62
-                    anchors.centerIn: parent
-                    text: title
-                    textSize: 30
-                    property bool checked: name == activePage
-                    textColor: StateColors.get("font2_checked")
-                    backgroundColor: StateColors.get("transparent_checked")
-
-                    onClicked: {
-                        activePage = name
-                    }
-                }
-            }
-        }
-
-        ListModel {
+    TabBar {
+        activePage: "UserPage"
+        pages: ListModel {
             id: tabButtons
             ListElement {
                 name: "UserPage"
@@ -66,45 +30,6 @@ Item {
                 title: "语言设置"
             }
         }
-
     }
 
-    Item {
-        id: pageContainer
-        width: parent.width
-        height: parent.height - tabBar.height - 40
-        anchors.left: parent.left
-        anchors.bottom: parent.bottom
-    }
-
-
-    Component.onCompleted: {
-        activePage = "UserPage"
-    }
-
-    Component {
-        id: pageComponent
-
-        Item {
-            id: page
-            clip: true
-            property url url
-            anchors.fill: parent
-
-            Loader{
-                focus: true
-                source: parent.url
-                anchors.fill: parent
-            }
-        }
-    }
-
-    onActivePageChanged: {
-        var c = pageContainer.children[0]
-        if (c) {
-            c.destroy()
-            c.parent = null
-        }
-        pageComponent.createObject(pageContainer, { url: "qrc:/uidemo/qml/" + activePage + ".qml" })
-    }
 }
