@@ -22,7 +22,7 @@ Item {
                 c.destroy()
                 c.parent = null
             }
-            pageComponent.createObject(pageContainer, { url: navigator.activeItem })
+            pageComponent.createObject(pageContainer, { url: navigator.activeItem + "Page.qml" })
         }
     }
 

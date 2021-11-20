@@ -1,4 +1,4 @@
-import QtQuick 2.0
+import QtQuick 2.12
 import UIBase 1.0
 
 Item {
@@ -8,7 +8,6 @@ Item {
     TabBar {
         activePage: "UserPage"
         pages: ListModel {
-            id: tabButtons
             ListElement {
                 name: "UserPage"
                 title: "个人账号"

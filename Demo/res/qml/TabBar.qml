@@ -1,5 +1,6 @@
 import QtQuick 2.0
 import UIBase 1.0
+import "qrc:/uibase/qml/widgets"
 
 Item {
 
@@ -24,7 +25,7 @@ Item {
             id: tabButton
 
             Item {
-                width: tabBar.width / 5
+                width: tabBar.width / pages.count
                 height: tabBar.height
 
                 ZButton {

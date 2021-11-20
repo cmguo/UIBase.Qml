@@ -7,7 +7,7 @@ Item {
     height: 720
 
     property StateListColor statelistcolor: StateListColors.get("blue_100_pressed_disabled")
-    property int buttonSize2: ZButtonAppearance.Small
+    property int size2: ZButtonAppearance.Small
 
     Rectangle {
         anchors.fill: parent
@@ -25,56 +25,56 @@ Item {
 
         ZButton {
             id: primitive
-            buttonType: ZButtonAppearance.Primitive
-            buttonSize: buttonSize2
+            type: ZButtonAppearance.Primitive
+            size: size2
             anchors.horizontalCenter: parent.horizontalCenter
             y: 100
             text: "Button 1"
             onClicked: {
-                buttonSize2 = ZButtonAppearance.Large
+                size2 = ZButtonAppearance.Large
             }
         }
 
         ZButton {
             id: secondary
-            buttonType: ZButtonAppearance.Secondary
-            buttonSize: buttonSize2
+            type: ZButtonAppearance.Secondary
+            size: size2
             anchors.horizontalCenter: parent.horizontalCenter
             y: 200
             text: "Button 2"
             onClicked: {
-                buttonSize2 = ZButtonAppearance.Middle
+                size2 = ZButtonAppearance.Middle
             }
         }
 
         ZButton {
             id: tertiary
-            buttonType: ZButtonAppearance.Tertiary
-            buttonSize: buttonSize2
+            type: ZButtonAppearance.Tertiary
+            size: size2
             anchors.horizontalCenter: parent.horizontalCenter
             y: 300
             text: "Button 3"
             onClicked: {
-                buttonSize2 = ZButtonAppearance.Small
+                size2 = ZButtonAppearance.Small
             }
         }
 
         ZButton {
             id: danger
-            buttonType: ZButtonAppearance.Danger
-            buttonSize: buttonSize2
+            type: ZButtonAppearance.Danger
+            size: size2
             anchors.horizontalCenter: parent.horizontalCenter
             y: 400
             text: "Button 4"
             onClicked: {
-                buttonSize2 = ZButtonAppearance.Thin
+                size2 = ZButtonAppearance.Thin
             }
         }
 
         ZButton {
             id: textLink
-            buttonType: ZButtonAppearance.TextLink
-            buttonSize: buttonSize2
+            type: ZButtonAppearance.TextLink
+            size: size2
             anchors.horizontalCenter: parent.horizontalCenter
             y: 500
             text: "Button 5"

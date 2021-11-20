@@ -10,20 +10,16 @@ Item {
         id: sdcard
         width: 541
         height: 300
-        anchors.left: parent.left
-        anchors.leftMargin: 14
-        anchors.top: parent.top
-        anchors.topMargin: 20
+        x: 14
+        y: 20
         radius: 20
         color: Colors.lightbg2
 
         ZText {
             id: sdTitle
             height: 34
-            anchors.left: parent.left
-            anchors.leftMargin: 42
-            anchors.top: parent.top
-            anchors.topMargin: 35
+            x: 42
+            y: 35
             font: Fonts.head_30
             color: Colors.font2
             text: qsTr("SD卡容量")
@@ -78,10 +74,8 @@ Item {
 
         ZText {
             id: certTitle
-            anchors.left: parent.left
-            anchors.leftMargin: 42
-            anchors.top: parent.top
-            anchors.topMargin: 35
+            x: 42
+            y: 35
             font: Fonts.head_30
             color: Colors.font2
             text: qsTr("认证")
@@ -102,10 +96,8 @@ Item {
 
         ZText {
             id: infoTitle
-            anchors.left: parent.left
-            anchors.leftMargin: 50
-            anchors.top: parent.top
-            anchors.topMargin: 35
+            x: 50
+            y: 35
             font: Fonts.head_30
             color: Colors.font2
             text: qsTr("关于本机")

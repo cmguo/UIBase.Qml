@@ -1,4 +1,4 @@
-import QtQuick 2.0
+import QtQuick 2.12
 import UIBase 1.0
 
 Item {
@@ -21,8 +21,7 @@ Item {
             height: 24
             anchors.left: parent.left
             anchors.leftMargin: 188
-            anchors.top: parent.top
-            anchors.topMargin: 45
+            y: 45
             font: Fonts.body_20
             color: Colors.font2
             text: qsTr("当前温度")
@@ -73,7 +72,7 @@ Item {
                     anchors.horizontalCenter: parent.left
                     anchors.horizontalCenterOffset: targetTitle.x + targetTitle.width / 2
                     anchors.verticalCenter: image.verticalCenter
-                    buttonType: ZButtonAppearance.Secondary
+                    type: ZButtonAppearance.Secondary
                     cornerRadius: 42
                     textSize: 30
                     text: "210"
@@ -114,10 +113,8 @@ Item {
         ZText {
             id: coldTitle
             height: 24
-            anchors.left: parent.left
-            anchors.leftMargin: 61
-            anchors.top: parent.top
-            anchors.topMargin: 45
+            x: 61
+            y: 45
             font: Fonts.body_20
             color: Colors.font2
             text: qsTr("冷却风扇")
@@ -167,8 +164,7 @@ Item {
                 ZText {
                     id: fanTitle
                     height: 30
-                    anchors.left: parent.right
-                    anchors.leftMargin: 43
+                    x: 43
                     anchors.verticalCenter: parent.verticalCenter
                     font: Fonts.body_28
                     color: Colors.font2
@@ -182,7 +178,7 @@ Item {
                     anchors.left: parent.right
                     anchors.leftMargin: 205
                     anchors.verticalCenter: parent.verticalCenter
-                    buttonType: ZButtonAppearance.Secondary
+                    type: ZButtonAppearance.Secondary
                     cornerRadius: 42
                     textSize: 30
                     text: state ? "开" : "关"
@@ -197,8 +193,7 @@ Item {
         id: numberPad
         width: 424
         height: 506
-        anchors.top: parent.top
-        anchors.topMargin: 20
+        y: 20
         anchors.right: parent.right
         anchors.rightMargin: 82
         visible: false

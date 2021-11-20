@@ -1,8 +1,7 @@
 import QtQuick 2.12
 import QtQuick.Controls 2.5
 import UIBase 1.0
-
-import "./"
+import "../view"
 
 Item {
 
@@ -10,12 +9,12 @@ Item {
 
     ZButtonAppearance {
         id: ap
-        buttonType: ZButtonAppearance.Primitive
-        buttonSize: ZButtonAppearance.Large
+        type: ZButtonAppearance.Primitive
+        size: ZButtonAppearance.Large
     }
 
-    property alias buttonType: ap.buttonType
-    property alias buttonSize: ap.buttonSize
+    property alias type: ap.type
+    property alias size: ap.size
     property alias appearance: ap.appearance
 
     property alias textColor: ap.textColor

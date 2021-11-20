@@ -19,8 +19,7 @@ Item {
         anchors.leftMargin: 68
         anchors.right: parent.right
         anchors.rightMargin: 95
-        anchors.top: parent.top
-        anchors.topMargin: 20
+        y: 20
         radius: 20
         color: Colors.lightbg2
         visible: true
@@ -38,8 +37,7 @@ Item {
             id: userName
             anchors.left: userIcon.right
             anchors.leftMargin: 25
-            anchors.top: parent.top
-            anchors.topMargin: 47
+            y: 47
             font: Fonts.body_36
             color: Colors.font2
             text: "Bambu"
@@ -59,7 +57,7 @@ Item {
             anchors.right: parent.right
             anchors.rightMargin: 55
             anchors.verticalCenter: parent.verticalCenter
-            buttonType: ZButtonAppearance.Secondary
+            type: ZButtonAppearance.Secondary
             text: "退出"
         }
     }

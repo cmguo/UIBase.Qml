@@ -1,8 +1,7 @@
 ﻿import QtQuick 2.12
 import QtQuick.Controls 2.5
-
 import UIBase 1.0
-
+import "../view"
 
 Text {
     property bool singleLine: false

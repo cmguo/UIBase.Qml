@@ -2,6 +2,7 @@
 #define ZBUTTONAPPEARANCE_H
 
 #include "uibase/statecolor.h"
+#include "bamboo/zbuttonappearance.h"
 
 #include <QObject>
 
@@ -11,8 +12,8 @@ class ZButtonAppearance : public QObject
 {
     Q_OBJECT
 
-    Q_PROPERTY(ButtonType buttonType READ buttonType WRITE setButtonType)
-    Q_PROPERTY(ButtonSize buttonSize READ buttonSize WRITE setButtonSize)
+    Q_PROPERTY(Type type READ type WRITE setType)
+    Q_PROPERTY(Size size READ size WRITE setSize)
     Q_PROPERTY(ZButtonAppearance* appearance READ appearance WRITE setAppearance)
 
     Q_PROPERTY(StateColor* textColor READ textColor WRITE setTextColor NOTIFY textColorChanged)
@@ -30,24 +31,17 @@ class ZButtonAppearance : public QObject
     Q_PROPERTY(qreal iconPadding READ iconPadding WRITE setIconPadding NOTIFY iconPaddingChanged)
 
 public:
-    enum ButtonType {
-        Primitive,
-        Secondary,
-        Tertiary,
-        Danger,
-        TextLink
+    enum Type {
+        BUTTON_TYPES
     };
 
-    Q_ENUM(ButtonType)
+    Q_ENUM(Type)
 
-    enum ButtonSize {
-        Large,
-        Middle,
-        Small,
-        Thin
+    enum Size {
+        BUTTON_SIZES
     };
 
-    Q_ENUM(ButtonSize)
+    Q_ENUM(Size)
 
     enum IconPosition {
         Left,
@@ -82,11 +76,11 @@ signals:
     void iconPaddingChanged();
 
 public:
-    ButtonType buttonType() const;
-    void setButtonType(ButtonType type);
+    Type type() const;
+    void setType(Type type);
 
-    ButtonSize buttonSize() const;
-    void setButtonSize(ButtonSize size);
+    Size size() const;
+    void setSize(Size size);
 
     ZButtonAppearance* appearance() const { return appearanece_; }
     void setAppearance(ZButtonAppearance * appearance);
@@ -160,8 +154,8 @@ private:
     void update(int set);
 
 private:
-    static QMap<ButtonType, ZButtonAppearance*> buttonTypes;
-    static QMap<ButtonSize, ZButtonAppearance*> buttonSizes;
+    static QMap<Type, ZButtonAppearance*> types;
+    static QMap<Size, ZButtonAppearance*> sizes;
 
     static void initEnumAppearance();
 

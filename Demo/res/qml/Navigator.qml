@@ -45,28 +45,23 @@ Item {
             model: ListModel {
                 ListElement {
                     name: "Main"
-                    icon: "qrc:/uibase/drawable/play.svg"
-                    url: "qrc:/uidemo/qml/MainPage.qml"
+                    icon: "qrc:/uibase/icon/play.svg"
                 }
                 ListElement {
                     name: "Printer"
-                    icon: "qrc:/uibase/drawable/setting1.svg"
-                    url: "qrc:/uidemo/qml/PrinterPage.qml"
+                    icon: "qrc:/uibase/icon/setting1.svg"
                 }
                 ListElement {
                     name: "Models"
-                    icon: "qrc:/uibase/drawable/dir.svg"
-                    url: "qrc:/uidemo/qml/ModelsPage.qml"
+                    icon: "qrc:/uibase/icon/dir.svg"
                 }
                 ListElement {
-                    objectName: "Assistant"
-                    icon: "qrc:/uibase/drawable/setting_abandend.svg"
-                    url: "qrc:/uidemo/qml/AssistantPage.qml"
+                    name: "Assistant"
+                    icon: "qrc:/uibase/icon/setting_abandend.svg"
                 }
                 ListElement {
-                    objectName: "Settings"
-                    icon: "qrc:/uibase/drawable/setting_abandend.svg"
-                    url: "qrc:/uidemo/qml/SettingsPage.qml"
+                    name: "Settings"
+                    icon: "qrc:/uibase/icon/setting_abandend.svg"
                 }
             }
         }
@@ -82,7 +77,7 @@ Item {
                     width: 74
                     height: 74
                     anchors.centerIn: parent
-                    property bool checked: url == activeItem
+                    property bool checked: name == activeItem
                     backgroundColor: StateColors.get("transparent_checked")
 
                     Image {
@@ -91,7 +86,7 @@ Item {
                     }
 
                     onClicked: {
-                        navigator.activeItem = url
+                        navigator.activeItem = name
                     }
 
                 }
@@ -100,7 +95,7 @@ Item {
         }
 
         Component.onCompleted: {
-            activeItem = "qrc:/uidemo/qml/MainPage.qml"
+            activeItem = "Main"
         }
     }
 

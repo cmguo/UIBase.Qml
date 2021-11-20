@@ -12,17 +12,14 @@ Item {
         anchors.leftMargin: 23
         anchors.right: parent.right
         anchors.rightMargin: 45
-        anchors.top: parent.top
-        anchors.topMargin: 20
+        y: 20
         radius: 20
         color: Colors.lightbg2
 
         ZText {
             id: infoTitle
-            anchors.left: parent.left
-            anchors.leftMargin: 65
-            anchors.top: parent.top
-            anchors.topMargin: 34
+            x: 65
+            y: 34
             font: Fonts.head_30
             color: Colors.font2
             text: qsTr("配置IPV4：")

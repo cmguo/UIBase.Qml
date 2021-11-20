@@ -9,20 +9,16 @@ Item {
         id: timelaspe
         width: 501
         height: 385
-        anchors.left: parent.left
-        anchors.leftMargin: 44
-        anchors.top: parent.top
-        anchors.topMargin: 20
+        x: 44
+        y: 20
         radius: 20
         color: Colors.lightbg2
 
         ZText {
             id: timelaspeTitle
             height: 30
-            anchors.left: parent.left
-            anchors.leftMargin: 49
-            anchors.top: parent.top
-            anchors.topMargin: 34
+            x: 49
+            y: 34
             font: Fonts.head_30
             color: Colors.font2
             text: qsTr("Timelapse")
@@ -42,8 +38,7 @@ Item {
         ZText {
             id: bitrateValue
             height: 30
-            anchors.left: parent.left
-            anchors.leftMargin: 376
+            x: 376
             anchors.top: bitrateTitle.top
             font: Fonts.body_30
             color: Colors.font2
@@ -101,10 +96,8 @@ Item {
         ZText {
             id: recorderTitle
             height: 30
-            anchors.left: parent.left
-            anchors.leftMargin: 51
-            anchors.top: parent.top
-            anchors.topMargin: 34
+            x: 51
+            y: 34
             font: Fonts.head_30
             color: Colors.font2
             text: qsTr("监控录像")
@@ -124,8 +117,7 @@ Item {
         ZText {
             id: bitrateValue2
             height: 30
-            anchors.left: parent.left
-            anchors.leftMargin: 364
+            x: 364
             anchors.top: bitrateTitle2.top
             font: Fonts.body_30
             color: Colors.font2

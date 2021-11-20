@@ -11,10 +11,8 @@ Item {
         id: chinese
         width: 261
         height: 115
-        anchors.left: parent.left
-        anchors.leftMargin: 73
-        anchors.top: parent.top
-        anchors.topMargin: 20
+        x: 73
+        y: 20
         property bool checked: language == "chinese"
         backgroundColor: StateColors.get("white_checked")
         text: "中文"

@@ -8,6 +8,8 @@
 
 #include <QQmlEngine>
 
+#include <widgets/zstepindicator.h>
+
 void UIBase::init()
 {
     static bool initialized = false;
@@ -45,11 +47,12 @@ void UIBase::init()
     qmlRegisterType<StateColorItem>("UIBase", 1, 0, "StateColorItem");
 
     qmlRegisterType<ZButtonAppearance>("UIBase", 1, 0, "ZButtonAppearance");
+    qmlRegisterType<ZStepIndicator>("UIBase", 1, 0, "ZStepIndicator");
 
     for (auto t : {"Fonts"})
         qmlRegisterSingletonType(QUrl("qrc:/uibase/qml/view/" + QByteArray(t) + ".qml"), "UIBase", 1, 0, t);
 
-    for (auto t : {"ZButton", "ZText", "ZProgressBar", "ZSwitch"})
+    for (auto t : {"ZButton", "ZText", "ZProgressBar", "ZSwitch", "ZStepBar"})
         qmlRegisterType(QUrl("qrc:/uibase/qml/widgets/" + QByteArray(t) + ".qml"), "UIBase", 1, 0, t);
 
     initialized = true;

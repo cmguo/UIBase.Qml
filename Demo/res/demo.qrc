@@ -21,5 +21,7 @@
         <file>qml/AMSPage.qml</file>
         <file>qml/AdjustPage.qml</file>
         <file>qml/NumberPad.qml</file>
+        <file>qml/Adjuster.qml</file>
+        <file>qml/SelectBar.qml</file>
     </qresource>
 </RCC>

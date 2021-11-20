@@ -1,0 +1,11 @@
+module UIBase
+
+depends QtQuick 2.12
+depends QtQuick.Controls 2.12
+
+singleton Fonts 1.0 view/Fonts.qml
+
+ZButton 1.0 widgets/ZButton.qml
+ZText 1.0 widgets/ZText.qml
+ZProgressBar 1.0 widgets/ZProgressBar.qml
+ZSwitch 1.0 widgets/ZSwitch.qml

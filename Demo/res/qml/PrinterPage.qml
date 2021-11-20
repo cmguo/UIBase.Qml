@@ -1,4 +1,4 @@
-import QtQuick 2.0
+import QtQuick 2.12
 
 Item {
 
@@ -8,7 +8,6 @@ Item {
     TabBar {
         activePage: "TempraturePage"
         pages: ListModel {
-            id: tabButtons
             ListElement {
                 name: "TempraturePage"
                 title: "温度控制"

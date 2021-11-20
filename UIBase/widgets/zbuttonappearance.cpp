@@ -4,13 +4,13 @@
 
 #include <QMap>
 
-QMap<ZButtonAppearance::ButtonType, ZButtonAppearance*> ZButtonAppearance::buttonTypes;
-QMap<ZButtonAppearance::ButtonSize, ZButtonAppearance*> ZButtonAppearance::buttonSizes;
+QMap<ZButtonAppearance::Type, ZButtonAppearance*> ZButtonAppearance::types;
+QMap<ZButtonAppearance::Size, ZButtonAppearance*> ZButtonAppearance::sizes;
 
 ZButtonAppearance::ZButtonAppearance(QObject *parent)
     : QObject(parent)
 {
-    if (buttonTypes.empty()) {
+    if (types.empty()) {
         initEnumAppearance();
     }
 }
@@ -36,18 +36,18 @@ ZButtonAppearance::ZButtonAppearance(qreal minHeight, qreal cornerRadius, qreal 
     set_ = 0xff << 5;
 }
 
-ZButtonAppearance::ButtonType ZButtonAppearance::buttonType() const
+ZButtonAppearance::Type ZButtonAppearance::type() const
 {
     if (type_ == nullptr)
         return Primitive;
-    return std::find_if(buttonTypes.begin(), buttonTypes.end(), [t = type_](auto v) {
+    return std::find_if(types.begin(), types.end(), [t = type_](auto v) {
         return v == t;
     }).key();
 }
 
-void ZButtonAppearance::setButtonType(ButtonType type)
+void ZButtonAppearance::setType(Type type)
 {
-    auto t = buttonTypes[type];
+    auto t = types[type];
     if (type_ == t)
         return;
     type_ = t;
@@ -55,18 +55,18 @@ void ZButtonAppearance::setButtonType(ButtonType type)
         update(t->set_ & ~set_);
 }
 
-ZButtonAppearance::ButtonSize ZButtonAppearance::buttonSize() const
+ZButtonAppearance::Size ZButtonAppearance::size() const
 {
     if (size_ == nullptr)
         return Large;
-    return std::find_if(buttonSizes.begin(), buttonSizes.end(), [s = size_](auto v) {
+    return std::find_if(sizes.begin(), sizes.end(), [s = size_](auto v) {
         return v == s;
     }).key();
 }
 
-void ZButtonAppearance::setButtonSize(ButtonSize size)
+void ZButtonAppearance::setSize(Size size)
 {
-    auto s = buttonSizes[size];
+    auto s = sizes[size];
     if (size_ == s)
         return;
     size_ = s;
