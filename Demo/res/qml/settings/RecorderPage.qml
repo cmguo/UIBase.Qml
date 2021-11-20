@@ -10,7 +10,6 @@ Item {
         width: 501
         height: 385
         x: 44
-        y: 20
         radius: 20
         color: Colors.lightbg2
 

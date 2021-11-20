@@ -1,9 +1,10 @@
 import QtQuick 2.12
+import "settings"
+import "printer"
 
 Item {
 
     width: parent.width - navigator.width
-    anchors.top: parent.top
     anchors.right: parent.right
 
     ListView {
@@ -33,4 +34,12 @@ Item {
         }
     }
 
+    AMSStatusIcons {
+    }
+
+    FanStatusIcon {
+    }
+
+    WifiStatusIcon {
+    }
 }

@@ -12,7 +12,6 @@ Item {
         anchors.leftMargin: 23
         anchors.right: parent.right
         anchors.rightMargin: 45
-        y: 20
         radius: 20
         color: Colors.lightbg2
 

@@ -9,10 +9,7 @@ Item {
         id: temprature
         width: 606
         height: 519
-        anchors.left: parent.left
-        anchors.leftMargin: 37
-        anchors.top: parent.top
-        anchors.topMargin: 20
+        x: 37
         radius: 20
         color: Colors.lightbg2
 

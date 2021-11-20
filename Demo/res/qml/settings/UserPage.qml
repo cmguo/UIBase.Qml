@@ -19,7 +19,6 @@ Item {
         anchors.leftMargin: 68
         anchors.right: parent.right
         anchors.rightMargin: 95
-        y: 20
         radius: 20
         color: Colors.lightbg2
         visible: true

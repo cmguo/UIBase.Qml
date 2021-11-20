@@ -9,20 +9,19 @@ Item {
     property var subdir
     property var pages
     property string activePage
+    property alias barHeight: tabBar.height
+    property alias buttonDelegate: tabBar.delegate
 
     ListView {
         id: tabBar
-        anchors.left: parent.left
-        anchors.top: parent.top
-        anchors.topMargin: 20
-        anchors.bottomMargin: 20
-        width: parent.width
-        height: 61
+        width: contentWidth
+        height: 80
+        anchors.horizontalCenter: parent.horizontalCenter
         orientation: Qt.Horizontal
         model: pages
         delegate: Component {
             Item {
-                width: tabBar.width / pages.count
+                width: pageContainer.width / pages.count
                 height: tabBar.height
 
                 ZButton {
@@ -47,8 +46,7 @@ Item {
     Item {
         id: pageContainer
         width: parent.width
-        height: parent.height - tabBar.height - 40
-        anchors.left: parent.left
+        height: parent.height - tabBar.height - 20
         anchors.bottom: parent.bottom
     }
 

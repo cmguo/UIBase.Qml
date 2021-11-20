@@ -10,7 +10,6 @@ Item {
         id: xyAxis
         height: 30
         x: 319
-        y: 20
         font: Fonts.body_24
         text: "X/Y轴"
     }
@@ -19,7 +18,6 @@ Item {
         id: zAxis
         height: 30
         x: 709
-        y: 20
         font: Fonts.body_24
         text: "Z轴"
     }
@@ -28,7 +26,6 @@ Item {
         id: eAxis
         height: 30
         x: 889
-        y: 20
         font: Fonts.body_24
         text: "E轴"
     }

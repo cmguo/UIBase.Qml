@@ -23,5 +23,8 @@
         <file>qml/main/ModelsPage.qml</file>
         <file>qml/main/MainPage.qml</file>
         <file>qml/main/AssistantPage.qml</file>
+        <file>qml/settings/WifiStatusIcon.qml</file>
+        <file>qml/printer/FanStatusIcon.qml</file>
+        <file>qml/printer/AMSStatusIcons.qml</file>
     </qresource>
 </RCC>

@@ -11,7 +11,6 @@ Item {
         width: 547
         height: 363
         x: 48
-        y: 20
         radius: 20
         color: Colors.lightbg2
 
@@ -74,7 +73,7 @@ Item {
     ZStepBar {
         anchors.left: ams.right
         anchors.leftMargin: 91
-        y: 50
+        y: 36
         stepColor: Colors.brand
         steps: ["选择指定仓位", "点击上(退)料按钮", "1号仓正在退出原仓内料", "正在上料", "完成"]
     }
