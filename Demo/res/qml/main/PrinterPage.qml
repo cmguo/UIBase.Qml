@@ -1,27 +1,28 @@
 import QtQuick 2.12
+import ".."
 
 Item {
 
     anchors.fill: parent
 
-
-    TabBar {
-        activePage: "TempraturePage"
+    BaseTabPage {
+        activePage: "Temprature"
+        subdir: "printer"
         pages: ListModel {
             ListElement {
-                name: "TempraturePage"
+                name: "Temprature"
                 title: "温度控制"
             }
             ListElement {
-                name: "AxisPage"
+                name: "Axis"
                 title: "轴偏移"
             }
             ListElement {
-                name: "AMSPage"
+                name: "AMS"
                 title: "上/下料"
             }
             ListElement {
-                name: "AdjustPage"
+                name: "Adjust"
                 title: "机器校准"
             }
         }

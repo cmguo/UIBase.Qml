@@ -5,23 +5,23 @@
         <file>qml/Screen.qml</file>
         <file>qml/TopBar.qml</file>
         <file>qml/Navigator.qml</file>
-        <file>qml/MainPage.qml</file>
-        <file>qml/PrinterPage.qml</file>
-        <file>qml/ModelsPage.qml</file>
-        <file>qml/SettingsPage.qml</file>
-        <file>qml/UserPage.qml</file>
-        <file>qml/NetworkPage.qml</file>
-        <file>qml/DevicePage.qml</file>
-        <file>qml/AssistantPage.qml</file>
-        <file>qml/RecorderPage.qml</file>
-        <file>qml/LanguagePage.qml</file>
-        <file>qml/TabBar.qml</file>
-        <file>qml/TempraturePage.qml</file>
-        <file>qml/AxisPage.qml</file>
-        <file>qml/AMSPage.qml</file>
-        <file>qml/AdjustPage.qml</file>
-        <file>qml/NumberPad.qml</file>
-        <file>qml/Adjuster.qml</file>
-        <file>qml/SelectBar.qml</file>
+        <file>qml/BaseTabPage.qml</file>
+        <file>qml/printer/TempraturePage.qml</file>
+        <file>qml/printer/SelectBar.qml</file>
+        <file>qml/printer/NumberPad.qml</file>
+        <file>qml/printer/AxisPage.qml</file>
+        <file>qml/printer/Adjuster.qml</file>
+        <file>qml/printer/AdjustPage.qml</file>
+        <file>qml/printer/AMSPage.qml</file>
+        <file>qml/settings/UserPage.qml</file>
+        <file>qml/settings/RecorderPage.qml</file>
+        <file>qml/settings/NetworkPage.qml</file>
+        <file>qml/settings/LanguagePage.qml</file>
+        <file>qml/settings/DevicePage.qml</file>
+        <file>qml/main/SettingsPage.qml</file>
+        <file>qml/main/PrinterPage.qml</file>
+        <file>qml/main/ModelsPage.qml</file>
+        <file>qml/main/MainPage.qml</file>
+        <file>qml/main/AssistantPage.qml</file>
     </qresource>
 </RCC>

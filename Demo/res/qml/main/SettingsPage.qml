@@ -1,31 +1,33 @@
 import QtQuick 2.12
 import UIBase 1.0
+import ".."
 
 Item {
 
     anchors.fill: parent
 
-    TabBar {
-        activePage: "UserPage"
+    BaseTabPage {
+        activePage: "User"
+        subdir: "settings"
         pages: ListModel {
             ListElement {
-                name: "UserPage"
+                name: "User"
                 title: "个人账号"
             }
             ListElement {
-                name: "DevicePage"
+                name: "Device"
                 title: "本机设置"
             }
             ListElement {
-                name: "NetworkPage"
+                name: "Network"
                 title: "网络设置"
             }
             ListElement {
-                name: "RecorderPage"
+                name: "Recorder"
                 title: "录像设置"
             }
             ListElement {
-                name: "LanguagePage"
+                name: "Language"
                 title: "语言设置"
             }
         }

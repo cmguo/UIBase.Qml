@@ -6,6 +6,7 @@ Item {
 
     anchors.fill: parent
 
+    property var subdir
     property var pages
     property string activePage
 
@@ -18,12 +19,8 @@ Item {
         width: parent.width
         height: 61
         orientation: Qt.Horizontal
-        delegate: tabButton
         model: pages
-
-        Component {
-            id: tabButton
-
+        delegate: Component {
             Item {
                 width: tabBar.width / pages.count
                 height: tabBar.height
@@ -34,7 +31,7 @@ Item {
                     anchors.centerIn: parent
                     text: title
                     textSize: 30
-                    property bool checked: name == activePage
+                    property bool checked: name === activePage
                     textColor: StateColors.get("font2_checked")
                     backgroundColor: StateColors.get("transparent_checked")
 
@@ -79,6 +76,6 @@ Item {
             c.destroy()
             c.parent = null
         }
-        pageComponent.createObject(pageContainer, { url: "qrc:/uidemo/qml/" + activePage + ".qml" })
+        pageComponent.createObject(pageContainer, { url: "qrc:/uidemo/qml/" + subdir + "/" + activePage + "Page.qml" })
     }
 }

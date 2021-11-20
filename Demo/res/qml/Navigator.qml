@@ -7,6 +7,7 @@ Item {
     id: navigator
 
     property string activeItem
+    property alias pages: list.model
 
     DropShadow {
         anchors.fill: content
@@ -42,28 +43,6 @@ Item {
             id: list
             anchors.fill: parent
             delegate: navItem
-            model: ListModel {
-                ListElement {
-                    name: "Main"
-                    icon: "qrc:/uibase/icon/play.svg"
-                }
-                ListElement {
-                    name: "Printer"
-                    icon: "qrc:/uibase/icon/setting1.svg"
-                }
-                ListElement {
-                    name: "Models"
-                    icon: "qrc:/uibase/icon/dir.svg"
-                }
-                ListElement {
-                    name: "Assistant"
-                    icon: "qrc:/uibase/icon/setting_abandend.svg"
-                }
-                ListElement {
-                    name: "Settings"
-                    icon: "qrc:/uibase/icon/setting_abandend.svg"
-                }
-            }
         }
 
         Component {
