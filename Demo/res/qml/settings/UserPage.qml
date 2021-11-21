@@ -61,10 +61,17 @@ Item {
         }
     }
 
+    Image {
+        id: qrcode
+        anchors.centerIn: parent
+        sourceSize: Qt.size(319, 319)
+        source: "image://QZXing/encode/https://blog.csdn.net/luansxx?requestSize=   "
+    }
+
 
     Text {
         id: desc
-        anchors.centerIn: parent
+        anchors .centerIn: parent
         font.pointSize: 40
         text: qsTr("UserPage.qml")
     }

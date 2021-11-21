@@ -4,13 +4,15 @@ import "qrc:/uibase/qml/widgets"
 
 Item {
 
-    anchors.fill: parent
-
     property var subdir
     property var pages
     property string activePage
     property alias barHeight: tabBar.height
     property alias buttonDelegate: tabBar.delegate
+    property var pageHandler
+
+    anchors.fill: parent
+    anchors.bottomMargin: pageHandler ? (parent.height - tabBar.height) : 0
 
     ListView {
         id: tabBar
@@ -69,6 +71,10 @@ Item {
     }
 
     onActivePageChanged: {
+        if (pageHandler) {
+            pageHandler.handle();
+            return;
+        }
         var c = pageContainer.children[0]
         if (c) {
             c.destroy()

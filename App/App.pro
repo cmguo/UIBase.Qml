@@ -40,3 +40,10 @@ else:unix: LIBS += -L$$OUT_PWD/../UIBase -lUIBase
 
 INCLUDEPATH += $$PWD/../UIBase
 DEPENDPATH += $$PWD/../UIBase
+
+win32:CONFIG(release, debug|release): LIBS += -L$$OUT_PWD/../qzxing/src/release/ -lQZXing
+else:win32:CONFIG(debug, debug|release): LIBS += -L$$OUT_PWD/../qzxing/src/debug/ -lQZXing
+else:unix: LIBS += -L$$OUT_PWD/../qzxing/src/ -lQZXing
+
+INCLUDEPATH += $$PWD/../qzxing/src
+DEPENDPATH += $$PWD/../qzxing/src

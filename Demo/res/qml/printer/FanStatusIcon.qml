@@ -11,7 +11,7 @@ QtObject {
         Image {
             width: 20
             height: 20
-            source: "fan.svg"
+            source: ""
 
             Rectangle {
                 anchors.fill: parent

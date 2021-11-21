@@ -12,8 +12,8 @@ int main(int argc, char* argv[])
     app.setOrganizationName("QtProject");
     app.setOrganizationDomain("qt-project.org");
     app.setApplicationName(QFileInfo(app.applicationFilePath()).baseName());
-    Demo::init();
     QQuickView view;
+    Demo::init(*view.engine());
     if (qgetenv("QT_QUICK_CORE_PROFILE").toInt()) {
         QSurfaceFormat f = view.format();
         f.setProfile(QSurfaceFormat::CoreProfile);

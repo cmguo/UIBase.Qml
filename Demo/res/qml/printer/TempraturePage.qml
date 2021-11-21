@@ -1,5 +1,7 @@
-import QtQuick 2.12
+import QtQuick 2.14
 import UIBase 1.0
+import ".."
+import "qrc:/uibase/qml/widgets"
 
 Item {
 
@@ -36,7 +38,7 @@ Item {
         }
 
         Repeater {
-            model: 3
+            model: printManager.tempratures
             delegate: Item {
                 height: 104
                 anchors.top: currentTitle.bottom
@@ -49,21 +51,21 @@ Item {
                     anchors.left: parent.left
                     anchors.leftMargin: 90
                     anchors.verticalCenter: parent.verticalCenter
+                    source: icon
                 }
 
                 ZText {
-                    id: current
                     height: 30
                     anchors.horizontalCenter: parent.left
                     anchors.horizontalCenterOffset: currentTitle.x + currentTitle.width / 2
                     anchors.verticalCenter: image.verticalCenter
                     font: Fonts.body_30
                     color: Colors.font2
-                    text: "60"
+                    text: current
                 }
 
                 ZButton {
-                    id: target
+                    id: targetButton
                     width: 148
                     height: 68
                     anchors.horizontalCenter: parent.left
@@ -72,19 +74,22 @@ Item {
                     type: ZButtonAppearance.Secondary
                     cornerRadius: 42
                     textSize: 30
-                    text: "210"
+                    text: target
+
+                    Binding on text {
+                        value: numberPad.number
+                        when: numberPad.target === targetButton
+                        // restoreMode: Binding.RestoreBinding
+                    }
 
                     onClicked: {
-                        numberPad.number = ""
-                        numberPad.visible = true
-                        text = numberPad.number
-                        numberPad.button = this
+                        numberPad.target = this
                     }
                 }
 
                 ZText {
                     id: degree
-                    anchors.left: target.right
+                    anchors.left: targetButton.right
                     anchors.leftMargin: 19
                     anchors.verticalCenter: image.verticalCenter
                     font: Fonts.body_30
@@ -184,26 +189,14 @@ Item {
             }
         }
 
-    }
+        NumberPad {
+            id: numberPad
+            anchors.fill: parent
 
-    NumberPad {
-        id: numberPad
-        width: 424
-        height: 506
-        y: 20
-        anchors.right: parent.right
-        anchors.rightMargin: 82
-        visible: false
-
-        property var button
-
-        onNumberChanged: {
-            button.text = number
+            onFinished: {
+            }
         }
 
-        onFinished: {
-            button = null
-        }
     }
 
     Text {

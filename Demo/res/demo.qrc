@@ -8,7 +8,6 @@
         <file>qml/BaseTabPage.qml</file>
         <file>qml/printer/TempraturePage.qml</file>
         <file>qml/printer/SelectBar.qml</file>
-        <file>qml/printer/NumberPad.qml</file>
         <file>qml/printer/AxisPage.qml</file>
         <file>qml/printer/Adjuster.qml</file>
         <file>qml/printer/AdjustPage.qml</file>
@@ -21,10 +20,15 @@
         <file>qml/main/SettingsPage.qml</file>
         <file>qml/main/PrinterPage.qml</file>
         <file>qml/main/ModelsPage.qml</file>
-        <file>qml/main/MainPage.qml</file>
+        <file>qml/main/HomePage.qml</file>
         <file>qml/main/AssistantPage.qml</file>
         <file>qml/settings/WifiStatusIcon.qml</file>
         <file>qml/printer/FanStatusIcon.qml</file>
         <file>qml/printer/AMSStatusIcons.qml</file>
+        <file>qml/printer/SpeedPage.qml</file>
+        <file>qml/models/ModelListPage.qml</file>
+        <file>qml/models/ModelDetailPage.qml</file>
+        <file>qml/main/Home2Page.qml</file>
+        <file>qml/NumberPad.qml</file>
     </qresource>
 </RCC>

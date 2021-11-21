@@ -13,24 +13,7 @@ QtObject {
             height: 20
             orientation: Qt.Horizontal
             spacing: 8
-            model: ListModel {
-                ListElement {
-                    amscolor: "#F3942B"
-                    remain: 11
-                }
-                ListElement {
-                    amscolor: "#EE4633"
-                    remain: 6
-                }
-                ListElement {
-                    amscolor: "#22A0FB"
-                    remain: 17
-                }
-                ListElement {
-                    amscolor: "#35D692"
-                    remain: 8
-                }
-            }
+            model: printManager.amsList
             delegate: Rectangle {
                 width: 17
                 height: 20
@@ -39,10 +22,10 @@ QtObject {
 
                 Rectangle {
                     width: 17
-                    height: remain
+                    height: remain * parent.height
                     anchors.bottom: parent.bottom
                     radius: 3
-                    color: amscolor
+                    color: fcolor
                 }
             }
         }

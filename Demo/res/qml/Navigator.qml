@@ -6,7 +6,7 @@ Item {
 
     id: navigator
 
-    property string activeItem
+    property string activePage
     property alias pages: list.model
 
     DropShadow {
@@ -56,7 +56,7 @@ Item {
                     width: 74
                     height: 74
                     anchors.centerIn: parent
-                    property bool checked: name == activeItem
+                    property bool checked: name == activePage
                     backgroundColor: StateColors.get("transparent_checked")
 
                     Image {
@@ -65,7 +65,7 @@ Item {
                     }
 
                     onClicked: {
-                        navigator.activeItem = name
+                        navigator.activePage = name
                     }
 
                 }
@@ -73,9 +73,6 @@ Item {
 
         }
 
-        Component.onCompleted: {
-            activeItem = "Main"
-        }
     }
 
 }
