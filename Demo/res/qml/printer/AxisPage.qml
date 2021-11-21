@@ -4,8 +4,6 @@ import "qrc:/uibase/qml"
 
 Item {
 
-    anchors.fill: parent
-
     ZText {
         id: xyAxis
         height: 30

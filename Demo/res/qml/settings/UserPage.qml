@@ -3,8 +3,6 @@ import UIBase 1.0
 
 Item {
 
-    anchors.fill: parent
-
     Image {
         anchors.centerIn: parent
         source: ""
@@ -29,7 +27,7 @@ Item {
             height: 120
             x: 15
             anchors.verticalCenter: parent.verticalCenter
-            source: "file"
+            source: ""
         }
 
         ZText {

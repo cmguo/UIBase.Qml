@@ -3,7 +3,7 @@
         <file>qml/Demo.qml</file>
         <file>qml/Test.qml</file>
         <file>qml/Screen.qml</file>
-        <file>qml/TopBar.qml</file>
+        <file>qml/StatusBar.qml</file>
         <file>qml/Navigator.qml</file>
         <file>qml/BaseTabPage.qml</file>
         <file>qml/printer/TempraturePage.qml</file>

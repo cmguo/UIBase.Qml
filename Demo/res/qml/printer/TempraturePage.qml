@@ -5,8 +5,6 @@ import "qrc:/uibase/qml/widgets"
 
 Item {
 
-    anchors.fill: parent
-
     Rectangle {
         id: temprature
         width: 606

@@ -4,7 +4,7 @@ import QtQuick.Shapes 1.12
 QtObject {
 
     Component.onCompleted: {
-        topBar.add("wifi", wifi)
+        statusBar.add("wifi", wifi)
     }
 
     property var wifi: Component {

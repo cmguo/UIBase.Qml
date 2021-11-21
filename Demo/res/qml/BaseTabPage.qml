@@ -1,4 +1,5 @@
-import QtQuick 2.0
+import QtQuick 2.12
+import QtQuick.Controls 2.12
 import UIBase 1.0
 import "qrc:/uibase/qml/widgets"
 
@@ -23,7 +24,7 @@ Item {
         model: pages
         delegate: Component {
             Item {
-                width: pageContainer.width / pages.count
+                width: pageStack.width / pages.count
                 height: tabBar.height
 
                 ZButton {
@@ -46,27 +47,13 @@ Item {
     }
 
     Item {
-        id: pageContainer
         width: parent.width
         height: parent.height - tabBar.height - 20
         anchors.bottom: parent.bottom
-    }
 
-
-    Component {
-        id: pageComponent
-
-        Item {
-            id: page
-            clip: true
-            property url url
+        StackView {
+            id: pageStack
             anchors.fill: parent
-
-            Loader{
-                focus: true
-                source: parent.url
-                anchors.fill: parent
-            }
         }
     }
 
@@ -75,11 +62,6 @@ Item {
             pageHandler.handle();
             return;
         }
-        var c = pageContainer.children[0]
-        if (c) {
-            c.destroy()
-            c.parent = null
-        }
-        pageComponent.createObject(pageContainer, { url: "qrc:/uidemo/qml/" + subdir + "/" + activePage + "Page.qml" })
+        pageStack.replace(null, "qrc:/uidemo/qml/" + subdir + "/" + activePage + "Page.qml")
     }
 }

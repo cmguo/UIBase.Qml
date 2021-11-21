@@ -3,7 +3,7 @@ import QtQuick 2.0
 QtObject {
 
     Component.onCompleted: {
-        topBar.add("fan", fan)
+        statusBar.add("fan", fan)
     }
 
     property var fan: Component {

@@ -3,8 +3,6 @@ import UIBase 1.0
 
 Item {
 
-    anchors.fill: parent
-
     Rectangle {
         id: timelaspe
         width: 501

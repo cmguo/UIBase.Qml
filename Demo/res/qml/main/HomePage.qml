@@ -8,7 +8,6 @@ import "qrc:/uibase/qml/widgets"
 Item {
 
     id: mainPage
-    anchors.fill: parent
 
     Rectangle {
         id: filament

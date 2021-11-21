@@ -4,8 +4,6 @@ import UIBase 1.0
 
 Item {
 
-    anchors.fill: parent
-
     Rectangle {
         id: sdcard
         width: 541

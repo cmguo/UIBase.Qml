@@ -4,8 +4,6 @@ import ".."
 
 Item {
 
-    anchors.fill: parent
-
     BaseTabPage {
         activePage: "User"
         subdir: "settings"

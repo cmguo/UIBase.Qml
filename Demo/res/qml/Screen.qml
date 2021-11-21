@@ -1,13 +1,27 @@
 import QtQuick 2.12
+import QtQuick.Controls 2.12
 
 Item {
 
+    id: screen
     width: 1280
     height: 720
 
     Rectangle {
         anchors.fill: parent
         color: "#F0F0F0"
+    }
+
+    Item {
+        width: parent.width - navigator.width
+        height: parent.height - statusBar.height
+        anchors.right: parent.right
+        anchors.bottom: parent.bottom
+
+        StackView {
+            id: pageStack
+            anchors.fill: parent
+        }
     }
 
     Navigator {
@@ -38,20 +52,15 @@ Item {
         }
         property string realPage: (printManager.printing && activePage == "Home") ? "Home2" : activePage
         onRealPageChanged: {
-            var c = pageContainer.children[0]
-            if (c) {
-                c.destroy()
-                c.parent = null
-            }
-            pageComponent.createObject(pageContainer, { url: "main/" + realPage + "Page.qml" })
+            pageStack.replace(null, "main/" + realPage + "Page.qml")
         }
         Component.onCompleted: {
             activePage = "Home"
         }
     }
 
-    TopBar {
-        id: topBar
+    StatusBar {
+        id: statusBar
         height: 48
 
         // for test
@@ -60,14 +69,6 @@ Item {
                 printManager.printing = !printManager.printing
             }
         }
-    }
-
-    Item {
-        id: pageContainer
-        width: parent.width - navigator.width
-        height: parent.height - topBar.height
-        anchors.right: parent.right
-        anchors.bottom: parent.bottom
     }
 
     property var printManager: QtObject {
@@ -119,25 +120,6 @@ Item {
 
         function printModel(name) {
             printing = true
-        }
-    }
-
-    Component {
-        id: pageComponent
-
-        Item {
-            id: page
-            property url url
-            anchors.fill: parent
-
-            TapHandler {
-                //Eats mouse events
-            }
-            Loader{
-                focus: true
-                source: parent.url
-                anchors.fill: parent
-            }
         }
     }
 

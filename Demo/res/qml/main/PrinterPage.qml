@@ -3,8 +3,6 @@ import ".."
 
 Item {
 
-    anchors.fill: parent
-
     BaseTabPage {
         activePage: "Temprature"
         subdir: "printer"

@@ -3,7 +3,7 @@ import QtQuick 2.12
 QtObject {
 
     Component.onCompleted: {
-        topBar.add("ams", ams)
+        statusBar.add("ams", ams)
     }
 
     property var ams: Component {

@@ -7,8 +7,6 @@ import "qrc:/uibase/qml/widgets"
 
 Item {
 
-    anchors.fill: parent
-
     BaseTabPage {
         id: tab
         barHeight: 60
