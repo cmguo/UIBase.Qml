@@ -21,6 +21,22 @@ Item {
         StackView {
             id: pageStack
             anchors.fill: parent
+            replaceEnter: Transition {
+                PropertyAnimation {
+                    property: "opacity"
+                    from: 0
+                    to:1
+                    duration: 200
+                }
+            }
+            replaceExit: Transition {
+                PropertyAnimation {
+                    property: "opacity"
+                    from: 1
+                    to:0
+                    duration: 200
+                }
+            }
         }
     }
 
@@ -67,6 +83,29 @@ Item {
         TapHandler {
             onTapped: {
                 printManager.printing = !printManager.printing
+            }
+        }
+    }
+
+    Item {
+        anchors.fill: parent
+        StackView {
+            id: dialogStack
+            anchors.fill: parent
+            function popDialog(dialog) {
+                push(dialog.url ? dialog.url : "dialog/" + dialog.name + ".qml", dialog)
+            }
+        }
+    }
+
+    Component {
+        id: dialogComp
+        Rectangle {
+            property url url
+            color: "#4D000000"
+            Loader {
+                source: parent.url
+                anchors.centerIn: parent
             }
         }
     }
