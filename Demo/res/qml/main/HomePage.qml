@@ -2,6 +2,7 @@ import QtQuick 2.12
 import QtQuick.Controls 2.12
 import UIBase 1.0
 import ".."
+import "../printer"
 import "qrc:/uibase/qml/widgets"
 
 Item {
@@ -27,6 +28,7 @@ Item {
             model: printManager.amsList
             delegate: Component {
                 Item {
+                    id: filamentItem
                     width: 98
                     height: 35
                     Rectangle {
@@ -59,6 +61,12 @@ Item {
                         progressColor: fcolor
                         value: remain
                     }
+
+                    TapHandler {
+                        onTapped: {
+                            filamentPad.target = filamentItem
+                        }
+                    }
                 }
             }
         }
@@ -84,6 +92,7 @@ Item {
             model: printManager.tempratures
             delegate: Component {
                 Item {
+                    id: tempratureItem
                     width: parent.width
                     height: 58
                     Image {
@@ -110,14 +119,14 @@ Item {
 
                             Binding on text {
                                 value: "/" + numberPad.number + "°C"
-                                when: numberPad.target === targetLabel
+                                when: numberPad.target === tempratureItem
                             }
                         }
                     }
 
                     TapHandler {
                         onTapped: {
-                            numberPad.target = targetLabel
+                            numberPad.target = tempratureItem
                         }
                     }
                 }
@@ -179,7 +188,19 @@ Item {
             id: numberPad
             anchors.fill: parent
 
-            onFinished: {
+            onTargetChanged: {
+                if (target != null)
+                    filamentPad.target = null
+            }
+        }
+
+        FilamentPad {
+            id: filamentPad
+            anchors.fill: parent
+
+            onTargetChanged: {
+                if (target != null)
+                    numberPad.target = null
             }
         }
     }

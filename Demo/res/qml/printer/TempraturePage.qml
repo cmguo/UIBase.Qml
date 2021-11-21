@@ -192,9 +192,6 @@ Item {
         NumberPad {
             id: numberPad
             anchors.fill: parent
-
-            onFinished: {
-            }
         }
 
     }

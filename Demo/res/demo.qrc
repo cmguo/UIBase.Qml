@@ -30,5 +30,6 @@
         <file>qml/models/ModelDetailPage.qml</file>
         <file>qml/main/Home2Page.qml</file>
         <file>qml/NumberPad.qml</file>
+        <file>qml/printer/FilamentPad.qml</file>
     </qresource>
 </RCC>
