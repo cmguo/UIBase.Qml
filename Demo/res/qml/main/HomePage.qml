@@ -210,4 +210,10 @@ Item {
         font: Fonts.body_40
         text: qsTr("主页（MainPage.qml）")
     }
+
+    TapHandler {
+        onTapped: {
+            dialogStack.popDialog("PrintFinish", { model: {imageUrl: "qrc:/uibase/icon/fish_test.jpg"}})
+        }
+    }
 }

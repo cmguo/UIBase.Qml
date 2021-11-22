@@ -32,5 +32,6 @@
         <file>qml/NumberPad.qml</file>
         <file>qml/printer/FilamentPad.qml</file>
         <file>qml/dialog/PrintFinish.qml</file>
+        <file>qml/Dialog.qml</file>
     </qresource>
 </RCC>
