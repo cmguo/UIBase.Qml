@@ -3,6 +3,7 @@
 #include <QPainterPath>
 #include <QQmlComponent>
 #include <QtMath>
+#include <QDebug>
 
 ZStepIndicator::ZStepIndicator(QObject *parent)
     : QObject(parent)
@@ -116,7 +117,6 @@ QObject *ZStepIndicator::path() const
     }
     ph.closeSubpath();
     QObject * path = createObject(this, "ShapePath", "QtQuick.Shapes", "1.12");
-    path->setProperty("closed", true);
     path->setProperty("fillColor", color_);
     path->setProperty("strokeColor", "transparent");
     addPath(path, ph);

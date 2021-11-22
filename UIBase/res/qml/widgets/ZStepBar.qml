@@ -9,7 +9,7 @@ Item {
         Vertical
     }
 
-    required property var steps
+    property var steps
     property int step: 0
 
     property real barWidth: 24

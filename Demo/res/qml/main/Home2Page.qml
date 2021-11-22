@@ -7,7 +7,6 @@ import "qrc:/uibase/qml/widgets"
 Item {
 
     id: mainPage
-    anchors.fill: parent
 
     Rectangle {
         id: printTask
@@ -24,7 +23,7 @@ Item {
             height: 319
             x: 38
             y: 30
-            source: "file"
+            source: ""
         }
 
         Rectangle {
