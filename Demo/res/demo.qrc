@@ -33,5 +33,9 @@
         <file>qml/printer/FilamentPad.qml</file>
         <file>qml/dialog/PrintFinish.qml</file>
         <file>qml/Dialog.qml</file>
+        <file>qml/dialog/PrintContinue.qml</file>
+        <file>qml/dialog/ColorConflict.qml</file>
+        <file>qml/dialog/ReplaceFilament.qml</file>
+        <file>qml/dialog/ColorRemap.qml</file>
     </qresource>
 </RCC>

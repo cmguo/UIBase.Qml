@@ -21,13 +21,14 @@ Rectangle {
     }
 
     Rectangle {
-        width: 128 + content.width + 128
+        width: Math.max(Math.max(btnList.width + 100, title.width + 210), 128 + content.width + 128)
         height: 102 + content.height + 180
         anchors.centerIn: parent
         radius: 15
         color: Colors.lightbg2
 
         ZText {
+            id: title
             x: 102
             y: 64
             font: Fonts.head_30
@@ -36,7 +37,7 @@ Rectangle {
 
         Loader {
             id: content
-            x: 102
+            anchors.horizontalCenter: parent.horizontalCenter
             y: 128
         }
 

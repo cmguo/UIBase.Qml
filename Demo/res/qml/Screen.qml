@@ -146,6 +146,43 @@ Item {
             }
         }
 
+        property var task: QtObject {
+            property var plates: ListModel{
+                ListElement {
+                    snapshot: ""
+                    done: true
+                }
+                ListElement {
+                    snapshot: ""
+                    done: false
+                }
+                ListElement {
+                    snapshot: ""
+                    done: false
+                }
+                ListElement {
+                    snapshot: ""
+                    done: false
+                }
+                ListElement {
+                    snapshot: ""
+                    done: false
+                }
+                ListElement {
+                    snapshot: ""
+                    done: true
+                }
+                ListElement {
+                    snapshot: ""
+                    done: false
+                }
+                ListElement {
+                    snapshot: ""
+                    done: false
+                }
+            }
+        }
+
         function printModel(name) {
             printing = true
         }
