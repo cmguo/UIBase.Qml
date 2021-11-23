@@ -22,7 +22,7 @@ Rectangle {
 
     Rectangle {
         width: 128 + content.width + 128
-        height: 102 + content.height + 160
+        height: 102 + content.height + 180
         anchors.centerIn: parent
         radius: 15
         color: Colors.lightbg2
@@ -66,6 +66,7 @@ Rectangle {
                 property int index2: index
                 property bool checked: index === content.item.defaultButton
                 onClicked: {
+                    content.item.buttonClicked(index2)
                     buttonClicked(index2, text)
                     timer.start();
                 }
@@ -77,4 +78,5 @@ Rectangle {
         }
 
     }
+
 }

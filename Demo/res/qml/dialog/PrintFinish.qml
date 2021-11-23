@@ -10,6 +10,10 @@ Item {
 
     property var model
 
+    function buttonClicked(index) {
+        console.log("buttonClicked " + index)
+    }
+
     width: text.x + text.contentWidth
     height: text.contentHeight
 
@@ -38,6 +42,8 @@ Item {
         id: desc
         anchors.centerIn: parent
         font.pointSize: 40
+        color: "#40000000"
         text: qsTr("PrintFinish.qml")
     }
+
 }
