@@ -109,6 +109,7 @@ Item {
         anchors.centerIn: parent
         anchors.verticalCenterOffset: 90
         font.pointSize: 40
+        color: "#40000000"
         text: qsTr("ModelListPage.qml")
     }
 }

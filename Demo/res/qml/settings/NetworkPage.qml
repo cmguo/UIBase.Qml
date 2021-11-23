@@ -42,6 +42,7 @@ DNS服务器：192.168.192.1"
         id: desc
         anchors.centerIn: parent
         font.pointSize: 40
+        color: "#40000000"
         text: qsTr("NetworkPage.qml")
     }
 }

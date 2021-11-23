@@ -208,6 +208,7 @@ Item {
         id: desc
         anchors.centerIn: parent
         font: Fonts.body_40
+        color: "#40000000"
         text: qsTr("主页（MainPage.qml）")
     }
 

@@ -198,6 +198,7 @@ Item {
         id: desc
         anchors.centerIn: parent
         font.pointSize: 40
+        color: "#40000000"
         text: qsTr("TempraturePage.qml")
     }
 }
