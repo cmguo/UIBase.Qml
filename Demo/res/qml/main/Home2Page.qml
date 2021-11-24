@@ -187,6 +187,7 @@ Item {
                     }
 
                     TapHandler {
+                        gesturePolicy: TapHandler.ReleaseWithinBounds
                         onTapped: {
                             numberPad.target = targetLabel
                         }

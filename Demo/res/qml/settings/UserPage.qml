@@ -63,7 +63,7 @@ Item {
         id: qrcode
         anchors.centerIn: parent
         sourceSize: Qt.size(319, 319)
-        source: "image://QZXing/encode/https://blog.csdn.net/luansxx?requestSize=   "
+        source: "image://QZXing/encode/https://blog.csdn.net/luansxx"
     }
 
 

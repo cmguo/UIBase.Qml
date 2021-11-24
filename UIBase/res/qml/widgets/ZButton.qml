@@ -118,6 +118,7 @@ Item {
 
     TapHandler {
         id: tapHandler
+        gesturePolicy: TapHandler.ReleaseWithinBounds
         onTapped: {
             if (loading) {
                 return

@@ -14,7 +14,6 @@ Rectangle {
 
     MouseArea {
         anchors.fill: parent
-        propagateComposedEvents: false
         onPressed: {
             mouse.accepted = true
         }

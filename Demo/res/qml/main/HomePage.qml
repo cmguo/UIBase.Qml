@@ -62,6 +62,7 @@ Item {
                     }
 
                     TapHandler {
+                        gesturePolicy: TapHandler.ReleaseWithinBounds
                         onTapped: {
                             filamentPad.target = filamentItem
                         }
@@ -124,6 +125,7 @@ Item {
                     }
 
                     TapHandler {
+                        gesturePolicy: TapHandler.ReleaseWithinBounds
                         onTapped: {
                             numberPad.target = tempratureItem
                         }
@@ -202,6 +204,12 @@ Item {
                     numberPad.target = null
             }
         }
+
+        TapHandler {
+            onTapped: {
+                dialogStack.popDialog("ColorRemap", { model: {imageUrl: "qrc:/uibase/icon/fish_test.jpg"}})
+            }
+        }
     }
 
     ZText {
@@ -210,11 +218,5 @@ Item {
         font: Fonts.body_40
         color: "#40000000"
         text: qsTr("主页（MainPage.qml）")
-    }
-
-    TapHandler {
-        onTapped: {
-            dialogStack.popDialog("ColorRemap", { model: {imageUrl: "qrc:/uibase/icon/fish_test.jpg"}})
-        }
     }
 }
