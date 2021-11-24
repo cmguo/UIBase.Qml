@@ -142,7 +142,7 @@ private:
             return true;
         }
         for (auto s :{appearanece_, type_, size_}) {
-            if (s && s->get<I>(f, t)) {
+            if (s && s->template get<I>(f, t)) {
                 return true;
             }
         }
