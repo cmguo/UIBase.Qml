@@ -207,7 +207,7 @@ Item {
 
         TapHandler {
             onTapped: {
-                dialogStack.popDialog("ColorRemap", { model: {imageUrl: "qrc:/uibase/icon/fish_test.jpg"}})
+                dialogStack.popDialog("PrintFailed", { model: {imageUrl: "qrc:/uibase/icon/fish_test.jpg"}})
             }
         }
     }

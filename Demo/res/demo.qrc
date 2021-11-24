@@ -37,5 +37,8 @@
         <file>qml/dialog/ColorConflict.qml</file>
         <file>qml/dialog/ReplaceFilament.qml</file>
         <file>qml/dialog/ColorRemap.qml</file>
+        <file>qml/dialog/PrintAbort.qml</file>
+        <file>qml/dialog/PrintFailed.qml</file>
+        <file>qml/dialog/PrintWarning.qml</file>
     </qresource>
 </RCC>
