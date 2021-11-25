@@ -1,9 +1,12 @@
 #include <QFileInfo>
 #include <QGuiApplication>
 #include <QQmlFileSelector>
+#include <QQuickItem>
 #include <QQuickView>
 
 #include <demo.h>
+
+// #define ROTATE_SCREEN -90
 
 int main(int argc, char* argv[])
 {
@@ -14,13 +17,13 @@ int main(int argc, char* argv[])
     app.setApplicationName(QFileInfo(app.applicationFilePath()).baseName());
     QQuickView view;
     Demo::init(*view.engine());
-    if (qgetenv("QT_QUICK_CORE_PROFILE").toInt()) {
+    if (qEnvironmentVariableIntValue("QT_QUICK_CORE_PROFILE")) {
         QSurfaceFormat f = view.format();
         f.setProfile(QSurfaceFormat::CoreProfile);
         f.setVersion(4, 4);
         view.setFormat(f);
     }
-    if (qgetenv("QT_QUICK_MULTISAMPLE").toInt()) {
+    if (qEnvironmentVariableIntValue("QT_QUICK_MULTISAMPLE")) {
         QSurfaceFormat f = view.format();
         f.setSamples(4);
         view.setFormat(f);
@@ -30,7 +33,31 @@ int main(int argc, char* argv[])
     view.setSource(QUrl("qrc:///uidemo/qml/Screen.qml"));
     if (view.status() == QQuickView::Error)
         return -1;
-    view.setResizeMode(QQuickView::SizeRootObjectToView);
+    int rotate = qEnvironmentVariableIntValue("QT_QUICK_ROTATE_SCREEN");
+    if (rotate == 0) {
+        view.setResizeMode(QQuickView::SizeRootObjectToView);
+    } else {
+        QQuickItem * root = view.rootObject();
+        QSizeF size{root->width(), root->height()};
+        view.resize(size.height(), size.width());
+        if (rotate == 90) {
+            root->setTransformOriginPoint({size.height() / 2, size.height() / 2});
+            root->setRotation(90);
+        } else {
+            struct MyTransform : public QQuickTransform {
+                MyTransform(QSizeF size) {
+                    tr_.rotate(270);
+                    tr_ *= QTransform::fromTranslate(0, size.width());
+                }
+                virtual void applyTo(QMatrix4x4 *matrix) const
+                {
+                    *matrix = *matrix * tr_;
+                }
+                QTransform tr_;
+            };
+            (new MyTransform(size))->appendToItem(root);
+        }
+    }
     view.show();
     return app.exec();
 }

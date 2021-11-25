@@ -1,7 +1,7 @@
 #ifndef DESTINY_H
 #define DESTINY_H
 
-#include "UiBase_global.h"
+#include "UIBase_global.h"
 
 #include <QObject>
 

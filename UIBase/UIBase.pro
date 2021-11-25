@@ -25,7 +25,7 @@ SOURCES += \
     uibase.cpp
 
 HEADERS += \
-    UiBase_global.h \
+    UIBase_global.h \
     uibase.h
 
 RESOURCES = res/uibase.qrc
