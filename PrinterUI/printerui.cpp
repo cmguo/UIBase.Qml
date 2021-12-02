@@ -3,6 +3,8 @@
 #include <printmanager.h>
 #include <modelmanager.h>
 #include <accountmanager.h>
+#include <devicemanager.h>
+#include <recordmanager.h>
 
 #include <uibase.h>
 
@@ -32,4 +34,15 @@ void PrinterUI::init(QQmlEngine & engine)
         QQmlEngine::setObjectOwnership(&AccountManager::inst(), QQmlEngine::CppOwnership);
         return &AccountManager::inst();
     });
+    qmlRegisterSingletonType<AccountManager>("Printer", 1, 0, "DeviceManager",
+                                     [](QQmlEngine*, QJSEngine*) -> QObject* {
+        QQmlEngine::setObjectOwnership(&DeviceManager::inst(), QQmlEngine::CppOwnership);
+        return &DeviceManager::inst();
+    });
+    qmlRegisterSingletonType<RecordManager>("Printer", 1, 0, "RecordManager",
+                                     [](QQmlEngine*, QJSEngine*) -> QObject* {
+        QQmlEngine::setObjectOwnership(&RecordManager::inst(), QQmlEngine::CppOwnership);
+        return &RecordManager::inst();
+    });
+
 }

@@ -15,19 +15,19 @@ void DeviceManager::formatSdcard()
 {
 }
 
-Build DeviceManager::build() const
+QVariant DeviceManager::build() const
 {
-    return {};
+    return QVariant::fromValue(Build{});
 }
 
-Sdcard DeviceManager::sdcard() const
+QVariant DeviceManager::sdcard() const
 {
-    return {};
+    return QVariant::fromValue(Sdcard{});
 }
 
-Network DeviceManager::network() const
+QVariant DeviceManager::network() const
 {
-    return {};
+    return QVariant::fromValue(Network{});
 }
 
 QString DeviceManager::language() const
@@ -56,12 +56,12 @@ QByteArray Build::version() const
 
 QByteArray Network::ipv4() const
 {
-    return {};
+    return "192.168.0.1";
 }
 
 QByteArray Network::mask() const
 {
-    return {};
+    return "255.255.255.0";
 }
 
 long Sdcard::capcity() const

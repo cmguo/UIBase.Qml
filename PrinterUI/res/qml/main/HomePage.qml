@@ -1,6 +1,7 @@
 import QtQuick 2.12
 import QtQuick.Controls 2.12
 import UIBase 1.0
+import Printer 1.0
 import ".."
 import "../printer"
 import "qrc:/uibase/qml/widgets"
@@ -24,7 +25,7 @@ Item {
             anchors.leftMargin: 13
             anchors.topMargin: 23
             spacing: 25
-            model: printManager.amsList
+            model: PrintManager.feeder.filaments
             delegate: Component {
                 Item {
                     id: filamentItem
@@ -49,7 +50,7 @@ Item {
                     ZText {
                         x: 37
                         height: 30
-                        text: name
+                        text: modelData.name
                     }
                     ZProgressBar {
                         x: 37
@@ -57,8 +58,8 @@ Item {
                         width: parent.width
                         height: 2
                         backgroundColor: "#CFCFCF"
-                        progressColor: fcolor
-                        value: remain
+                        progressColor: modelData.color
+                        value: modelData.remain
                     }
 
                     TapHandler {

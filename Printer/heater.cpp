@@ -10,13 +10,22 @@ QByteArray Heater::name() const
     return nullptr;
 }
 
+QString Heater::icon() const
+{
+    return nullptr;
+}
+
+static float t = 0;
+
 float Heater::targetTemp() const
 {
-    return 0;
+    return t;
 }
 
 void Heater::setTargetTemp(float value)
 {
+    t = value;
+    emit targetTempChanged();
 }
 
 float Heater::currentTemp() const

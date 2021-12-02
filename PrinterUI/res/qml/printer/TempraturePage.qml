@@ -1,5 +1,6 @@
 import QtQuick 2.12
 import UIBase 1.0
+import Printer 1.0
 import ".."
 import "qrc:/uibase/qml/widgets"
 
@@ -36,7 +37,7 @@ Item {
         }
 
         Repeater {
-            model: printManager.tempratures
+            model: PrintManager.heaters
             delegate: Item {
                 height: 104
                 anchors.top: currentTitle.bottom
@@ -49,7 +50,7 @@ Item {
                     anchors.left: parent.left
                     anchors.leftMargin: 90
                     anchors.verticalCenter: parent.verticalCenter
-                    source: icon
+                    source: modelData.icon
                 }
 
                 ZText {
@@ -59,7 +60,7 @@ Item {
                     anchors.verticalCenter: image.verticalCenter
                     font: Fonts.body_30
                     color: Colors.font2
-                    text: current
+                    text: modelData.currentTemp
                 }
 
                 ZButton {
@@ -72,16 +73,16 @@ Item {
                     type: ZButtonAppearance.Secondary
                     cornerRadius: 42
                     textSize: 30
-                    text: target
+                    text: modelData.targetTemp
 
                     Binding on text {
                         value: numberPad.number
-                        when: numberPad.target === targetButton
+                        when: numberPad.target === modelData
                         // restoreMode: Binding.RestoreBinding
                     }
 
                     onClicked: {
-                        numberPad.target = this
+                        numberPad.target = modelData
                     }
                 }
 
@@ -190,6 +191,10 @@ Item {
         NumberPad {
             id: numberPad
             anchors.fill: parent
+
+            onFinished: {
+                target.targetTemp = number
+            }
         }
 
     }

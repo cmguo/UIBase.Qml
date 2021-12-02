@@ -5,9 +5,9 @@ FilamentFeeder::FilamentFeeder(QObject *parent)
 {
 }
 
-QList<Filament> FilamentFeeder::filaments() const
+QVariantList FilamentFeeder::filaments() const
 {
-    return {};
+    return {QVariant::fromValue(Filament{}), QVariant::fromValue(Filament{}), QVariant::fromValue(Filament{}), QVariant::fromValue(Filament{})};
 }
 
 int FilamentFeeder::currentFilament() const

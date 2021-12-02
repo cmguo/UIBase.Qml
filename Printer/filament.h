@@ -14,6 +14,7 @@ class PRINTER_EXPORT Filament
     Q_PROPERTY(QByteArray meterial READ meterial CONSTANT)
     Q_PROPERTY(QColor color READ color CONSTANT)
     Q_PROPERTY(long weight READ weight CONSTANT)
+    Q_PROPERTY(float remain READ remain CONSTANT)
 
 public:
     Filament();
@@ -23,6 +24,7 @@ public:
     QByteArray meterial() const;
     QColor color() const;
     long weight() const;
+    float remain() const;
 };
 
 #endif // FILAMENT_H

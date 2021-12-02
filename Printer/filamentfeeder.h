@@ -4,12 +4,13 @@
 #include "filament.h"
 
 #include <QObject>
+#include <QVariant>
 
 class FilamentFeeder : public QObject
 {
     Q_OBJECT
 
-    Q_PROPERTY(QList<Filament> filaments READ filaments CONSTANT)
+    Q_PROPERTY(QVariantList filaments READ filaments CONSTANT)
 
     Q_PROPERTY(int currentFilament READ currentFilament WRITE setCurrentFilament NOTIFY currentFilamentChanged)
 
@@ -20,7 +21,7 @@ signals:
     void currentFilamentChanged();
 
 public:
-    QList<Filament> filaments() const;
+    QVariantList filaments() const;
 
     int currentFilament() const;
 

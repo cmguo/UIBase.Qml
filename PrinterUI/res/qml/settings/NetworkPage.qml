@@ -1,7 +1,10 @@
 import QtQuick 2.0
 import UIBase 1.0
+import Printer 1.0
 
 Item {
+
+    property var network: DeviceManager.network
 
     Rectangle {
         id: info
@@ -31,8 +34,8 @@ Item {
             color: Colors.font2
             singleLine: false
             lineHeight: 1.5
-            text: "IP 地址: 192.168.192.142
-子网掩码：255.255.254.0
+            text: "IP 地址: " + network.ipv4  +  "
+子网掩码：" + network.mask  +  "
 默认网关：192.168.192.1
 DNS服务器：192.168.192.1"
         }

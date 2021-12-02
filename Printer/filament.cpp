@@ -6,20 +6,25 @@ Filament::Filament()
 
 QByteArray Filament::name() const
 {
-    return nullptr;
+    return "PLA";
 }
 
 QByteArray Filament::meterial() const
 {
-    return nullptr;
+    return "PLA";
 }
 
 QColor Filament::color() const
 {
-    return Qt::transparent;
+    return Qt::red;
 }
 
 long Filament::weight() const
 {
     return 0;
+}
+
+float Filament::remain() const
+{
+    return 0.5;
 }

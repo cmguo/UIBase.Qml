@@ -4,6 +4,7 @@
 #include "Printer_global.h"
 
 #include <QObject>
+#include <QVariant>
 
 class PRINTER_EXPORT Sdcard
 {
@@ -47,9 +48,9 @@ class PRINTER_EXPORT DeviceManager : public QObject
 {
     Q_OBJECT
 
-    Q_PROPERTY(Build build READ build CONSTANT)
-    Q_PROPERTY(Sdcard sdcard READ sdcard NOTIFY sdcardChanged)
-    Q_PROPERTY(Network network READ network CONSTANT)
+    Q_PROPERTY(QVariant build READ build CONSTANT)
+    Q_PROPERTY(QVariant sdcard READ sdcard NOTIFY sdcardChanged)
+    Q_PROPERTY(QVariant network READ network CONSTANT)
     Q_PROPERTY(QString language READ language WRITE setLanguage NOTIFY languageChanged)
 
 public:
@@ -67,9 +68,9 @@ public slots:
     void formatSdcard();
 
 public:
-    Build build() const;
-    Sdcard sdcard() const;
-    Network network() const;
+    QVariant build() const;
+    QVariant sdcard() const;
+    QVariant network() const;
 
     QString language() const;
     void setLanguage(QString value);

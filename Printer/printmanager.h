@@ -3,6 +3,7 @@
 
 #include "Printer_global.h"
 #include "coolingfan.h"
+#include "filamentfeeder.h"
 #include "heater.h"
 #include "printtask.h"
 
@@ -16,6 +17,7 @@ class PRINTER_EXPORT PrintManager : public QObject
     Q_PROPERTY(QList<CoolingFan*> fans READ fans CONSTANT)
     Q_PROPERTY(bool isLightOn READ isLightOn WRITE setLightOn NOTIFY isLightOnChanged)
 
+    Q_PROPERTY(FilamentFeeder* feeder READ feeder CONSTANT)
     Q_PROPERTY(PrintTask* currentTask READ currentTask NOTIFY currentTaskChanged)
 
 public:
@@ -38,6 +40,8 @@ public:
 
     bool isLightOn() const;
     void setLightOn(bool on);
+
+    FilamentFeeder* feeder() const;
 
     PrintTask* currentTask() const;
 };

@@ -19,7 +19,7 @@ void PrintManager::print(const Model &model)
 
 QList<Heater *> PrintManager::heaters() const
 {
-    return {};
+    return {new Heater(), new Heater(), new Heater()};
 }
 
 QList<CoolingFan *> PrintManager::fans() const
@@ -34,6 +34,11 @@ bool PrintManager::isLightOn() const
 
 void PrintManager::setLightOn(bool on)
 {
+}
+
+FilamentFeeder *PrintManager::feeder() const
+{
+    return new FilamentFeeder;
 }
 
 PrintTask *PrintManager::currentTask() const
