@@ -1,5 +1,8 @@
+#include "accountmanager.h"
+#include "modelmanager.h"
 #include "printer.h"
+#include "printmanager.h"
 
-Printer::Printer()
+void Printer::init()
 {
 }

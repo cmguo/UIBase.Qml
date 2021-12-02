@@ -6,7 +6,7 @@
 class PRINTER_EXPORT Printer
 {
 public:
-    Printer();
+    static void init();
 };
 
 #endif // PRINTER_H

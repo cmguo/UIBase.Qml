@@ -54,3 +54,10 @@ else:unix: LIBS += -L$$OUT_PWD/../PrinterUI/ -lPrinterUI
 
 INCLUDEPATH += $$PWD/../PrinterUI
 DEPENDPATH += $$PWD/../PrinterUI
+
+win32:CONFIG(release, debug|release): LIBS += -L$$OUT_PWD/../Printer/release/ -lPrinter
+else:win32:CONFIG(debug, debug|release): LIBS += -L$$OUT_PWD/../Printer/debug/ -lPrinter
+else:unix: LIBS += -L$$OUT_PWD/../Printer/ -lPrinter
+
+INCLUDEPATH += $$PWD/../Printer
+DEPENDPATH += $$PWD/../Printer

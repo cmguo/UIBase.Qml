@@ -87,7 +87,7 @@ Item {
 //            c.destroy()
 //            c.parent = null
 //        }
-//        pageComponent.createObject(pageContainer, { url: "qrc:/uidemo/qml/" + subdir + "/" + activePage + "Page.qml" })
-        pageStack.replace(null, "qrc:/uidemo/qml/" + subdir + "/" + activePage + "Page.qml")
+//        pageComponent.createObject(pageContainer, { url: "" + subdir + "/" + activePage + "Page.qml" })
+        pageStack.replace(null, subdir + "/" + activePage + "Page.qml")
     }
 }

@@ -14,11 +14,11 @@ include(../config.pri)
 #DEFINES += QT_DISABLE_DEPRECATED_BEFORE=0x060000    # disables all the APIs deprecated before Qt 6.0.0
 
 SOURCES += \
-    printer.cpp
+    printerui.cpp
 
 HEADERS += \
     PrinterUI_global.h \
-    printer.h
+    printerui.h
 
 
 RESOURCES = res/printerui.qrc
@@ -42,3 +42,10 @@ else:unix: LIBS += -L$$OUT_PWD/../qzxing/src/ -lQZXing
 
 INCLUDEPATH += $$PWD/../qzxing/src
 DEPENDPATH += $$PWD/../qzxing/src
+
+win32:CONFIG(release, debug|release): LIBS += -L$$OUT_PWD/../Printer/release/ -lPrinter
+else:win32:CONFIG(debug, debug|release): LIBS += -L$$OUT_PWD/../Printer/debug/ -lPrinter
+else:unix: LIBS += -L$$OUT_PWD/../Printer/ -lPrinter
+
+INCLUDEPATH += $$PWD/../Printer
+DEPENDPATH += $$PWD/../Printer

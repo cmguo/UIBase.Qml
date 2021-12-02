@@ -1,5 +1,35 @@
-#include "printer.h"
+#include "printerui.h"
 
-Printer::Printer()
+#include <printmanager.h>
+#include <modelmanager.h>
+#include <accountmanager.h>
+
+#include <uibase.h>
+
+#define QZXING_QML
+#include <QZXing.h>
+
+#include <QQmlEngine>
+
+void PrinterUI::init(QQmlEngine & engine)
 {
+    UIBase::init();
+    QZXing::registerQMLTypes();
+    QZXing::registerQMLImageProvider(engine);
+
+    qmlRegisterSingletonType<PrintManager>("Printer", 1, 0, "PrintManager",
+                                     [](QQmlEngine*, QJSEngine*) -> QObject* {
+        QQmlEngine::setObjectOwnership(&PrintManager::inst(), QQmlEngine::CppOwnership);
+        return &PrintManager::inst();
+    });
+    qmlRegisterSingletonType<ModelManager>("Printer", 1, 0, "ModelManager",
+                                     [](QQmlEngine*, QJSEngine*) -> QObject* {
+        QQmlEngine::setObjectOwnership(&ModelManager::inst(), QQmlEngine::CppOwnership);
+        return &ModelManager::inst();
+    });
+    qmlRegisterSingletonType<AccountManager>("Printer", 1, 0, "AccountManager",
+                                     [](QQmlEngine*, QJSEngine*) -> QObject* {
+        QQmlEngine::setObjectOwnership(&AccountManager::inst(), QQmlEngine::CppOwnership);
+        return &AccountManager::inst();
+    });
 }

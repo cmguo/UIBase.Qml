@@ -1,12 +1,14 @@
-#ifndef PRINTER_H
-#define PRINTER_H
+#ifndef PRINTERUI_H
+#define PRINTERUI_H
 
 #include "PrinterUI_global.h"
 
-class PRINTERUI_EXPORT Printer
+class QQmlEngine;
+
+class PRINTERUI_EXPORT PrinterUI
 {
 public:
-    Printer();
+    static void init(QQmlEngine & engine);
 };
 
-#endif // PRINTER_H
+#endif // PRINTERUI_H

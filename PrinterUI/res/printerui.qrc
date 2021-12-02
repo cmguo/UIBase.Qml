@@ -1,7 +1,5 @@
 <RCC>
     <qresource prefix="/printerui">
-        <file>qml/Demo.qml</file>
-        <file>qml/Test.qml</file>
         <file>qml/Screen.qml</file>
         <file>qml/StatusBar.qml</file>
         <file>qml/Navigator.qml</file>
