@@ -1,4 +1,4 @@
-import QtQuick 2.0
+import QtQuick 2.12
 
 Item {
 
@@ -8,6 +8,12 @@ Item {
         font.pointSize: 40
         color: "#40000000"
         text: qsTr("AssistantPage.qml")
+    }
+
+    TapHandler {
+        onTapped: {
+            Qt.quit()
+        }
     }
 
 }

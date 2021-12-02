@@ -12,7 +12,7 @@ Text {
     verticalAlignment: Text.AlignVCenter
     wrapMode: singleLine ? Text.Normal : Text.WrapAnywhere
     elide: Text.ElideRight
-
+/*
     HoverHandler {
         id: hoverHandler
         enabled: showTipElide
@@ -22,5 +22,5 @@ Text {
         timeout: 3000
         visible: hoverHandler.hovered && showTipElide && taltext.truncated
         text: parent.text
-    }
+    }*/
 }

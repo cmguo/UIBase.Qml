@@ -5,6 +5,7 @@
 #include <QQuickView>
 
 #include <demo.h>
+#include <printerui.h>
 
 // #define ROTATE_SCREEN -90
 
@@ -16,7 +17,7 @@ int main(int argc, char* argv[])
     app.setOrganizationDomain("qt-project.org");
     app.setApplicationName(QFileInfo(app.applicationFilePath()).baseName());
     QQuickView view;
-    Demo::init(*view.engine());
+    PrinterUI::init(*view.engine());
     if (qEnvironmentVariableIntValue("QT_QUICK_CORE_PROFILE")) {
         QSurfaceFormat f = view.format();
         f.setProfile(QSurfaceFormat::CoreProfile);
@@ -30,7 +31,7 @@ int main(int argc, char* argv[])
     }
     view.connect(view.engine(), &QQmlEngine::quit, &app, &QCoreApplication::quit);
     new QQmlFileSelector(view.engine(), &view);
-    view.setSource(QUrl("qrc:///uidemo/qml/Screen.qml"));
+    view.setSource(QUrl("qrc:///printerui/qml/Screen.qml"));
     if (view.status() == QQuickView::Error)
         return -1;
     int rotate = qEnvironmentVariableIntValue("QT_QUICK_ROTATE_SCREEN");

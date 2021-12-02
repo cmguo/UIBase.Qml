@@ -1,0 +1,44 @@
+<RCC>
+    <qresource prefix="/printerui">
+        <file>qml/Demo.qml</file>
+        <file>qml/Test.qml</file>
+        <file>qml/Screen.qml</file>
+        <file>qml/StatusBar.qml</file>
+        <file>qml/Navigator.qml</file>
+        <file>qml/BaseTabPage.qml</file>
+        <file>qml/printer/TempraturePage.qml</file>
+        <file>qml/printer/SelectBar.qml</file>
+        <file>qml/printer/AxisPage.qml</file>
+        <file>qml/printer/Adjuster.qml</file>
+        <file>qml/printer/AdjustPage.qml</file>
+        <file>qml/printer/AMSPage.qml</file>
+        <file>qml/settings/UserPage.qml</file>
+        <file>qml/settings/RecorderPage.qml</file>
+        <file>qml/settings/NetworkPage.qml</file>
+        <file>qml/settings/LanguagePage.qml</file>
+        <file>qml/settings/DevicePage.qml</file>
+        <file>qml/main/SettingsPage.qml</file>
+        <file>qml/main/PrinterPage.qml</file>
+        <file>qml/main/ModelsPage.qml</file>
+        <file>qml/main/HomePage.qml</file>
+        <file>qml/main/AssistantPage.qml</file>
+        <file>qml/settings/WifiStatusIcon.qml</file>
+        <file>qml/printer/FanStatusIcon.qml</file>
+        <file>qml/printer/AMSStatusIcons.qml</file>
+        <file>qml/printer/SpeedPage.qml</file>
+        <file>qml/models/ModelListPage.qml</file>
+        <file>qml/models/ModelDetailPage.qml</file>
+        <file>qml/main/Home2Page.qml</file>
+        <file>qml/NumberPad.qml</file>
+        <file>qml/printer/FilamentPad.qml</file>
+        <file>qml/dialog/PrintFinish.qml</file>
+        <file>qml/Dialog.qml</file>
+        <file>qml/dialog/PrintContinue.qml</file>
+        <file>qml/dialog/ColorConflict.qml</file>
+        <file>qml/dialog/ReplaceFilament.qml</file>
+        <file>qml/dialog/ColorRemap.qml</file>
+        <file>qml/dialog/PrintAbort.qml</file>
+        <file>qml/dialog/PrintFailed.qml</file>
+        <file>qml/dialog/PrintWarning.qml</file>
+    </qresource>
+</RCC>

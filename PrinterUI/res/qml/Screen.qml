@@ -13,6 +13,7 @@ Item {
     }
 
     Item {
+        id: pageContainer
         width: parent.width - navigator.width
         height: parent.height - statusBar.height
         anchors.right: parent.right
@@ -21,22 +22,8 @@ Item {
         StackView {
             id: pageStack
             anchors.fill: parent
-            replaceEnter: Transition {
-                PropertyAnimation {
-                    property: "opacity"
-                    from: 0
-                    to:1
-                    duration: 200
-                }
-            }
-            replaceExit: Transition {
-                PropertyAnimation {
-                    property: "opacity"
-                    from: 1
-                    to:0
-                    duration: 200
-                }
-            }
+            replaceEnter: null
+            replaceExit: null
         }
     }
 
@@ -68,6 +55,12 @@ Item {
         }
         property string realPage: (printManager.printing && activePage == "Home") ? "Home2" : activePage
         onRealPageChanged: {
+//            var c = pageContainer.children[0]
+//            if (c) {
+//                c.destroy()
+//                c.parent = null
+//            }
+//            pageComponent.createObject(pageContainer, { url: "main/" + realPage + "Page.qml" })
             pageStack.replace(null, "main/" + realPage + "Page.qml")
         }
         Component.onCompleted: {
@@ -95,6 +88,29 @@ Item {
 
             function popDialog(dialog, args) {
                 push("Dialog.qml", {url: "dialog/" + dialog + ".qml", args: args})
+            }
+            pushEnter: null
+            pushExit: null
+            popEnter: null
+            popExit: null
+        }
+    }
+
+    Component {
+        id: pageComponent
+
+        Item {
+            id: page
+            property url url
+            anchors.fill: parent
+
+            TapHandler {
+                //Eats mouse events
+            }
+            Loader{
+                focus: true
+                source: parent.url
+                anchors.fill: parent
             }
         }
     }

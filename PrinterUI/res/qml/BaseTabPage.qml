@@ -24,7 +24,7 @@ Item {
         model: pages
         delegate: Component {
             Item {
-                width: pageStack.width / pages.count
+                width: pageContainer.width / pages.count
                 height: tabBar.height
 
                 ZButton {
@@ -47,6 +47,7 @@ Item {
     }
 
     Item {
+        id: pageContainer
         width: parent.width
         height: parent.height - tabBar.height - 20
         anchors.bottom: parent.bottom
@@ -54,6 +55,25 @@ Item {
         StackView {
             id: pageStack
             anchors.fill: parent
+            replaceEnter: null
+            replaceExit: null
+        }
+    }
+
+    Component {
+        id: pageComponent
+
+        Item {
+            id: page
+            clip: true
+            property url url
+            anchors.fill: parent
+
+            Loader{
+                focus: true
+                source: parent.url
+                anchors.fill: parent
+            }
         }
     }
 
@@ -62,6 +82,12 @@ Item {
             pageHandler.handle();
             return;
         }
+//        var c = pageContainer.children[0]
+//        if (c) {
+//            c.destroy()
+//            c.parent = null
+//        }
+//        pageComponent.createObject(pageContainer, { url: "qrc:/uidemo/qml/" + subdir + "/" + activePage + "Page.qml" })
         pageStack.replace(null, "qrc:/uidemo/qml/" + subdir + "/" + activePage + "Page.qml")
     }
 }

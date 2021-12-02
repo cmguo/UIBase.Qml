@@ -100,7 +100,7 @@ Item {
             visible: loading
             width: parent.width
             height: parent.height
-
+/*
             AnimatedImage  {
                 height: parent.height - Destiny.dp(2)
                 width: height
@@ -111,7 +111,7 @@ Item {
                 source: visible ? loadingIcon : ""
                 playing: true
                 antialiasing: true
-            }
+            }*/
 
         }
     }
