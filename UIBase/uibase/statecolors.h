@@ -27,7 +27,9 @@ private:
 
     template<typename ...Colors>
     void defineColor(char const * name, QPair<Colors, int>... colors) {
-        colors_.insert(name, new StateColor(colors...));
+        auto color = new StateColor(colors...);
+        color->setObjectName(name);
+        colors_.insert(name, color);
     }
 
 private:

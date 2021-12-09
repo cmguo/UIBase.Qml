@@ -30,16 +30,6 @@ Item {
                 title: "SD卡"
             }
         }
-        buttonDelegate: ZButton {
-            height: 60
-            paddingX: 18
-            textSize: 30
-            text: title
-            property bool checked: name === tab.activePage
-            onClicked: {
-                tab.activePage = name
-            }
-        }
         pageHandler: QtObject {
             function handle() {
                 modelsManager.load(tab.activePage)

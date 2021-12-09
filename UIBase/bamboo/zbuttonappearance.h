@@ -2,7 +2,7 @@
     Primitive, \
     Secondary, \
     Tertiary, \
-    Danger, \
+    Floating, \
     TextLink \
 
 #define BUTTON_SIZES \

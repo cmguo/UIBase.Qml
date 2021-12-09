@@ -30,27 +30,27 @@ Item {
     Navigator {
         id: navigator
         height: parent.height
-        width: 108
+        width: 128
         pages: ListModel {
             ListElement {
                 name: "Home"
-                icon: "qrc:/uibase/icon/play.svg"
+                icon: "home.svg"
             }
             ListElement {
                 name: "Printer"
-                icon: "qrc:/uibase/icon/setting1.svg"
+                icon: "print_control.svg"
             }
             ListElement {
                 name: "Models"
-                icon: "qrc:/uibase/icon/dir.svg"
+                icon: "file.svg"
             }
             ListElement {
                 name: "Settings"
-                icon: "qrc:/uibase/icon/setting_abandend.svg"
+                icon: "setting.svg"
             }
             ListElement {
                 name: "Assistant"
-                icon: "qrc:/uibase/icon/setting2.svg"
+                icon: "help.svg"
             }
         }
         property string realPage: (printManager.printing && activePage == "Home") ? "Home2" : activePage

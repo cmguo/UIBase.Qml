@@ -23,21 +23,7 @@ Item {
     Rectangle {
         id: content
         anchors.fill: parent
-        radius: 30
         color: "#3B3C40"
-
-        Rectangle {
-            width: 30
-            height: 30
-            color: "#3B3C40"
-        }
-
-        Rectangle {
-            width: 30
-            height: 30
-            anchors.bottom: parent.bottom
-            color: "#3B3C40"
-        }
 
         ListView {
             id: list
@@ -53,19 +39,33 @@ Item {
                 height: list.height / 5
 
                 ZButton {
-                    width: 74
-                    height: 74
+                    width: parent.width
+                    height: 112
                     anchors.centerIn: parent
                     property bool checked: name == activePage
-                    backgroundColor: StateColors.get("transparent_checked")
-
-                    Image {
-                        anchors.centerIn: parent
-                        source: icon
+                    backgroundColor: StateColor {
+                        StateColorItem { color: "graybg"; states: StateColor.Pressed }
+                        StateColorItem { color: "graybg"; states: StateColor.Checked }
+                        StateColorItem { color: "transparent"; states: StateColor.Normal }
                     }
+                    cornerRadius: 0
+                    icon: "../icon/" + model.icon
+                    iconSize: 52
 
                     onClicked: {
                         navigator.activePage = name
+                    }
+
+                    Rectangle {
+                        width: 9
+                        height: parent.height
+                        anchors.right: parent.right
+                        color: borderColor.color
+                    }
+
+                    StateColorHandler {
+                        id: borderColor
+                        stateColor: StateColors.get("transparent_checked_pressed2")
                     }
 
                 }

@@ -100,19 +100,12 @@ public slots:
 private:
     template<typename Color, typename ...Colors>
     void fill(QPair<Color, int> color, QPair<Colors, int>... colors) {
-        fill(color);
+        fillOne(color);
         fill(colors...);
     }
 
-    void fill(QPair<QColor, int> color) {
-        append(color.first, color.second);
-    }
-
-    void fill(QPair<Qt::GlobalColor, int> color) {
-        append(color.first, color.second);
-    }
-
-    void fill(QPair<StdColor, int> color) {
+    template<typename Color>
+    void fillOne(QPair<Color, int> color) {
         append(color.first, color.second);
     }
 

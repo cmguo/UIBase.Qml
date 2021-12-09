@@ -1,6 +1,7 @@
 #include "statecolorhandler.h"
 #include "statehandler.h"
 
+#include <QDebug>
 
 StateColorHandler::StateColorHandler()
     : stateColor_(nullptr)
@@ -50,6 +51,8 @@ void StateColorHandler::setStateColor(StateColor *stateColor)
 
 void StateColorHandler::onStatesChanged(int states)
 {
-    if (states & stateColor_->states())
+    if (states & stateColor_->states()) {
+        qDebug() << "onStatesChanged" << stateColor_->objectName() << (StateColor::State)states;
         emit changed(color());
+    }
 }

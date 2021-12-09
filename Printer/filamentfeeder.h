@@ -6,7 +6,7 @@
 #include <QObject>
 #include <QVariant>
 
-class FilamentFeeder : public QObject
+class PRINTER_EXPORT FilamentFeeder : public QObject
 {
     Q_OBJECT
 

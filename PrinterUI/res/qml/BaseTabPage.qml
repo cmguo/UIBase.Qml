@@ -32,10 +32,8 @@ Item {
                     height: 62
                     anchors.centerIn: parent
                     text: title
-                    textSize: 30
+                    type: ZButtonAppearance.Secondary
                     property bool checked: name === activePage
-                    textColor: StateColors.get("font2_checked")
-                    backgroundColor: StateColors.get("transparent_checked")
 
                     onClicked: {
                         activePage = name

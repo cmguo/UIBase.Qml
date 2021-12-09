@@ -44,5 +44,4 @@ void PrinterUI::init(QQmlEngine & engine)
         QQmlEngine::setObjectOwnership(&RecordManager::inst(), QQmlEngine::CppOwnership);
         return &RecordManager::inst();
     });
-
 }

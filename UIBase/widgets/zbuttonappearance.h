@@ -55,7 +55,8 @@ public:
 public:
     explicit ZButtonAppearance(QObject *parent = nullptr);
 
-    ZButtonAppearance(char const * textColor, char const * backgroundColor, char const * borderColor = nullptr);
+    ZButtonAppearance(char const * textColor, char const * backgroundColor, char const * borderColor = nullptr,
+                      QMap<QByteArray, qreal> const & sizes = {});
 
     ZButtonAppearance(qreal minHeight, qreal cornerRadius, qreal borderWidth,
                       qreal paddingX, qreal paddingY, qreal textSize, qreal iconSize, qreal iconPadding);

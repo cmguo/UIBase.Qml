@@ -38,5 +38,10 @@
         <file>qml/dialog/PrintAbort.qml</file>
         <file>qml/dialog/PrintFailed.qml</file>
         <file>qml/dialog/PrintWarning.qml</file>
+        <file>icon/file.svg</file>
+        <file>icon/help.svg</file>
+        <file>icon/home.svg</file>
+        <file>icon/print_control.svg</file>
+        <file>icon/setting.svg</file>
     </qresource>
 </RCC>

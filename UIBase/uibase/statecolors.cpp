@@ -36,6 +36,7 @@ StateColor *StateColors::get(QByteArray const & name)
         c = new StateColor(name);
         if (c->stdColorCnt()) {
             QQmlEngine::setObjectOwnership(c, QQmlEngine::CppOwnership);
+            c->setObjectName(name);
             colors_.insert(name, c);
         } else if (c->count() == 0) {
             delete c;

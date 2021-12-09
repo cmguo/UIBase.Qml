@@ -15,12 +15,17 @@ ZButtonAppearance::ZButtonAppearance(QObject *parent)
     }
 }
 
-ZButtonAppearance::ZButtonAppearance(const char *textColor, const char *backgroundColor, const char *borderColor)
+ZButtonAppearance::ZButtonAppearance(const char *textColor, const char *backgroundColor, const char *borderColor,
+                                     QMap<QByteArray, qreal> const & sizes)
 {
     backgroundColor_ = StateColors::inst().get(backgroundColor);
     textColor_ = StateColors::inst().get(textColor);
     borderColor_ = StateColors::inst().get(borderColor);
     set_ = 7;
+    auto iter = sizes.begin();
+    for (; iter != sizes.end(); ++iter) {
+        setProperty(iter.key(), iter.value());
+    }
 }
 
 ZButtonAppearance::ZButtonAppearance(qreal minHeight, qreal cornerRadius, qreal borderWidth, qreal paddingX, qreal paddingY, qreal textSize, qreal iconSize, qreal iconPadding)

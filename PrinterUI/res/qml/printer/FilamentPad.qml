@@ -162,7 +162,6 @@ Item {
 
         ZButton {
             width: 128
-            textSize: 30
             property bool checked: true
             text: "确定"
 
@@ -174,8 +173,6 @@ Item {
         ZButton {
             width: 128
             x: 151
-            type: ZButtonAppearance.Secondary
-            textSize: 30
             text: "取消"
 
             onClicked: {

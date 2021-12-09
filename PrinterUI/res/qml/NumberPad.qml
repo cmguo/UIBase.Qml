@@ -28,7 +28,7 @@ Item {
                     cornerRadius: 45
                     x: 41 + 125 * (index % 3)
                     y: 25 + 122 * Math.floor(index / 3)
-                    type: ZButtonAppearance.Secondary
+                    type: ZButtonAppearance.Tertiary
                     textSize: 30
                     text: index + 1
 
@@ -44,7 +44,7 @@ Item {
                 x: 169
                 y: 391
                 cornerRadius: 45
-                type: ZButtonAppearance.Secondary
+                type: ZButtonAppearance.Floating
                 textSize: 30
                 text: "确定"
 
