@@ -1,34 +1,38 @@
 #include "heater.h"
 
-Heater::Heater(QObject *parent)
+#include <QVariant>
+
+Heater::Heater(std::string const & name, std::string const & currentTemp,
+               std::string const & targetTemp, QObject *parent)
     : QObject(parent)
+    , name_(name)
+    , targetTemp_(targetTemp)
+    , currentTemp_(currentTemp)
 {
 }
 
 QByteArray Heater::name() const
 {
-    return nullptr;
+    return name_.c_str();
 }
-
-QString Heater::icon() const
-{
-    return nullptr;
-}
-
-static float t = 0;
 
 float Heater::targetTemp() const
 {
-    return t;
+    return QVariant::fromValue(targetTemp_).toFloat();
 }
 
 void Heater::setTargetTemp(float value)
 {
-    t = value;
     emit targetTempChanged();
+}
+
+void Heater::notifyUpdateAll()
+{
+    emit targetTempChanged();
+    emit currentTempChanged();
 }
 
 float Heater::currentTemp() const
 {
-    return 0;
+    return QVariant::fromValue(currentTemp_).toFloat();
 }

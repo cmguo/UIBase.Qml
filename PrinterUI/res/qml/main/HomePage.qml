@@ -1,5 +1,6 @@
 import QtQuick 2.12
 import QtQuick.Controls 2.12
+import QtGraphicalEffects 1.12
 import UIBase 1.0
 import Printer 1.0
 import ".."
@@ -9,6 +10,17 @@ import "qrc:/uibase/qml/widgets"
 Item {
 
     id: mainPage
+
+    DropShadow {
+        anchors.fill: filament
+        horizontalOffset: 0
+        verticalOffset: 0
+        radius: 15
+        samples: 31
+        cached: true
+        color: "#40000000"
+        source: filament
+    }
 
     Rectangle {
         id: filament

@@ -27,6 +27,8 @@ public:
     bool isOn() const;
 
     void setOn(bool on);
+
+    void notifyUpdateAll();
 };
 
 #endif // COOLINGFAN_H

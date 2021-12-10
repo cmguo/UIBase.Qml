@@ -23,3 +23,8 @@ bool CoolingFan::isOn() const
 void CoolingFan::setOn(bool on)
 {
 }
+
+void CoolingFan::notifyUpdateAll()
+{
+    emit isOnChanged();
+}

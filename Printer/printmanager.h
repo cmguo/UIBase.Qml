@@ -9,6 +9,8 @@
 
 #include <QObject>
 
+class BBLPrinter;
+
 class PRINTER_EXPORT PrintManager : public QObject
 {
     Q_OBJECT
@@ -24,7 +26,7 @@ public:
     static PrintManager & inst();
 
 private:
-    PrintManager(QObject * parent = nullptr);
+    PrintManager(BBLPrinter & printer, QObject * parent = nullptr);
 
 signals:
     void isLightOnChanged();
@@ -44,6 +46,14 @@ public:
     FilamentFeeder* feeder() const;
 
     PrintTask* currentTask() const;
+
+    void notifyUpdateAll();
+
+private:
+    BBLPrinter & printer_;
+    QList<Heater*> heaters_;
+    QList<CoolingFan*> fans_;
+    FilamentFeeder* feeder_;
 };
 
 #endif // PRINTMANAGER_H
