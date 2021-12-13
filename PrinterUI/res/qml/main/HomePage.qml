@@ -1,6 +1,6 @@
 import QtQuick 2.12
 import QtQuick.Controls 2.12
-import QtGraphicalEffects 1.12
+// import QtGraphicalEffects 1.12
 import UIBase 1.0
 import Printer 1.0
 import ".."
@@ -10,7 +10,7 @@ import "qrc:/uibase/qml/widgets"
 Item {
 
     id: mainPage
-
+/*
     DropShadow {
         anchors.fill: filament
         horizontalOffset: 0
@@ -21,7 +21,7 @@ Item {
         color: "#40000000"
         source: filament
     }
-
+*/
     Rectangle {
         id: filament
         width: 195
@@ -102,7 +102,7 @@ Item {
             anchors.rightMargin: 30
             anchors.topMargin: 20
             spacing: 12
-            model: printManager.tempratures
+            model: PrintManager.heaters
             delegate: Component {
                 Item {
                     id: tempratureItem
@@ -112,35 +112,22 @@ Item {
                         width: 30
                         height: 30
                         anchors.verticalCenter: parent.verticalCenter
-                        source: icon
-                        Rectangle { anchors.fill: parent }
+                        source: "../../icon/heater_" + modelData.name + ".svg"
                     }
                     Item {
                         anchors.fill: parent
                         ZText {
                             id: currentLabel
-                            anchors.right: targetLabel.left
+                            anchors.right: degreeLabel.left
                             anchors.verticalCenter: parent.verticalCenter
-                            text: current
+                            text: modelData.currentTemp.toFixed(1)
                         }
                         ZText {
-                            id: targetLabel
+                            id: degreeLabel
                             anchors.right: parent.right
                             anchors.bottom: currentLabel.bottom
                             font: Fonts.body_20
-                            text: "/" + target + "°C"
-
-                            Binding on text {
-                                value: "/" + numberPad.number + "°C"
-                                when: numberPad.target === tempratureItem
-                            }
-                        }
-                    }
-
-                    TapHandler {
-                        gesturePolicy: TapHandler.ReleaseWithinBounds
-                        onTapped: {
-                            numberPad.target = tempratureItem
+                            text: "°C"
                         }
                     }
                 }

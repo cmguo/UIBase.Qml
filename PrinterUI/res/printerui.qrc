@@ -43,5 +43,8 @@
         <file>icon/home.svg</file>
         <file>icon/print_control.svg</file>
         <file>icon/setting.svg</file>
+        <file>icon/heater_bed.svg</file>
+        <file>icon/heater_chamber.svg</file>
+        <file>icon/heater_end.svg</file>
     </qresource>
 </RCC>

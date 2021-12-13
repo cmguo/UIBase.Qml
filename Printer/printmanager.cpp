@@ -1,5 +1,6 @@
 #include "modelmanager.h"
 #include "printmanager.h"
+#include "converter.h"
 #include "bbl_printer.h"
 
 PrintManager &PrintManager::inst()
@@ -12,23 +13,26 @@ PrintManager::PrintManager(BBLPrinter & printer, QObject * parent)
     : QObject(parent)
     , printer_(printer)
 {
+    registerListContainerConverters<QList, Heater*>();
+    registerListContainerConverters<QList, CoolingFan*>();
     heaters_.append(new Heater("bed", printer.heatbed_cur_temp, printer.heatbed_tgt_temp));
-    heaters_.append(new Heater("end", printer.heatend_cur_temp, printer.heatend_tgt_temp));
-    heaters_.append(new Heater("end", printer.chamber_temp, printer.chamber_temp));
+    heaters_.append(new Heater("end", printer.hotend_cur_temp, printer.hotend_tgt_temp));
+    heaters_.append(new Heater("chamber", printer.chamber_temp, printer.chamber_temp));
+    connect(&printer, &BBLPrinter::changed, this, &PrintManager::notifyUpdateAll);
 }
 
 void PrintManager::print(const Model &model)
 {
 }
 
-QList<Heater *> PrintManager::heaters() const
+QVariantList PrintManager::heaters() const
 {
-    return heaters_;
+    return QVariant::fromValue(heaters_).toList();
 }
 
-QList<CoolingFan *> PrintManager::fans() const
+QVariantList PrintManager::fans() const
 {
-    return fans_;
+    return QVariant::fromValue(fans_).toList();
 }
 
 bool PrintManager::isLightOn() const

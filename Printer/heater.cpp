@@ -18,7 +18,7 @@ QByteArray Heater::name() const
 
 float Heater::targetTemp() const
 {
-    return QVariant::fromValue(targetTemp_).toFloat();
+    return QVariant::fromValue(QByteArray(targetTemp_.c_str())).toFloat();
 }
 
 void Heater::setTargetTemp(float value)
@@ -34,5 +34,5 @@ void Heater::notifyUpdateAll()
 
 float Heater::currentTemp() const
 {
-    return QVariant::fromValue(currentTemp_).toFloat();
+    return QVariant::fromValue(QByteArray(currentTemp_.c_str())).toFloat();
 }

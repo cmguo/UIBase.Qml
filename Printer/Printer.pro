@@ -11,6 +11,7 @@ CONFIG += c++11
 
 SOURCES += \
     accountmanager.cpp \
+    bbl_printer.cpp \
     coolingfan.cpp \
     devicemanager.cpp \
     filament.cpp \
@@ -26,6 +27,8 @@ SOURCES += \
 HEADERS += \
     Printer_global.h \
     accountmanager.h \
+    bbl_printer.h \
+    converter.h \
     coolingfan.h \
     devicemanager.h \
     filament.h \

@@ -15,8 +15,8 @@ class PRINTER_EXPORT PrintManager : public QObject
 {
     Q_OBJECT
 
-    Q_PROPERTY(QList<Heater*> heaters READ heaters CONSTANT)
-    Q_PROPERTY(QList<CoolingFan*> fans READ fans CONSTANT)
+    Q_PROPERTY(QVariantList heaters READ heaters CONSTANT)
+    Q_PROPERTY(QVariantList fans READ fans CONSTANT)
     Q_PROPERTY(bool isLightOn READ isLightOn WRITE setLightOn NOTIFY isLightOnChanged)
 
     Q_PROPERTY(FilamentFeeder* feeder READ feeder CONSTANT)
@@ -37,8 +37,8 @@ public slots:
     void print(Model const & model);
 
 public:
-    QList<Heater*> heaters() const;
-    QList<CoolingFan*> fans() const;
+    QVariantList heaters() const;
+    QVariantList fans() const;
 
     bool isLightOn() const;
     void setLightOn(bool on);
