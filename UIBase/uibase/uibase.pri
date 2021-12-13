@@ -1,4 +1,5 @@
 SOURCES += \
+    $$PWD/appearance.cpp \
     $$PWD/colors.cpp \
     $$PWD/destiny.cpp \
     $$PWD/statecolor.cpp \
@@ -7,6 +8,7 @@ SOURCES += \
     $$PWD/statehandler.cpp
 
 HEADERS += \
+    $$PWD/appearance.h \
     $$PWD/colors.h \
     $$PWD/destiny.h \
     $$PWD/statecolor.h \

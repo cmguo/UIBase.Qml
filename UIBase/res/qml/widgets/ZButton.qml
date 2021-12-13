@@ -95,24 +95,25 @@ Item {
             }
         }
 
-        Item {
-            id:loadingLayout
-            visible: loading
-            width: parent.width
-            height: parent.height
-/*
-            AnimatedImage  {
-                height: parent.height - Destiny.dp(2)
-                width: height
-                smooth: true
-                fillMode: Image.PreserveAspectFit
-                anchors.centerIn: parent
-                visible: parent.visible
-                source: visible ? loadingIcon : ""
-                playing: true
-                antialiasing: true
-            }*/
+        Loader {
+            sourceComponent: Item {
+                id:loadingLayout
+                visible: loading
+                width: parent.width
+                height: parent.height
 
+                AnimatedImage  {
+                    height: parent.height - Destiny.dp(2)
+                    width: height
+                    smooth: true
+                    fillMode: Image.PreserveAspectFit
+                    anchors.centerIn: parent
+                    visible: parent.visible
+                    source: visible ? loadingIcon : ""
+                    playing: true
+                    antialiasing: true
+                }
+            }
         }
     }
 
