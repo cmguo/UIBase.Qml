@@ -54,14 +54,14 @@ Item {
             }
         }
         property string realPage: (printManager.printing && activePage == "Home") ? "Home2" : activePage
+        property var cachedPages: ({})
         onRealPageChanged: {
-//            var c = pageContainer.children[0]
-//            if (c) {
-//                c.destroy()
-//                c.parent = null
-//            }
-//            pageComponent.createObject(pageContainer, { url: "main/" + realPage + "Page.qml" })
-            pageStack.replace(null, "main/" + realPage + "Page.qml")
+            var page = cachedPages[realPage]
+            if (page === undefined) {
+                page = pageComponent.createObject(pageContainer, { url: "main/" + realPage + "Page.qml" })
+                cachedPages[realPage] = page;
+            }
+            pageStack.replace(null, page)
         }
         Component.onCompleted: {
             activePage = "Home"
@@ -104,9 +104,6 @@ Item {
             property url url
             anchors.fill: parent
 
-            TapHandler {
-                //Eats mouse events
-            }
             Loader{
                 focus: true
                 source: parent.url
@@ -118,26 +115,6 @@ Item {
     property var printManager: QtObject {
 
         property bool printing: false
-        property var tempratures: ListModel {
-            ListElement {
-                name: "n1"
-                icon: ""
-                target: 40
-                current: 27
-            }
-            ListElement {
-                name: "n2"
-                icon: ""
-                target: 210
-                current: 67
-            }
-            ListElement {
-                name: "n3"
-                icon: ""
-                target: 210
-                current: 67
-            }
-        }
 
         property var amsList: ListModel {
             ListElement {
