@@ -44,4 +44,6 @@ void PrinterUI::init(QQmlEngine & engine)
         QQmlEngine::setObjectOwnership(&RecordManager::inst(), QQmlEngine::CppOwnership);
         return &RecordManager::inst();
     });
+
+    qmlRegisterType<AxisController>("Printer", 1, 0, "AxisController");
 }

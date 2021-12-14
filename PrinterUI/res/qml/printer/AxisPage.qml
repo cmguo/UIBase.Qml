@@ -1,5 +1,6 @@
 import QtQuick 2.0
 import UIBase 1.0
+import Printer 1.0
 import "qrc:/uibase/qml"
 
 Item {
@@ -39,6 +40,9 @@ Item {
 
         onAdjusted: {
             console.log(isLeft)
+            PrintManager.axisController.moveAxis(AxisController.AxisY,
+                                                 isLeft ? AxisController.Increase : AxisController.Decrease,
+                                                 xyStep.selectedIndex)
         }
     }
 
@@ -51,6 +55,9 @@ Item {
 
         onAdjusted: {
             console.log(isLeft)
+            PrintManager.axisController.moveAxis(AxisController.AxisX,
+                                                 isLeft ? AxisController.Increase : AxisController.Decrease,
+                                                 xyStep.selectedIndex)
         }
     }
 
@@ -64,6 +71,9 @@ Item {
 
         onAdjusted: {
             console.log(isLeft)
+            PrintManager.axisController.moveAxis(AxisController.AxisZ,
+                                                 isLeft ? AxisController.Increase : AxisController.Decrease,
+                                                 zeStep.selectedIndex)
         }
     }
 
@@ -77,29 +87,32 @@ Item {
 
         onAdjusted: {
             console.log(isLeft)
+            PrintManager.axisController.moveAxis(AxisController.AxisE,
+                                                 isLeft ? AxisController.Increase : AxisController.Decrease,
+                                                 zeStep.selectedIndex)
         }
     }
 
     SelectBar {
         id: xyStep
-        width: 467
+        width: 400
         height: 95
         anchors.horizontalCenter: xyAxis.horizontalCenter
         anchors.top: xAdjuster.bottom
         anchors.topMargin: 152
-        items: [0.1, 1, 10, 100]
-        selectedItem: 1
+        items: [0.1, 1, 10]
+        selectedIndex: 1
     }
 
     SelectBar {
         id: zeStep
-        width: 467
+        width: 400
         height: 95
         anchors.left: xyStep.right
-        anchors.leftMargin: 21
+        anchors.leftMargin: 100
         anchors.top: xyStep.top
-        items: [0.1, 1, 10, 100]
-        selectedItem: 1
+        items: [0.1, 1, 10]
+        selectedIndex: 1
     }
 
     Text {

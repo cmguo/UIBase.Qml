@@ -15,9 +15,10 @@ PrintManager::PrintManager(BBLPrinter & printer, QObject * parent)
 {
     registerListContainerConverters<QList, Heater*>();
     registerListContainerConverters<QList, CoolingFan*>();
-    heaters_.append(new Heater("bed", printer.heatbed_cur_temp, printer.heatbed_tgt_temp));
-    heaters_.append(new Heater("end", printer.hotend_cur_temp, printer.hotend_tgt_temp));
-    heaters_.append(new Heater("chamber", printer.chamber_temp, printer.chamber_temp));
+    heaters_.append(new Heater("bed", printer.heatbed_cur_temp, printer.heatbed_tgt_temp, this));
+    heaters_.append(new Heater("end", printer.hotend_cur_temp, printer.hotend_tgt_temp, this));
+    heaters_.append(new Heater("chamber", printer.chamber_temp, printer.chamber_temp, this));
+    axisController_ = new AxisController(printer_, this);
     connect(&printer, &BBLPrinter::changed, this, &PrintManager::notifyUpdateAll);
 }
 
@@ -47,6 +48,11 @@ void PrintManager::setLightOn(bool on)
 FilamentFeeder *PrintManager::feeder() const
 {
     return new FilamentFeeder;
+}
+
+AxisController *PrintManager::axisController() const
+{
+    return axisController_;
 }
 
 PrintTask *PrintManager::currentTask() const

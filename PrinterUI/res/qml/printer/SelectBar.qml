@@ -5,7 +5,8 @@ import "qrc:/uibase/qml/widgets"
 Item {
 
     property var items
-    property var selectedItem
+    property var selectedItem: items[selectedIndex]
+    property var selectedIndex
 
     Rectangle {
         anchors.fill: parent
@@ -29,7 +30,7 @@ Item {
                     property bool checked: selectedItem === modelData
                     text: modelData
                     onClicked: {
-                        selectedItem = modelData
+                        selectedIndex = index
                     }
                 }
             }

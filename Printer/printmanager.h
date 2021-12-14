@@ -6,6 +6,7 @@
 #include "filamentfeeder.h"
 #include "heater.h"
 #include "printtask.h"
+#include "axiscontroller.h"
 
 #include <QObject>
 
@@ -20,6 +21,7 @@ class PRINTER_EXPORT PrintManager : public QObject
     Q_PROPERTY(bool isLightOn READ isLightOn WRITE setLightOn NOTIFY isLightOnChanged)
 
     Q_PROPERTY(FilamentFeeder* feeder READ feeder CONSTANT)
+    Q_PROPERTY(AxisController* axisController READ axisController CONSTANT)
     Q_PROPERTY(PrintTask* currentTask READ currentTask NOTIFY currentTaskChanged)
 
 public:
@@ -45,6 +47,8 @@ public:
 
     FilamentFeeder* feeder() const;
 
+    AxisController* axisController() const;
+
     PrintTask* currentTask() const;
 
     void notifyUpdateAll();
@@ -54,6 +58,7 @@ private:
     QList<Heater*> heaters_;
     QList<CoolingFan*> fans_;
     FilamentFeeder* feeder_;
+    AxisController* axisController_;
 };
 
 #endif // PRINTMANAGER_H

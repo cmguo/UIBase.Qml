@@ -1,6 +1,8 @@
 #ifndef BBL_PRINTER_H
 #define BBL_PRINTER_H
 
+#include "axiscontroller.h"
+
 #include <QObject>
 
 #include <string>
@@ -12,6 +14,9 @@ public:
     BBLPrinter();
 
     static BBLPrinter& inst();
+
+public:
+    void moveAxis(AxisController::Axis axis, AxisController::Direction dir, AxisController::Unit unit);
 
 signals:
     void changed();
