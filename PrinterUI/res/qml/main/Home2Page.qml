@@ -1,6 +1,7 @@
 import QtQuick 2.12
 import QtQuick.Controls 2.12
 import UIBase 1.0
+import Printer 1.0
 import ".."
 import "qrc:/uibase/qml/widgets"
 
@@ -147,7 +148,7 @@ Item {
             anchors.topMargin: 20
             anchors.bottomMargin: 25
             orientation: Qt.Horizontal
-            model: printManager.tempratures
+            model: PrintManager.heaters
             delegate: Component {
                 Item {
                     width: temprature.width / 3
@@ -156,11 +157,7 @@ Item {
                         width: 30
                         height: 30
                         anchors.horizontalCenter: parent.horizontalCenter
-                        source: icon
-
-                        Rectangle {
-                            anchors.fill: parent
-                        }
+                        source: "../../icon/heater_" + modelData.name + ".svg"
                     }
                     Item {
                         width: value.width + targetLabel.width
@@ -170,14 +167,14 @@ Item {
                         ZText {
                             id: value
                             font: Fonts.body_32
-                            text: current
+                            text: modelData.currentTemp.toFixed(1)
                         }
                         ZText {
                             id: targetLabel
                             anchors.left: value.right
                             anchors.bottom: value.bottom
                             font: Fonts.body_24
-                            text: "/" + target + "°C"
+                            text: "/" + modelData.targetTemp.toFixed(1) + "°C"
 
                             Binding on text {
                                 value: "/" + numberPad.number + "°C"

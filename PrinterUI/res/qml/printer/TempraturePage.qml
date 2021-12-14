@@ -50,7 +50,7 @@ Item {
                     anchors.left: parent.left
                     anchors.leftMargin: 90
                     anchors.verticalCenter: parent.verticalCenter
-                    source: modelData.icon
+                    source: "../../icon/heater_" + modelData.name + ".svg"
                 }
 
                 ZText {
@@ -72,7 +72,7 @@ Item {
                     anchors.verticalCenter: image.verticalCenter
                     cornerRadius: 42
                     textSize: 30
-                    text: modelData.targetTemp
+                    text: modelData.targetTemp.toFixed(1)
 
                     Binding on text {
                         value: numberPad.number
