@@ -53,6 +53,11 @@ void StateHandler::onHoveredChanged()
     onStateChanged(Hovered, hoverHandler_->property("hovered").toBool());
 }
 
+void StateHandler::onFocusedChanged()
+{
+    onStateChanged(Focused, item_->property("focused").toBool());
+}
+
 void StateHandler::onStateChanged(State state, bool value)
 {
     // qDebug() << "onStateChanged" << state << value;
@@ -85,6 +90,16 @@ void StateHandler::bindTo(QQuickItem *item)
                 states_ |= Checked;
             int i = metaObject()->indexOfMethod("onCheckedChanged()");
             connect(item, checked.notifySignal(), this, metaObject()->method(i));
+        }
+    }
+    int ifocused = item->metaObject()->indexOfProperty("focused");
+    if (ifocused > 0) {
+        QMetaProperty focused = item->metaObject()->property(ifocused);
+        if (focused.hasNotifySignal()) {
+            if (focused.read(item).toBool())
+                states_ |= Focused;
+            int i = metaObject()->indexOfMethod("onFocusedChanged()");
+            connect(item, focused.notifySignal(), this, metaObject()->method(i));
         }
     }
     QByteArray TapHandler{"QQuickTapHandler"};

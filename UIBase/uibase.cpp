@@ -9,6 +9,7 @@
 #include <QQmlEngine>
 
 #include <widgets/zstepindicator.h>
+#include <widgets/ztextinputappearanceh>
 
 void UIBase::init()
 {
@@ -47,6 +48,7 @@ void UIBase::init()
     qmlRegisterType<StateColorItem>("UIBase", 1, 0, "StateColorItem");
 
     qmlRegisterType<ZButtonAppearance>("UIBase", 1, 0, "ZButtonAppearance");
+    qmlRegisterType<ZTextInputAppearance>("UIBase", 1, 0, "ZTextInputAppearance");
     qmlRegisterType<ZStepIndicator>("UIBase", 1, 0, "ZStepIndicator");
 
     for (auto t : {"Fonts"})

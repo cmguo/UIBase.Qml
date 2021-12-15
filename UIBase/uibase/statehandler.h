@@ -22,11 +22,7 @@ public:
         Hovered = 8,
         HalfChecked = 16,
         Selected = 32,
-        Disabled = 1 << 16,
-        NotEnabled = 1 << 16,
-        NotChecked = 2 << 16,
-        NotPressed = 4 << 16,
-        NotHovered = 8 << 16,
+        Focused = 64,
     };
 
     Q_FLAG(State)
@@ -54,6 +50,8 @@ private slots:
     void onPressedChanged();
 
     void onHoveredChanged();
+
+    void onFocusedChanged();
 
 private:
     void onStateChanged(State state, bool value);

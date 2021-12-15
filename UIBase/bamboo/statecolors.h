@@ -54,4 +54,10 @@ void StateColors::defineColors()
     defineColor("white_checked",
                 qMakePair(&Colors::brand, (int)StateColor::Checked),
                 qMakePair(Qt::white, (int)StateColor::Normal));
+
+
+    // textinput border
+    defineColor("border_focused",
+                qMakePair(&Colors::brand, (int)StateColor::Focused),
+                qMakePair(0x39393B, (int)StateColor::Normal));
 }

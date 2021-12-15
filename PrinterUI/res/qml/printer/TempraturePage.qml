@@ -60,17 +60,16 @@ Item {
                     anchors.verticalCenter: image.verticalCenter
                     font: Fonts.body_30
                     color: Colors.font2
-                    text: modelData.currentTemp
+                    text: modelData.currentTemp.toFixed(1)
                 }
 
-                ZButton {
+                ZTextInput {
                     id: targetButton
                     width: 148
                     height: 68
                     anchors.horizontalCenter: parent.left
                     anchors.horizontalCenterOffset: targetTitle.x + targetTitle.width / 2
                     anchors.verticalCenter: image.verticalCenter
-                    type: ZButtonAppearance.Secondary
                     cornerRadius: 42
                     textSize: 30
                     text: modelData.targetTemp
@@ -81,8 +80,9 @@ Item {
                         // restoreMode: Binding.RestoreBinding
                     }
 
-                    onClicked: {
-                        numberPad.target = modelData
+                    onFocusedChanged: {
+                        if (focused)
+                            numberPad.target = modelData
                     }
                 }
 

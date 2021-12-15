@@ -7,10 +7,10 @@ Item {
 
     id: button
 
-    ZButtonAppearance {
+    ZTextInputAppearance {
         id: ap
-        type: ZButtonAppearance.Primitive
-        size: ZButtonAppearance.Large
+        type: ZTextInputAppearance.Primitive
+        size: ZTextInputAppearance.Large
     }
 
     property alias type: ap.type
@@ -37,6 +37,7 @@ Item {
     signal clicked();
 
     property string loadingIcon
+    property bool focused: textContent.activeFocus
     property bool loading: false
 
     width: background.implicitWidth
@@ -74,61 +75,37 @@ Item {
                 visible: source != ""
             }
 
-            Text {
+            TextInput {
                 id: textContent
                 width: implicitWidth
                 height: implicitHeight
-                color: textColor.color
-                font.family: Fonts.family
-                font.pixelSize: ap.textSize
                 anchors.left: icon.right
                 anchors.leftMargin: icon.source != "" && text != "" ? Destiny.dp(ap.iconPadding) : 0
-                wrapMode: Text.Normal
+                color: textColor.color
+                focus: true
+                font.family: Fonts.family
+                font.pixelSize: ap.textSize
+                wrapMode: TextInput.Normal
                 verticalAlignment: TextInput.AlignVCenter
-                elide: Text.ElideRight
                 anchors.verticalCenter: parent.verticalCenter
 
                 //Behavior on color {
                 //    PropertyAnimation { duration: 200}
                 //}
-            }
-        }
 
-        Loader {
-            id: loading
-            sourceComponent: Item {
-                id:loadingLayout
-                visible: loading
-                width: parent.width
-                height: parent.height
+                onEditingFinished: {
 
-                AnimatedImage  {
-                    height: parent.height - Destiny.dp(2)
-                    width: height
-                    smooth: true
-                    fillMode: Image.PreserveAspectFit
-                    anchors.centerIn: parent
-                    visible: parent.visible
-                    source: visible ? loadingIcon : ""
-                    playing: true
-                    antialiasing: true
                 }
             }
-        }
-    }
 
-    TapHandler {
-        id: tapHandler
-        gesturePolicy: TapHandler.ReleaseWithinBounds
-        onTapped: {
-            if (loading) {
-                return
-            }
-            button.clicked()
         }
     }
 
     HoverHandler {}
+
+    TapHandler {
+        onTapped: textContent.forceActiveFocus()
+    }
 
     StateColorHandler {
         id: textColor

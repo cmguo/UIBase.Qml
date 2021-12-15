@@ -43,11 +43,15 @@ public:
         Hovered = 8,
         HalfChecked = 16,
         Selected = 32,
+        Focused = 64,
         Disabled = 1 << 16,
         NotEnabled = 1 << 16,
         NotChecked = 2 << 16,
         NotPressed = 4 << 16,
         NotHovered = 8 << 16,
+        NotHalfChecked = 16 << 16,
+        NotSelected = 32 << 16,
+        NotFocused = 64 << 16,
     };
 
     Q_FLAG(State)
