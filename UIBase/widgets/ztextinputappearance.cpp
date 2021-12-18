@@ -18,7 +18,7 @@ ZTextInputAppearance::ZTextInputAppearance(QObject *parent)
 ZTextInputAppearance::ZTextInputAppearance(const char *textColor, const char *backgroundColor, const char *borderColor,
                                      QMap<QByteArray, qreal> const & sizes)
 {
-    init(textColor, backgroundColor, borderColor, sizes);
+    init(textColor, backgroundColor, borderColor, nullptr, sizes);
 }
 
 ZTextInputAppearance::ZTextInputAppearance(qreal minHeight, qreal cornerRadius, qreal borderWidth, qreal paddingX, qreal paddingY, qreal textSize, qreal iconSize, qreal iconPadding)

@@ -1,6 +1,7 @@
 import QtQuick 2.0
 import QtQuick.Controls 2.2
 import UIBase 1.0
+import "qrc:/uibase/qml/widgets"
 
 Item {
 
@@ -34,12 +35,12 @@ Item {
 
         ZProgressBar {
             id: sdProgressBar
-            height: 10
-            radius: 5
+            width: 337
+            type: ZProgressBarAppearance.Secondary
+            size: ZProgressBarAppearance.Middle
             anchors.left: sdTitle.left
             anchors.top: sdUsage.bottom
             anchors.topMargin: 24
-            progressColor: "#838383"
             value: 0.5
         }
 

@@ -1,5 +1,6 @@
 import QtQuick 2.0
 import UIBase 1.0
+import "qrc:/uibase/qml/widgets"
 
 Item {
 
@@ -53,7 +54,7 @@ Item {
             text: qsTr("循环录制")
         }
 
-        ZSwitch {
+        ZSwitchButton {
             id: circleButton
             anchors.left: bitrateValue.left
             anchors.verticalCenter: circleTitle.verticalCenter
@@ -71,7 +72,7 @@ Item {
             text: qsTr("自动录制")
         }
 
-        ZSwitch {
+        ZSwitchButton {
             id: autoButton
             anchors.left: bitrateValue.left
             anchors.verticalCenter: autoTitle.verticalCenter
@@ -132,7 +133,7 @@ Item {
             text: qsTr("循环录制")
         }
 
-        ZSwitch {
+        ZSwitchButton {
             id: circleButton2
             anchors.left: bitrateValue2.left
             anchors.verticalCenter: circleTitle2.verticalCenter

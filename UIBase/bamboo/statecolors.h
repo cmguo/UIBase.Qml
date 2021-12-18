@@ -45,6 +45,17 @@ void StateColors::defineColors()
                 qMakePair(&Colors::font2, (int)StateColor::Pressed),
                 qMakePair(&Colors::graybg, (int)StateColor::Normal));
 
+    // switch background
+    defineColor("font1_checked",
+                qMakePair(&Colors::brand, (int)StateColor::Checked),
+                qMakePair(&Colors::font1, (int)StateColor::Normal));
+
+    // switch icon
+    defineColor("icon_pressed_checked",
+                qMakePair(0xcccccc, (int)StateColor::Pressed),
+                qMakePair(0xf3f3f3, (int)StateColor::Checked),
+                qMakePair(0xf3f3f3, (int)StateColor::Normal));
+
     //
     defineColor("transparent_checked_pressed2",
                 qMakePair(&Colors::brand, (int)StateColor::Checked),

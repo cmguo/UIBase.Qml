@@ -23,7 +23,7 @@
         <file>qml/widgets/ZPopup.qml</file>
         <file>qml/widgets/ZRectangle.qml</file>
         <file>qml/widgets/ZDemoPage.qml</file>
-        <file>qml/widgets/ZSwitch.qml</file>
+        <file>qml/widgets/ZSwitchButton.qml</file>
         <file>qml/widgets/ZTextStyle.qml</file>
         <file>qml/widgets/ZTabBar.qml</file>
         <file>qml/widgets/ZTextInput.qml</file>

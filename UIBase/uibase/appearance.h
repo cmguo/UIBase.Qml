@@ -38,7 +38,7 @@ public:
 public:
     explicit Appearance(QObject *parent = nullptr);
 
-    void init(char const * textColor, char const * backgroundColor, char const * borderColor = nullptr,
+    void init(char const * textColor, char const * backgroundColor, char const * borderColor, char const * iconColor = nullptr,
                       QMap<QByteArray, qreal> const & sizes = {});
 
     void init(qreal minHeight, qreal cornerRadius, qreal borderWidth,

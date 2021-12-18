@@ -8,7 +8,9 @@
 
 #include <QQmlEngine>
 
+#include <widgets/zprogressbarappearance.h>
 #include <widgets/zstepindicator.h>
+#include <widgets/zswitchbuttonappearance.h>
 #include <widgets/ztextinputappearanceh>
 
 void UIBase::init()
@@ -49,12 +51,14 @@ void UIBase::init()
 
     qmlRegisterType<ZButtonAppearance>("UIBase", 1, 0, "ZButtonAppearance");
     qmlRegisterType<ZTextInputAppearance>("UIBase", 1, 0, "ZTextInputAppearance");
+    qmlRegisterType<ZSwitchButtonAppearance>("UIBase", 1, 0, "ZSwitchButtonAppearance");
+    qmlRegisterType<ZProgressBarAppearance>("UIBase", 1, 0, "ZProgressBarAppearance");
     qmlRegisterType<ZStepIndicator>("UIBase", 1, 0, "ZStepIndicator");
 
     for (auto t : {"Fonts"})
         qmlRegisterSingletonType(QUrl("qrc:/uibase/qml/view/" + QByteArray(t) + ".qml"), "UIBase", 1, 0, t);
 
-    for (auto t : {"ZButton", "ZText", "ZProgressBar", "ZSwitch", "ZStepBar"})
+    for (auto t : {"ZButton", "ZText", "ZTextInput", "ZProgressBar", "ZSwitchButton", "ZStepBar"})
         qmlRegisterType(QUrl("qrc:/uibase/qml/widgets/" + QByteArray(t) + ".qml"), "UIBase", 1, 0, t);
 
     initialized = true;

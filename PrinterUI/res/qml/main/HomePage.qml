@@ -68,8 +68,7 @@ Item {
                         x: 37
                         y: 34
                         width: parent.width
-                        height: 2
-                        backgroundColor: "#CFCFCF"
+                        size: ZProgressBarAppearance.Small
                         progressColor: modelData.color
                         value: modelData.remain
                     }

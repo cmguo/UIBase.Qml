@@ -6,13 +6,13 @@ Appearance::Appearance(QObject *parent)
 {
 }
 
-void Appearance::init(const char *textColor, const char *backgroundColor, const char *borderColor,
-                                     QMap<QByteArray, qreal> const & sizes)
+void Appearance::init(const char *textColor, const char *backgroundColor, const char *borderColor, const char *iconColor, const QMap<QByteArray, qreal> &sizes)
 {
     backgroundColor_ = StateColors::inst().get(backgroundColor);
     textColor_ = StateColors::inst().get(textColor);
     borderColor_ = StateColors::inst().get(borderColor);
-    set_ = 7;
+    iconColor_ = StateColors::inst().get(iconColor);
+    set_ = 15;
     auto iter = sizes.begin();
     for (; iter != sizes.end(); ++iter) {
         setProperty(iter.key(), iter.value());

@@ -6,8 +6,6 @@
 
 #include <QObject>
 
-#include <array>
-
 class ZButtonAppearance : public Appearance
 {
     Q_OBJECT
