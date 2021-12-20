@@ -9,6 +9,8 @@ Item {
 
     id: mainPage
 
+    property var task: PrintManager.currentTask
+
     Rectangle {
         id: printTask
         width: 576
@@ -82,14 +84,13 @@ Item {
 
         ZProgressBar {
             id: progress
-            height: 4
             anchors.left: parent.left
             anchors.leftMargin: 44
             anchors.right: parent.right
             anchors.rightMargin: 59
             anchors.top: title.bottom
             anchors.topMargin: 15
-            value: 0.3
+            value: task.progress
         }
 
         ZText {
@@ -99,7 +100,7 @@ Item {
             anchors.topMargin: 25
             font: Fonts.body_30
             color: Colors.font2
-            text: "Robort_plane"
+            text: task.model.title
         }
 
         ZText {
@@ -107,7 +108,7 @@ Item {
             anchors.bottom: title.bottom
             font: Fonts.body_28
             color: Colors.font2
-            text: "40%"
+            text: (task.progress * 100).toFixed(0) + "%"
         }
 
         ZText {
@@ -117,7 +118,7 @@ Item {
             anchors.top: progress.bottom
             font: Fonts.body_20
             color: "#929292"
-            text: "02:54:46"
+            text: durationToString(task.totalTime * task.progress)
         }
 
         ZText {
@@ -127,9 +128,13 @@ Item {
             anchors.top: timeUsed.top
             font: Fonts.body_20
             color: "#929292"
-            text: "-0:54:46"
+            text: "-" + durationToString(task.totalTime * (1 - task.progress))
         }
 
+    }
+
+    function durationToString(d) {
+        return (d / 3600).toFixed() + ":" + ((d % 3600) / 60).toFixed() + ":" + (d % 60).toFixed()
     }
 
     Rectangle {

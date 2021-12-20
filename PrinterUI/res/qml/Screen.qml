@@ -1,5 +1,6 @@
 import QtQuick 2.12
 import QtQuick.Controls 2.12
+import Printer 1.0
 
 Item {
 
@@ -53,7 +54,8 @@ Item {
                 icon: "help.svg"
             }
         }
-        property string realPage: (printManager.printing && activePage == "Home") ? "Home2" : activePage
+        property bool printing: PrintManager.currentTask && PrintManager.currentTask.printStep > 0
+        property string realPage: (printing && activePage == "Home") ? "Home2" : activePage
         property var cachedPages: ({})
         onRealPageChanged: {
             var page = cachedPages[realPage]
@@ -113,8 +115,6 @@ Item {
     }
 
     property var printManager: QtObject {
-
-        property bool printing: false
 
         property var amsList: ListModel {
             ListElement {

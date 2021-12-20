@@ -46,4 +46,5 @@ void PrinterUI::init(QQmlEngine & engine)
     });
 
     qmlRegisterType<AxisController>("Printer", 1, 0, "AxisController");
+    qmlRegisterType<PrintTask>("Printer", 1, 0, "PrintTask");
 }

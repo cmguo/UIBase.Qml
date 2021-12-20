@@ -5,6 +5,9 @@
 #include "filament.h"
 
 #include <QObject>
+#include <QVariantList>
+
+class BBLPrinter;
 
 class PRINTER_EXPORT Plate
 {
@@ -27,18 +30,23 @@ class PRINTER_EXPORT Model
     Q_PROPERTY(QString url READ url CONSTANT)
     Q_PROPERTY(QString title READ title CONSTANT)
     Q_PROPERTY(long timeEstimate READ timeEstimate CONSTANT)
-    Q_PROPERTY(QList<Plate> plates READ plates CONSTANT)
-    Q_PROPERTY(QList<Filament> filaments READ filaments CONSTANT)
+    Q_PROPERTY(QVariantList plates READ plates CONSTANT)
+    Q_PROPERTY(QVariantList filaments READ filaments CONSTANT)
 
 public:
     Model();
+
+    Model(BBLPrinter & printer);
 
 public:
     QString url() const;
     QString title() const;
     long timeEstimate() const;
-    QList<Plate> plates() const;
-    QList<Filament> filaments() const;
+    QVariantList plates() const;
+    QVariantList filaments() const;
+
+private:
+    BBLPrinter * printer_ = nullptr;
 };
 
 #endif // MODEL_H

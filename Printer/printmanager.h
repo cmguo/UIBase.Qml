@@ -59,6 +59,8 @@ private:
     QList<CoolingFan*> fans_;
     FilamentFeeder* feeder_;
     AxisController* axisController_;
+
+    PrintTask* currentTask_;
 };
 
 #endif // PRINTMANAGER_H

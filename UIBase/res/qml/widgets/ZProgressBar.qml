@@ -27,9 +27,11 @@ ProgressBar {
     property alias text: textContent.text
 
     id: control
+    height: ap.iconSize + ap.borderWidth * 2
 
     background: Rectangle {
         height: ap.iconSize
+        anchors.verticalCenter: parent.verticalCenter
         radius: ap.cornerRadius
         color: backgroundColor.color
     }
@@ -37,6 +39,7 @@ ProgressBar {
         Rectangle {
             width: control.visualPosition * parent.width
             height: ap.iconSize
+            anchors.verticalCenter: parent.verticalCenter
             radius: ap.cornerRadius
             color: iconColor.color
         }

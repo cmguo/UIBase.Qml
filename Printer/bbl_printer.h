@@ -27,6 +27,11 @@ public:
     std::string hotend_cur_temp = "30.4";
     std::string hotend_tgt_temp = "60";
     std::string chamber_temp = "60";
+
+    std::string gcode_state = "1";
+    std::string gcode_content = "Test Model";
+    std::string gcode_duration = "20000";
+    std::string gcode_progress = "30";
 };
 
 #endif // BBL_PRINTER_H

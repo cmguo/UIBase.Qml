@@ -1,8 +1,13 @@
+#include "bbl_printer.h"
 #include "model.h"
 
 Model::Model()
 {
+}
 
+Model::Model(BBLPrinter &printer)
+    : printer_(&printer)
+{
 }
 
 QString Model::url() const
@@ -12,7 +17,7 @@ QString Model::url() const
 
 QString Model::title() const
 {
-    return nullptr;
+    return printer_ ? printer_->gcode_content.c_str() : nullptr;
 }
 
 long Model::timeEstimate() const
@@ -20,14 +25,14 @@ long Model::timeEstimate() const
     return 0;
 }
 
-QList<Plate> Model::plates() const
+QVariantList Model::plates() const
 {
-    return {};
+    return QVariantList{};
 }
 
-QList<Filament> Model::filaments() const
+QVariantList Model::filaments() const
 {
-    return {};
+    return QVariantList{};
 }
 
 QByteArray Plate::thumnail() const
