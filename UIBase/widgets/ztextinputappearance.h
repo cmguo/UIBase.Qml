@@ -17,13 +17,13 @@ class ZTextInputAppearance : public Appearance
 
 public:
     enum Type {
-        BUTTON_TYPES
+        TEXT_INPUT_TYPES
     };
 
     Q_ENUM(Type)
 
     enum Size {
-        BUTTON_SIZES
+        TEXT_INPUT_SIZES
     };
 
     Q_ENUM(Size)

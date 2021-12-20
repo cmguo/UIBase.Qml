@@ -1,4 +1,4 @@
-#include "widgets/ztextinputappearanceh"
+#include "widgets/ztextinputappearance.h"
 
 void ZTextInputAppearance::initEnumAppearance()
 {

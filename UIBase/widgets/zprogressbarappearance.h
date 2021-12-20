@@ -15,13 +15,13 @@ class ZProgressBarAppearance : public Appearance
 
 public:
     enum Type {
-        BUTTON_TYPES
+        PROGRESS_BAR_TYPES
     };
 
     Q_ENUM(Type)
 
     enum Size {
-        BUTTON_SIZES
+        PROGRESS_BAR_SIZES
     };
 
     Q_ENUM(Size)

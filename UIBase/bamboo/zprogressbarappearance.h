@@ -1,8 +1,8 @@
-#define BUTTON_TYPES \
+#define PROGRESS_BAR_TYPES \
     Primitive, \
     Secondary, \
 
-#define BUTTON_SIZES \
+#define PROGRESS_BAR_SIZES \
     Large, \
     Middle, \
     Small, \

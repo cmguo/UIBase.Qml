@@ -1,5 +1,5 @@
-#define BUTTON_TYPES \
+#define TEXT_INPUT_TYPES \
     Primitive,
 
-#define BUTTON_SIZES \
+#define TEXT_INPUT_SIZES \
     Large,

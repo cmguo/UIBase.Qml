@@ -10,4 +10,4 @@ HEADERS += \
     $$PWD/zprogressbarappearance.h \
     $$PWD/zstepindicator.h \
     $$PWD/zswitchbuttonappearance.h \
-    $$PWD/ztextinputappearanceh
+    $$PWD/ztextinputappearance.h

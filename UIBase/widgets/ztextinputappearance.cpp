@@ -1,4 +1,4 @@
-#include "ztextinputappearanceh".h"
+#include "ztextinputappearance.h".h"
 #include "uibase/statecolors.h"
 #include "bamboo/ztextinputappearance.h"
 

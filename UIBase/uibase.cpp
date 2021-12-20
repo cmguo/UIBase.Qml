@@ -11,7 +11,7 @@
 #include <widgets/zprogressbarappearance.h>
 #include <widgets/zstepindicator.h>
 #include <widgets/zswitchbuttonappearance.h>
-#include <widgets/ztextinputappearanceh>
+#include <widgets/ztextinputappearance.h>
 
 void UIBase::init()
 {
