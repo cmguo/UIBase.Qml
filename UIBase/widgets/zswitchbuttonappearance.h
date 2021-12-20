@@ -16,13 +16,13 @@ class ZSwitchButtonAppearance : public Appearance
 
 public:
     enum Type {
-        BUTTON_TYPES
+        SWITCH_BUTTON_TYPES
     };
 
     Q_ENUM(Type)
 
     enum Size {
-        BUTTON_SIZES
+        SWITCH_BUTTON_SIZES
     };
 
     Q_ENUM(Size)

@@ -1,5 +1,5 @@
-#define BUTTON_TYPES \
+#define SWITCH_BUTTON_TYPES \
     Primitive,
 
-#define BUTTON_SIZES \
+#define SWITCH_BUTTON_SIZES \
     Large, \
