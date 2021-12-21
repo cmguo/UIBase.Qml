@@ -25,7 +25,10 @@ int PrintTask::currentPlate() const
 
 long PrintTask::totalTime() const
 {
-    return static_cast<long>(QByteArray(printer_.gcode_duration.c_str()).toFloat() / progress());
+    float p = progress();
+    if (p < 0.0001)
+        return 0;
+    return static_cast<long>(QByteArray(printer_.gcode_duration.c_str()).toFloat() / p);
 }
 
 float PrintTask::progress() const

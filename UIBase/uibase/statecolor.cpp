@@ -100,7 +100,8 @@ QColor StateColor::colorForStates(int states)
     for (int i = 0; i < statesList_.size(); ++i) {
         int s = statesList_[i];
         int on = s & 0xffff;
-        if ((on & states) == on && (s & (states << 16)) == 0) {
+        int off = s >> 16;
+        if ((on & states) == on && (off & ~states) == off) {
             auto & stdc = stdColors_[i];
             return stdc ? (Colors::inst().*stdc)() : colors_[i];
         }

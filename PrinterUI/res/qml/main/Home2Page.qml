@@ -134,7 +134,9 @@ Item {
     }
 
     function durationToString(d) {
-        return (d / 3600).toFixed() + ":" + ((d % 3600) / 60).toFixed() + ":" + (d % 60).toFixed()
+        return (d / 3600).toFixed().padStart(2, '0')
+                + ":" + ((d % 3600) / 60).toFixed().padStart(2, '0')
+                + ":" + (d % 60).toFixed().padStart(2, '0')
     }
 
     Rectangle {
