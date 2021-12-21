@@ -46,5 +46,10 @@
         <file>icon/heater_bed.svg</file>
         <file>icon/heater_chamber.svg</file>
         <file>icon/heater_end.svg</file>
+        <file>icon/light.svg</file>
+        <file>icon/light_on.svg</file>
+    </qresource>
+    <qresource prefix="/">
+        <file>icon/light_on.svg</file>
     </qresource>
 </RCC>

@@ -150,7 +150,7 @@ Item {
             y: 24
             width: 32
             height: 40
-            source: ""
+            source: PrintManager.isLightOn ? "../../icon/light_on.svg" : "../../icon/light.svg"
         }
 
         ZText {
@@ -158,6 +158,12 @@ Item {
             anchors.verticalCenter: parent.verticalCenter
             text: qsTr("照明灯")
             font: Fonts.body_18
+        }
+
+        TapHandler {
+            onTapped: {
+                PrintManager.isLightOn = !PrintManager.isLightOn
+            }
         }
     }
 

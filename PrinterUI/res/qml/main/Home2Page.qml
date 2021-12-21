@@ -45,7 +45,13 @@ Item {
                 height: 40
                 y: 24
                 anchors.horizontalCenter: parent.horizontalCenter
-                source: ""
+                source: PrintManager.isLightOn ? "../../icon/light_on.svg" : "../../icon/light.svg"
+
+                TapHandler {
+                    onTapped: {
+                        PrintManager.isLightOn = !PrintManager.isLightOn
+                    }
+                }
             }
 
             Rectangle {

@@ -134,28 +134,7 @@ Item {
 
 
         Repeater {
-            model: ListModel {
-                ListElement {
-                    title: "机箱风箱"
-                    enable: true
-                    state: true
-                }
-                ListElement {
-                    title: "打印大风箱"
-                    enable: true
-                    state: false
-                }
-                ListElement {
-                    title: "打印小风箱"
-                    enable: false
-                    state: true
-                }
-                ListElement {
-                    title: "热端风箱"
-                    enable: false
-                    state: false
-                }
-            }
+            model: PrintManager.fans
 
             delegate: Item {
                 height: 96
@@ -169,7 +148,7 @@ Item {
                     anchors.verticalCenter: parent.verticalCenter
                     font: Fonts.body_28
                     color: Colors.font2
-                    text: title
+                    text: modelData.title
                 }
 
                 ZButton {
@@ -179,10 +158,16 @@ Item {
                     anchors.left: parent.right
                     anchors.leftMargin: 205
                     anchors.verticalCenter: parent.verticalCenter
-                    type: ZButtonAppearance.Secondary
+                    enabled: modelData.enabled
+                    type: modelData.enabled ?  ZButtonAppearance.Primitive : ZButtonAppearance.Secondary
                     cornerRadius: 42
                     textSize: 30
-                    text: state ? "开" : "关"
+                    text: modelData.isOn ? "开" : "关"
+
+                    onClicked: {
+                        if (modelData.enabled)
+                            modelData.isOn = !modelData.isOn;
+                    }
                 }
 
             }
