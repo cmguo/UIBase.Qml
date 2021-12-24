@@ -51,6 +51,7 @@ public:
 
     PrintTask* currentTask() const;
 
+private:
     void notifyUpdateAll();
 
 private:

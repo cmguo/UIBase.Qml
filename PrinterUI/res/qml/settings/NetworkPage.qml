@@ -36,8 +36,8 @@ Item {
             lineHeight: 1.5
             text: "IP 地址: " + network.ipv4  +  "
 子网掩码：" + network.mask  +  "
-默认网关：192.168.192.1
-DNS服务器：192.168.192.1"
+默认网关：" + network.gateway  +  "
+DNS服务器：" + network.dns
         }
     }
 

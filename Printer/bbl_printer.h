@@ -48,6 +48,13 @@ public:
     bool chamber_led_on = false;
     bool print_fan2_on = false;
     bool end_fan_on = false;
+
+    std::string netip = "192.168.1.233";
+    std::string netmask = "255.255.0.0";
+
+    std::string product = "BBL-004";
+    std::string seriaNo = "abcdef12345678";
+    std::string version = "0.0.1";
 };
 
 #endif // BBL_PRINTER_H

@@ -1,9 +1,12 @@
 import QtQuick 2.0
 import QtQuick.Controls 2.2
 import UIBase 1.0
+import Printer 1.0
 import "qrc:/uibase/qml/widgets"
 
 Item {
+
+    property var build: DeviceManager.build
 
     Rectangle {
         id: sdcard
@@ -108,7 +111,7 @@ Item {
             anchors.topMargin: 22
             font: Fonts.body_24
             color: "#7C7C7C"
-            text: qsTr("版本 : V1.0.1            型号: BBL-003           序列号: 603462021110200001")
+            text: qsTr("版本 : " + build.version + "            型号: " + build.product + "           序列号: " + build.seriaNO)
         }
     }
 
