@@ -19,6 +19,9 @@ void PrinterUI::init(QQmlEngine & engine)
     QZXing::registerQMLTypes();
     QZXing::registerQMLImageProvider(engine);
 
+    QObject::connect(&DeviceManager::inst(), &DeviceManager::languageChanged,
+                     &engine, &QQmlEngine::retranslate);
+
     qmlRegisterSingletonType<PrintManager>("Printer", 1, 0, "PrintManager",
                                      [](QQmlEngine*, QJSEngine*) -> QObject* {
         QQmlEngine::setObjectOwnership(&PrintManager::inst(), QQmlEngine::CppOwnership);

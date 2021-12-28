@@ -23,6 +23,9 @@ HEADERS += \
 
 RESOURCES = res/printerui.qrc
 
+TRANSLATIONS = PrinterUI_en.ts \
+               PrinterUI_cn.ts
+
 # Default rules for deployment.
 unix {
     target.path = /usr/lib

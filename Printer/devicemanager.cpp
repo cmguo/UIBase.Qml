@@ -1,6 +1,9 @@
 #include "bbl_printer.h"
 #include "devicemanager.h"
 
+#include <QCoreApplication>
+#include <QTranslator>
+
 DeviceManager &DeviceManager::inst()
 {
     static DeviceManager manager(BBLPrinter::inst());
@@ -11,6 +14,13 @@ DeviceManager::DeviceManager(BBLPrinter & printer, QObject *parent)
     : QObject(parent)
     , printer_(printer)
 {
+    auto en = new QTranslator(this);
+    en->load("app_en");
+    auto cn = new QTranslator(this);
+    cn->load("app_cn");
+    translators_.insert("en", en);
+    translators_.insert("cn", cn);
+    QCoreApplication::installTranslator(translators_.value(lang_));
     connect(&printer, &BBLPrinter::changed, this, &DeviceManager::notifyUpdateAll);
 }
 
@@ -33,13 +43,17 @@ QVariant DeviceManager::network() const
     return QVariant::fromValue(Network{printer_.netip, printer_.netmask});
 }
 
-QString DeviceManager::language() const
+QByteArray DeviceManager::language() const
 {
-    return {};
+    return lang_;
 }
 
-void DeviceManager::setLanguage(QString value)
+void DeviceManager::setLanguage(QByteArray const & value)
 {
+    QCoreApplication::removeTranslator(translators_.value(lang_));
+    lang_ = value;
+    QCoreApplication::installTranslator(translators_.value(lang_));
+    emit languageChanged();
 }
 
 void DeviceManager::notifyUpdateAll()

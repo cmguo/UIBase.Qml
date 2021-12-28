@@ -20,10 +20,10 @@ PrintManager::PrintManager(BBLPrinter & printer, QObject * parent)
     heaters_.append(new Heater("bed", printer.heatbed_cur_temp, printer.heatbed_tgt_temp, this));
     heaters_.append(new Heater("end", printer.hotend_cur_temp, printer.hotend_tgt_temp, this));
     heaters_.append(new Heater("chamber", printer.chamber_temp, printer.chamber_temp, this));
-    fans_.append(new CoolingFan(printer, "机箱风箱", true, printer.chamber_fan_on, this));
-    fans_.append(new CoolingFan(printer, "打印大风箱", true, printer.print_fan_on, this));
-    fans_.append(new CoolingFan(printer, "打印小风箱", false, printer.print_fan2_on, this));
-    fans_.append(new CoolingFan(printer, "热端风箱", false, printer.end_fan_on, this));
+    fans_.append(new CoolingFan(printer, tr("机箱风箱"), true, printer.chamber_fan_on, this));
+    fans_.append(new CoolingFan(printer, tr("打印大风箱"), true, printer.print_fan_on, this));
+    fans_.append(new CoolingFan(printer, tr("打印小风箱"), false, printer.print_fan2_on, this));
+    fans_.append(new CoolingFan(printer, tr("热端风箱"), false, printer.end_fan_on, this));
     axisController_ = new AxisController(printer_, this);
     connect(&printer, &BBLPrinter::changed, this, &PrintManager::notifyUpdateAll);
 

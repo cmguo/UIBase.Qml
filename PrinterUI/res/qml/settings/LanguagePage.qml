@@ -1,20 +1,19 @@
 import QtQuick 2.0
 import UIBase 1.0
+import Printer 1.0
 
 Item {
-
-    property string language: "chinese"
 
     ZButton {
         id: chinese
         width: 261
         height: 115
         x: 73
-        property bool checked: language == "chinese"
+        property bool checked: DeviceManager.language == "cn"
         backgroundColor: StateColors.get("white_checked")
         text: "中文"
 
-        onClicked: { language = "chinese" }
+        onClicked: { DeviceManager.language = "cn" }
     }
 
     ZButton {
@@ -23,11 +22,11 @@ Item {
         anchors.left: chinese.right
         anchors.leftMargin: 31
         anchors.top: chinese.top
-        property bool checked: language == "english"
+        property bool checked: DeviceManager.language == "en"
         backgroundColor: StateColors.get("white_checked")
         text: "English"
 
-        onClicked: { language = "english" }
+        onClicked: { DeviceManager.language = "en" }
     }
 
     Text {

@@ -8,6 +8,8 @@
 
 class BBLPrinter;
 
+class QTranslator;
+
 class PRINTER_EXPORT Sdcard
 {
     Q_GADGET
@@ -72,7 +74,7 @@ class PRINTER_EXPORT DeviceManager : public QObject
     Q_PROPERTY(QVariant build READ build CONSTANT)
     Q_PROPERTY(QVariant sdcard READ sdcard NOTIFY sdcardChanged)
     Q_PROPERTY(QVariant network READ network  NOTIFY networkChanged)
-    Q_PROPERTY(QString language READ language WRITE setLanguage NOTIFY languageChanged)
+    Q_PROPERTY(QByteArray language READ language WRITE setLanguage NOTIFY languageChanged)
 
 public:
     static DeviceManager & inst();
@@ -95,14 +97,16 @@ public:
     QVariant sdcard() const;
     QVariant network() const;
 
-    QString language() const;
-    void setLanguage(QString value);
+    QByteArray language() const;
+    void setLanguage(QByteArray const & value);
 
 private:
     void notifyUpdateAll();
 
 private:
     BBLPrinter & printer_;
+    QMap<QByteArray, QTranslator*> translators_;
+    QByteArray lang_ = "en";
 };
 
 #endif // DEVICEMANAGER_H

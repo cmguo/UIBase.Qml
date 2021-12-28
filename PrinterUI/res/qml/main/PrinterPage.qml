@@ -9,11 +9,11 @@ Item {
         pages: ListModel {
             ListElement {
                 name: "Temprature"
-                title: "温度控制"
+                title: qsTr("Temprature Control")
             }
             ListElement {
                 name: "Axis"
-                title: "轴偏移"
+                title: qsTr("Axis Offset")
             }
             ListElement {
                 name: "AMS"
