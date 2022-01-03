@@ -3,6 +3,7 @@
 #include <QQmlFileSelector>
 #include <QQuickItem>
 #include <QQuickView>
+#include <QQmlContext>
 
 #include <demo.h>
 #include <printerui.h>
@@ -35,6 +36,7 @@ int main(int argc, char* argv[])
     if (view.status() == QQuickView::Error)
         return -1;
     int rotate = qEnvironmentVariableIntValue("QT_QUICK_ROTATE_SCREEN");
+    view.engine()->rootContext()->setContextProperty("QT_QUICK_ROTATE_SCREEN", rotate);
     if (rotate == 0) {
         view.setResizeMode(QQuickView::SizeRootObjectToView);
     } else {

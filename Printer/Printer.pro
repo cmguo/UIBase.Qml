@@ -5,7 +5,9 @@ DEFINES += PRINTER_LIBRARY
 
 CONFIG += c++11
 
-QMAKE_CXXFLAGS += /utf-8
+msvc {
+    QMAKE_CXXFLAGS += /utf-8
+}
 
 TRANSLATIONS = Printer_en.ts \
                Printer_cn.ts

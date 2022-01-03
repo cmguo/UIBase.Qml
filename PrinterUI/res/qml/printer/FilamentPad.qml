@@ -37,6 +37,18 @@ Item {
                 model: ["PLA", "PETG", "ABS", "ASA", "FLEX"]
                 currentIndex: -1
                 displayText: currentIndex == -1 ? "点击选择材质" : currentText
+
+                onDownChanged: {
+                    var rotate = QT_QUICK_ROTATE_SCREEN;
+                    console.log("onDownChanged" + rotate)
+                    popup.background.rotation = rotate
+                    popup.contentItem.rotation = rotate
+                    popup.contentItem.implicitHeight = 285
+                    if (rotate == -90 || rotate == 270) {
+                        popup.x = types.width / 2 + popup.contentItem.implicitHeight / 2
+                        popup.y = types.width / -2 + types.height + popup.contentItem.implicitHeight / 2
+                    }
+                }
             }
 
             ZText {

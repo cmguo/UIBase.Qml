@@ -38,7 +38,7 @@ public:
     std::string hotend_tgt_temp = "60";
     std::string chamber_temp = "60";
 
-    std::string gcode_state = "1";
+    std::string gcode_state = "0";
     std::string gcode_content = "Test Model";
     std::string gcode_duration = "20000";
     std::string gcode_progress = "30";
