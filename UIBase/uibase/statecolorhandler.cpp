@@ -10,13 +10,13 @@ StateColorHandler::StateColorHandler()
 }
 
 StateColorHandler::StateColorHandler(StateColor *color, StateHandler *state)
-    : stateColor_(color)
+    : stateColor_(nullptr)
     , state_(state)
 {
-    connect(state, &StateHandler::statesChanged, this, &StateColorHandler::onStatesChanged);
-    connect(color, &StateColor::changed, this, [this]() {
-        emit changed(this->color());
-    });
+    if (state)
+        connect(state, &StateHandler::statesChanged, this, &StateColorHandler::onStatesChanged);
+    if (color)
+        setStateColor(color);
 }
 
 QColor StateColorHandler::color() const
@@ -42,16 +42,23 @@ void StateColorHandler::setStateColor(StateColor *stateColor)
         if (stateColor_)
             stateColor_->disconnect(this);
         stateColor_ = stateColor;
-        connect(stateColor_, &StateColor::changed, this, [this]() {
-            emit changed(color());
-        });
+        if (stateColor_) {
+            connect(stateColor_, &StateColor::changed, this, [this]() {
+                emit changed(color());
+            });
+            connect(stateColor_, &StateColor::destroyed, this, [this]() {
+                qDebug() << "StateColor::destroyed" << stateColor_->objectName();
+                if (stateColor_ == sender())
+                    setStateColor(nullptr);
+            });
+        }
         emit changed(color());
     }
 }
 
 void StateColorHandler::onStatesChanged(int states)
 {
-    if (states & stateColor_->states()) {
+    if (stateColor_ && (states & stateColor_->states())) {
         // qDebug() << "onStatesChanged" << stateColor_->objectName() << (StateColor::State)states;
         emit changed(color());
     }
