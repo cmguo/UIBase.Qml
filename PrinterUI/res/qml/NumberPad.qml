@@ -47,8 +47,10 @@ Item {
                 type: ZButtonAppearance.Floating
                 textSize: 30
                 text: "确定"
+                focus: true
 
                 onClicked: {
+                    forceActiveFocus()
                     finished()
                     target = null
                 }
