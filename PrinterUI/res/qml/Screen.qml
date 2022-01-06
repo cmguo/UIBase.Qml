@@ -89,12 +89,27 @@ Item {
             anchors.fill: parent
 
             function popDialog(dialog, args) {
+                if (args === undefined) args = {}
                 push("Dialog.qml", {url: "dialog/" + dialog + ".qml", args: args})
             }
             pushEnter: null
             pushExit: null
             popEnter: null
             popExit: null
+        }
+    }
+
+    Shortcut {
+        sequence: "Stop"
+        onActivated: {
+            dialogStack.popDialog("PrintAbort")
+        }
+    }
+
+    Shortcut {
+        sequence: "PowerOff"
+        onActivated: {
+            console.log("PowerOff")
         }
     }
 
