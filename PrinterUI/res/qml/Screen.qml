@@ -104,7 +104,6 @@ Item {
         Item {
             id: page
             property url url
-            anchors.fill: parent
 
             Loader{
                 focus: true

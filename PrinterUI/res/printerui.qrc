@@ -48,6 +48,8 @@
         <file>icon/heater_end.svg</file>
         <file>icon/light.svg</file>
         <file>icon/light_on.svg</file>
+        <file>qml/widgets/WritingBoard.qml</file>
+        <file>qml/tests/PointTestPage.qml</file>
     </qresource>
     <qresource prefix="/">
         <file>icon/light_on.svg</file>
