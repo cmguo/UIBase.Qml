@@ -64,43 +64,43 @@ public:
     void setAppearance(Appearance * appearance);
 
     StateColor* textColor() const { return get<0>(&Appearance::textColor_); }
-    void setTextColor(StateColor* color);
+    void setTextColor(StateColor* color) { set<0>(&Appearance::textColor_, color); }
 
     StateColor* backgroundColor() const { return get<1>(&Appearance::backgroundColor_); }
-    void setBackgroundColor(StateColor* color);
+    void setBackgroundColor(StateColor* color) { set<1>(&Appearance::backgroundColor_, color); }
 
     StateColor* borderColor() const { return get<2>(&Appearance::borderColor_); }
-    void setBorderColor(StateColor* color);
+    void setBorderColor(StateColor* color) { set<2>(&Appearance::borderColor_, color); }
 
     StateColor* iconColor() const { return get<3>(&Appearance::iconColor_); }
-    void setIconColor(StateColor* color);
+    void setIconColor(StateColor* color) { set<3>(&Appearance::iconColor_, color); }
 
     IconPosition iconPosition() const { return get<4>(&Appearance::iconPosition_); }
-    void setIconPosition(IconPosition position);
+    void setIconPosition(IconPosition position) { set<4>(&Appearance::iconPosition_, position); }
 
     qreal minHeight() const { return get<5>(&Appearance::minHeight_); }
-    void setMinHeight(qreal value);
+    void setMinHeight(qreal value) { set<5>(&Appearance::minHeight_, value); }
 
     qreal cornerRadius() const { return get<6>(&Appearance::cornerRadius_); }
-    void setCornerRadius(qreal value);
+    void setCornerRadius(qreal value) { set<6>(&Appearance::cornerRadius_, value); }
 
     qreal borderWidth() const { return get<7>(&Appearance::borderWidth_); }
-    void setBorderWidth(qreal value);
+    void setBorderWidth(qreal value) { set<7>(&Appearance::borderWidth_, value); }
 
     qreal paddingX() const { return get<8>(&Appearance::paddingX_); }
-    void setPaddingX(qreal value);
+    void setPaddingX(qreal value) { set<8>(&Appearance::paddingX_, value); }
 
     qreal paddingY() const { return get<9>(&Appearance::paddingY_); }
-    void setPaddingY(qreal value);
+    void setPaddingY(qreal value) { set<9>(&Appearance::paddingY_, value); }
 
     qreal textSize() const { return get<10>(&Appearance::textSize_); }
-    void setTextSize(qreal value);
+    void setTextSize(qreal value) { set<10>(&Appearance::textSize_, value); }
 
     qreal iconSize() const { return get<11>(&Appearance::iconSize_); }
-    void setIconSize(qreal value);
+    void setIconSize(qreal value) { set<11>(&Appearance::iconSize_, value); }
 
     qreal iconPadding() const { return get<12>(&Appearance::iconPadding_); }
-    void setIconPadding(qreal value);
+    void setIconPadding(qreal value) { set<12>(&Appearance::iconPadding_, value); }
 
 signals:
     void changed(int set);
@@ -126,6 +126,24 @@ private:
         }
         return false;
     }
+
+    template<int I, typename T>
+    void set(T (Appearance::*f), T t) {
+        if (this->*f != t) {
+            free(this->*f);
+            this->*f = t;
+            take(this->*f);
+            updateOne(I);
+        }
+    }
+
+    void take(QObject* obj);
+
+    void free(QObject* obj);
+
+    void take(qreal) {}
+
+    void free(qreal) {}
 
     void updateOne(int item);
 

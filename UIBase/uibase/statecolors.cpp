@@ -48,5 +48,6 @@ void StateColors::cacheColor(const char *name, StateColor *color)
 {
     QQmlEngine::setObjectOwnership(color, QQmlEngine::CppOwnership);
     color->setObjectName(name);
+    color->setParent(this);
     colors_.insert(name, color);
 }

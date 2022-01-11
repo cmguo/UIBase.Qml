@@ -59,110 +59,6 @@ void Appearance::setSizeAppearance(Appearance *size)
         update(size->set_ & ~set_);
 }
 
-void Appearance::setTextColor(StateColor *color)
-{
-    if (color != textColor_) {
-        textColor_ = color;
-        updateOne(0);
-    }
-}
-
-void Appearance::setBackgroundColor(StateColor *color)
-{
-    if (color != backgroundColor_) {
-        backgroundColor_ = color;
-        updateOne(1);
-    }
-}
-
-void Appearance::setBorderColor(StateColor *color)
-{
-    if (color != borderColor_) {
-        borderColor_ = color;
-        updateOne(2);
-    }
-}
-
-void Appearance::setIconColor(StateColor *color)
-{
-    if (color != iconColor_) {
-        iconColor_ = color;
-        updateOne(3);
-    }
-}
-
-void Appearance::setIconPosition(IconPosition position)
-{
-    if (position != iconPosition_) {
-        iconPosition_ = position;
-        updateOne(4);
-    }
-}
-
-void Appearance::setMinHeight(qreal value)
-{
-    if (value != minHeight_) {
-        minHeight_ = value;
-        updateOne(5);
-    }
-}
-
-void Appearance::setCornerRadius(qreal value)
-{
-    if (((set_ & 1) << 6) == 0 || value != cornerRadius_) {
-        cornerRadius_ = value;
-        updateOne(6);
-    }
-}
-
-void Appearance::setBorderWidth(qreal value)
-{
-    if (((set_ & 1) << 7) == 0 || value != borderWidth_) {
-        borderWidth_ = value;
-        updateOne(7);
-    }
-}
-
-void Appearance::setPaddingX(qreal value)
-{
-    if (((set_ & 1) << 8) == 0 || value != paddingX_) {
-        paddingX_ = value;
-        updateOne(8);
-    }
-}
-
-void Appearance::setPaddingY(qreal value)
-{
-    if (((set_ & 1) << 9) == 0 || value != paddingY_) {
-        paddingY_ = value;
-        updateOne(9);
-    }
-}
-
-void Appearance::setTextSize(qreal value)
-{
-    if (((set_ & 1) << 10) == 0 || value != textSize_) {
-        textSize_ = value;
-        updateOne(10);
-    }
-}
-
-void Appearance::setIconSize(qreal value)
-{
-    if (((set_ & 1) << 11) == 0 || value != iconSize_) {
-        iconSize_ = value;
-        updateOne(11);
-    }
-}
-
-void Appearance::setIconPadding(qreal value)
-{
-    if (((set_ & 1) << 12) == 0 || value != iconPadding_) {
-        iconPadding_ = value;
-        updateOne(12);
-    }
-}
-
 void Appearance::updateOne(int item)
 {
     item = 1 << item;
@@ -195,4 +91,16 @@ void Appearance::update(int set)
         }
         m <<= 1;
     }
+}
+
+void Appearance::take(QObject *obj)
+{
+    if (obj && obj->parent() == nullptr)
+        obj->setParent(this);
+}
+
+void Appearance::free(QObject *obj)
+{
+    if (obj && obj->parent() == this)
+        obj->setParent(nullptr);
 }
