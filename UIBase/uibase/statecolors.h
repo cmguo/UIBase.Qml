@@ -28,9 +28,10 @@ private:
     template<typename ...Colors>
     void defineColor(char const * name, QPair<Colors, int>... colors) {
         auto color = new StateColor(colors...);
-        color->setObjectName(name);
-        colors_.insert(name, color);
+        cacheColor(name, color);
     }
+
+    void cacheColor(char const * name, StateColor * color);
 
 private:
     QMap<QByteArray, StateColor*> colors_;

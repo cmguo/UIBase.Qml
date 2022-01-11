@@ -47,7 +47,7 @@ void StateColorHandler::setStateColor(StateColor *stateColor)
                 emit changed(color());
             });
             connect(stateColor_, &StateColor::destroyed, this, [this]() {
-                qDebug() << "StateColor::destroyed" << stateColor_->objectName();
+                // qDebug() << "StateColor::destroyed" << stateColor_->objectName();
                 if (stateColor_ == sender())
                     setStateColor(nullptr);
             });

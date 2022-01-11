@@ -35,13 +35,18 @@ StateColor *StateColors::get(QByteArray const & name)
     if (c == nullptr) {
         c = new StateColor(name);
         if (c->stdColorCnt()) {
-            QQmlEngine::setObjectOwnership(c, QQmlEngine::CppOwnership);
-            c->setObjectName(name);
-            colors_.insert(name, c);
+            cacheColor(name, c);
         } else if (c->count() == 0) {
             delete c;
             c = nullptr;
         }
     }
     return c;
+}
+
+void StateColors::cacheColor(const char *name, StateColor *color)
+{
+    QQmlEngine::setObjectOwnership(color, QQmlEngine::CppOwnership);
+    color->setObjectName(name);
+    colors_.insert(name, color);
 }
