@@ -3,16 +3,26 @@ import QtQuick.Shapes 1.12
 
 Item {
 
+    signal strokeCollected (var points)
+
     MouseArea {
         property real lx;
         property real ly;
 
         anchors.fill: parent
 
+        property var points: []
+
         onPressed: {
             lx = mouse.x
             ly = mouse.y
             shape.start(lx, ly)
+            points.push(Qt.point(lx, ly))
+        }
+
+        onReleased: {
+            strokeCollected(points)
+            points = []
         }
 
         onPositionChanged: {
@@ -20,6 +30,7 @@ Item {
                 lx = mouse.x;
                 ly = mouse.y;
                 shape.line(lx, ly)
+                points.push(Qt.point(lx, ly))
             }
         }
     }
