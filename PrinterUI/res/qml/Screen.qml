@@ -66,7 +66,7 @@ Item {
             pageStack.replace(null, page)
         }
         Component.onCompleted: {
-            activePage = "../tests/PointTest"
+            activePage = "Home"
         }
     }
 

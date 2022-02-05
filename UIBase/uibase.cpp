@@ -4,6 +4,7 @@
 #include "uibase/statehandler.h"
 #include "uibase/statecolor.h"
 #include "uibase/statecolors.h"
+#include "uibase/effectimageprovider.h"
 #include "widgets/zbuttonappearance.h"
 
 #include <QQmlEngine>
@@ -13,7 +14,7 @@
 #include <widgets/zswitchbuttonappearance.h>
 #include <widgets/ztextinputappearance.h>
 
-void UIBase::init()
+void UIBase::init(QQmlEngine & engine)
 {
     static bool initialized = false;
     if (initialized) {
@@ -60,6 +61,8 @@ void UIBase::init()
 
     for (auto t : {"ZButton", "ZText", "ZTextInput", "ZProgressBar", "ZSwitchButton", "ZStepBar"})
         qmlRegisterType(QUrl("qrc:/uibase/qml/widgets/" + QByteArray(t) + ".qml"), "UIBase", 1, 0, t);
+
+    engine.addImageProvider(QLatin1String("effect"), new EffectImageProvider);
 
     initialized = true;
 }

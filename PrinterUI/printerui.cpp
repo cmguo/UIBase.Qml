@@ -15,7 +15,7 @@
 
 void PrinterUI::init(QQmlEngine & engine)
 {
-    UIBase::init();
+    UIBase::init(engine);
     QZXing::registerQMLTypes();
     QZXing::registerQMLImageProvider(engine);
 

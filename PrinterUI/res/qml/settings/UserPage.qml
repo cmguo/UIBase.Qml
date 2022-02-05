@@ -27,7 +27,7 @@ Item {
             height: 120
             x: 15
             anchors.verticalCenter: parent.verticalCenter
-            source: ""
+            source: "image://effect/clip/" + encodeURIComponent("https://avatar.csdnimg.cn/7/A/B/1_luansxx.jpg") + "?size=120x120&cornerRadius=60"
         }
 
         ZText {

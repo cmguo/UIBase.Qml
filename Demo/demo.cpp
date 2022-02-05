@@ -4,5 +4,5 @@
 
 void Demo::init(QQmlEngine & engine)
 {
-    UIBase::init();
+    UIBase::init(engine);
 }

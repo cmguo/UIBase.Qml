@@ -5,6 +5,8 @@
 
 #include <QObject>
 
+class QQmlEngine;
+
 class UIBASE_EXPORT UIBase : public QObject
 {
     Q_OBJECT
@@ -15,7 +17,7 @@ public:
      *
      * @brief initGlobal
      */
-    static void init();
+    static void init(QQmlEngine & engine);
 };
 
 #endif // UIBASE_H
