@@ -6,8 +6,9 @@
 StateHandler::StateHandler(QObject *parent)
     : QObject(parent)
     , item_(nullptr)
+    , tapHandler_(nullptr)
+    , hoverHandler_(nullptr)
 {
-
 }
 
 StateHandler* StateHandler::bindTo(QObject *parent)
@@ -105,12 +106,12 @@ void StateHandler::bindTo(QQuickItem *item)
     QByteArray TapHandler{"QQuickTapHandler"};
     QByteArray HoverHandler{"QQuickHoverHandler"};
     for (auto c : item->children()) {
-        if (tapHandler_ != nullptr && TapHandler == c->metaObject()->className()) {
+        if (tapHandler_ == nullptr && TapHandler == c->metaObject()->className()) {
             if (c->property("pressed").toBool())
                 states_ |= Pressed;
             connect(c, SIGNAL(pressedChanged()), this, SLOT(onPressedChanged()));
             tapHandler_ = c;
-        } else if (hoverHandler_ != nullptr && HoverHandler == c->metaObject()->className()) {
+        } else if (hoverHandler_ == nullptr && HoverHandler == c->metaObject()->className()) {
             if (c->property("hovered").toBool())
                 states_ |= Hovered;
             connect(c, SIGNAL(hoveredChanged()), this, SLOT(onHoveredChanged()));
